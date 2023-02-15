@@ -9,4 +9,83 @@ body,
     height: 100%;
     background: rgb(26, 26, 25);
     touch-action: none;
+    font-family: "Archivo" !important;
+    font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2 !important;
+  color: #fff !important;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../public/fonts/Archivo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AudimatMonoLight";
+  src: url("../public/fonts/AudimatMonoLight.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SalmaPro-Medium";
+  src: url("../public/fonts/SalmaPro-Medium.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+.font-archivo {
+  font-family: "Archivo";
+}
+.font-audimat {
+  font-family: "AudimatMonoLight";
+}
+.font-salma {
+  font-family: "SalmaPro-Medium";
+}
+.text-highlight {
+  background-color: #00FF39;
+  color: #000;
+}
+h1{
+  font-size: 3.5rem !important;
+  line-height: 1 !important;
+}
+
+.projectsSwiper .swiper-pagination {
+  text-align: left;
+  padding: 1rem;
+}
+.projectsSwiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 3px;
+  background: transparent;
+  opacity: 1;
+  border: 1px solid #fff;
+}
+.projectsSwiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #fff;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+#navigation{
+    height: auto;
+}
+#navigation .col-9{
+    background: #000;
+}
+#navigation.true img{
+    height: 50% !important;
+}
+#navigation.true .col-9{
+    background: transparent;
 }
