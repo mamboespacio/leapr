@@ -13,16 +13,16 @@ root.render(
   <>
     <Navigation />
     
-    <Canvas
-      shadows
-      camera={{
-        fov: 45,
-        near: 0.01,
-        far: 1000,
-        position: [4, 3, 20],
-      }}
+      <Canvas
+        shadows
+        camera={{
+          fov: 45,
+          near: 0.01,
+          far: 300,
+          position: [ 4, 3, 20 ],
+      } }
     >
-      <Experience />
+    <Experience />
     </Canvas>
   </>
-);
+)
