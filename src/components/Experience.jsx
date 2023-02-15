@@ -21,7 +21,7 @@ export default function Experience() {
 
   return (
     <>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
 
       <Environment preset="forest"  />
       {/* <Sky turbidity={[10]} distance={[100000]} sunPosition={[1,100,100]} mieDirectionalG={[1]} rayleigh={[0.3]} /> */}

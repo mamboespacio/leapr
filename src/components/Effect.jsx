@@ -17,7 +17,7 @@ import { useState } from "react";
 
   export default function Effect()
   {
-    const hueEffect = useControls({ hue: { value: 1.38, min: 0, max: 6.28319, step: 0.001 }})
+    // const hueEffect = useControls({ hue: { value: 1.38, min: 0, max: 6.28319, step: 0.001 }})
 
     const dataScroll = useScroll()
     
@@ -81,6 +81,6 @@ import { useState } from "react";
                 />
                 <ColorDepth bits={[64]}/>
                 <DepthOfField focalLength={[0.3]} focusDistance={[focusDistance]} bokehScale={[7]} />
-                <HueSaturation saturation={[0.5]} {...hueEffect}/>
+                <HueSaturation saturation={[0.5]} hue={[0]}/>
             </EffectComposer>
   }
