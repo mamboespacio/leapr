@@ -1,0 +1,44 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background-color: #E0DBD3;
+}
+
+.marqueeContentLeft {
+  display: grid;
+  list-style: none;
+  /* animation: scrollingLeft 40s linear infinite; */
+  grid-template-columns: repeat(6, 1fr);
+}
+.marqueeContentRight {
+  display: grid;
+  list-style: none;
+  /* animation: scrollingRight 40s linear infinite; */
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.marqueeItem a {
+  color: #000 !important;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.marqueeItem a:hover, .marqueeItem a:focus {
+  background-color: #00FF39;
+}
+
+@keyframes scrollingLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes scrollingRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
