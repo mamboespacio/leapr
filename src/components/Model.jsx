@@ -6,11 +6,9 @@ import * as THREE from 'three'
 export default function Model()
 {
     const dataScroll = useScroll()
-    const state = useThree()
     const model = useGLTF('./leapr2.glb')
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
-    const childrens = model.children
 
     //START
     useEffect(() =>
@@ -20,9 +18,11 @@ export default function Model()
            actions[action].play()
         }
         
+        
         model.scene.traverse(function (child) {
+
             if (child.isMesh) {
-                child.castShadow = true
+                child.castShadow = true 
                 child.receiveShadow = true
 
                 if(child.material.name == 'material_cubos')
@@ -39,7 +39,7 @@ export default function Model()
                     child.material.roughness = 1
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0
-                    console.log(child.material) 
+                    // console.log(child.material) 
                 }
 
                 if(child.material.name == 'concrete_floor_worn_001')
@@ -60,7 +60,7 @@ export default function Model()
                     child.material.wireframe = true
                 }
               
-                // console.log(child.material)
+                // console.log(child)
             }
         }) 
     }, [])
@@ -117,6 +117,14 @@ export default function Model()
                 actions[action].time = actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration) * 0.98, 100, delta)
             }
         }
+
+        // model.scene.traverse((child) => 
+        // {
+        //     if(child.name == 'POI_cam2')
+        //     {
+        //         // console.log(model.cameras[0].position.distanceTo(child.position) )
+        //     }
+        // })
    }) 
 
     return (
@@ -134,3 +142,29 @@ export default function Model()
 }
 
 useGLTF.preload('./leapr2.glb')
+
+
+
+
+  // const config = useControls({
+  //   meshPhysicalMaterial: false,
+  //   transmissionSampler: false,
+  //   backside: false,
+  //   samples: { value: 10, min: 1, max: 32, step: 1 },
+  //   resolution: { value: 2048, min: 256, max: 2048, step: 256 },
+  //   transmission: { value: 1, min: 0, max: 1 },
+  //   roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
+  //   thickness: { value: 3.5, min: 0, max: 10, step: 0.01 },
+  //   ior: { value: 1.5, min: 1, max: 5, step: 0.01 },
+  //   chromaticAberration: { value: 0.06, min: 0, max: 1 },
+  //   anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
+  //   distortion: { value: 0.0, min: 0, max: 1, step: 0.01 },
+  //   distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
+  //   temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
+  //   clearcoat: { value: 1, min: 0, max: 1 },
+  //   attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
+  //   attenuationColor: '#ffffff',
+  //   color: '#c9ffa1',
+  //   bg: '#839681'
+  // })
+{/* <MeshTransmissionMaterial background={new THREE.Color(config.bg)} {...config} /> */}
