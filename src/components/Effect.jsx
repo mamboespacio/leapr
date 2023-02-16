@@ -8,10 +8,10 @@ import {
     HueSaturation,
     DepthOfField
    } from "@react-three/postprocessing";
-  import { BlendFunction} from "postprocessing";
+  import { BlendFunction } from "postprocessing";
   import { useControls } from 'leva'
-  import {useScroll} from '@react-three/drei'
-  import { useFrame} from '@react-three/fiber'
+  import { useScroll }  from '@react-three/drei'
+  import { useFrame } from '@react-three/fiber'
 import { useState } from "react";
 
 
@@ -81,6 +81,6 @@ import { useState } from "react";
                 />
                 <ColorDepth bits={[64]}/>
                 <DepthOfField focalLength={[0.3]} focusDistance={[focusDistance]} bokehScale={[7]} />
-                <HueSaturation saturation={[0.5]} hue={[0]}/>
+                {/* <HueSaturation saturation={[0.5]} hue={[0]}/> */}
             </EffectComposer>
   }

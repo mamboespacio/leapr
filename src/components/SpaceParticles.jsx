@@ -2,8 +2,6 @@ import * as THREE from 'three';
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import Random from 'canvas-sketch-util/random';
-import {  MeshTransmissionMaterial } from '@react-three/drei'
-import { useControls } from 'leva'
 
 
 export function SpaceParticles({ count }) {

@@ -1,4 +1,4 @@
-import { CubeTextureLoader} from "three"; 
+import { CubeTextureLoader, LinearFilter, NearestFilter } from "three"; 
 import { useThree } from "@react-three/fiber";
 
 export default function SkyBox() {
@@ -7,17 +7,18 @@ export default function SkyBox() {
     const loader = new CubeTextureLoader();
     // The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
     const texture = loader.load([
-      "/skybox/nigth/px.png",
-      "/skybox/nigth/nx.png",
-      "/skybox/nigth/py.png",
-      "/skybox/nigth/ny.png",
-      "/skybox/nigth/pz.png",
-      "/skybox/nigth/nz.png",
+      "/skybox/cubemap/px.jpg",
+      "/skybox/cubemap/nx.jpg",
+      "/skybox/cubemap/py.jpg",
+      "/skybox/cubemap/ny.jpg",
+      "/skybox/cubemap/pz.jpg",
+      "/skybox/cubemap/nz.jpg",
     ]);
     console.log(texture)
+    texture.minFilter = LinearFilter
     // Set the scene background property to the resulting texture.
-    scene.background = texture;
+    // scene.background = texture;
     
     // highlight-end
-    return null;
+    return <color attach="background" args={[{texture}]} />;
   }

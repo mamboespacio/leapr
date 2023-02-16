@@ -23,11 +23,10 @@ export default function Experience() {
     <>
       {/* <Perf position="top-left" /> */}
 
-      <Environment preset="forest"  />
+      <Environment preset="forest"/>
       {/* <Sky turbidity={[10]} distance={[100000]} sunPosition={[1,100,100]} mieDirectionalG={[1]} rayleigh={[0.3]} /> */}
       <SkyBox/>
       {/* <Sky distance={450000} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25} /> */}
-      <directionalLight color='green' position={[0,40,0]} intensity={[5]}/>
 
       <Suspense
         fallback={
