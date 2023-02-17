@@ -2,7 +2,6 @@ import { useAnimations, useGLTF, useScroll, Float, Caustics } from '@react-three
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect } from 'react'
 import * as THREE from 'three'
-import {  MeshTransmissionMaterial } from '@react-three/drei'
 import { useControls } from 'leva'
 
 export default function Model()
@@ -11,6 +10,29 @@ export default function Model()
     const model = useGLTF('./leapr2.glb')
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
+
+    //CONFIGSS
+    const config = useControls({
+        transmissionSampler: false,
+        backside: false,
+        samples: { value: 10, min: 1, max: 32, step: 1 },
+        resolution: { value: 2048, min: 256, max: 2048, step: 256 },
+        transmission: { value: 0.8, min: 0, max: 1 },
+        roughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
+        thickness: { value: 3.5, min: 0, max: 10, step: 0.01 },
+        ior: { value: 1.5, min: 1, max: 5, step: 0.01 },
+        chromaticAberration: { value: 0.6, min: 0, max: 1 },
+        anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
+        distortion: { value: 0.2, min: 0, max: 1, step: 0.01 },
+        distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
+        temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
+        clearcoat: { value: 1, min: 0, max: 1 },
+        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
+        attenuationColor: '#ffffff',
+        color: '#74d656',
+    })
+
+
 
     //START
     useEffect(() =>
@@ -29,25 +51,27 @@ export default function Model()
 
                 if(child.material.name == 'material_cubos')
                 {
-                    child.material.metalness = 1
-                    child.material.roughness = 0.1
-                    child.material.emissiveIntensity = 0
-                    child.material.depthFunc = 3
+                    // child.material.metalness = 0
+                    // child.material.roughness = 0.
+                    // child.material.emissiveIntensity = 0
+                    // child.material.depthFunc = 3
+                    child.material = TranssmisiveMaterial(config)
+                    console.log(TranssmisiveMaterial(config))
                 }
 
                 if(child.material.name == 'material_cubos.001')
                 {
-                    child.material.metalness = 0
-                    child.material.roughness = 0.
+                    child.material.metalness = 0.2
+                    child.material.roughness = 0.1
                     child.material.depthFunc = 1
-                    child.material.emissiveIntensity = 0
+                    child.material.emissiveIntensity = 0.1
                     // console.log(child.material) 
                 }
 
                 if(child.material.name == 'concrete_floor_worn_001')
                 {
                     child.material.metalness = 0.6
-                    child.material.roughness = 0.2
+                    child.material.roughness = 0.1
                     child.material.depthFunc = 3
                 }
 
@@ -62,7 +86,7 @@ export default function Model()
                     child.material.wireframe = true
                 }
               
-                // console.log(child)
+                
             }
         }) 
     }, [])
@@ -100,9 +124,6 @@ export default function Model()
             model.cameras[0].rotation.x,
             model.cameras[0].rotation.y,
             model.cameras[0].rotation.z)
-        
-        // console.log(dataScroll.offset)
-        // state.camera.fov = 120
         
         state.camera.updateProjectionMatrix()
         
@@ -146,31 +167,10 @@ export default function Model()
 useGLTF.preload('./leapr2.glb')
 
 
-export const TranssmisiveMaterial = () =>
+export const TranssmisiveMaterial = (config) =>
 {
-    const config = useControls({
-        meshPhysicalMaterial: false,
-        transmissionSampler: false,
-        backside: false,
-        samples: { value: 10, min: 1, max: 32, step: 1 },
-        resolution: { value: 2048, min: 256, max: 2048, step: 256 },
-        transmission: { value: 1, min: 0, max: 1 },
-        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3.5, min: 0, max: 10, step: 0.01 },
-        ior: { value: 1.5, min: 1, max: 5, step: 0.01 },
-        chromaticAberration: { value: 0.06, min: 0, max: 1 },
-        anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
-        distortion: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
-        temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
-        clearcoat: { value: 1, min: 0, max: 1 },
-        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
-        attenuationColor: '#ffffff',
-        color: '#c9ffa1',
-        bg: '#839681'
-    })
-
-    return <MeshTransmissionMaterial background={new THREE.Color(config.bg)} {...config} /> 
+    const material = new THREE.MeshPhysicalMaterial({...config})
+    return material
 }
 
 
