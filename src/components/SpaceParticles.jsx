@@ -2,8 +2,6 @@ import * as THREE from 'three';
 import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import Random from 'canvas-sketch-util/random';
-import {  MeshTransmissionMaterial } from '@react-three/drei'
-import { useControls } from 'leva'
 
 
 export function SpaceParticles({ count }) {
@@ -64,7 +62,15 @@ export function SpaceParticles({ count }) {
       {/* <pointLight ref={light} distance={400} intensity={100} color="lightblue"  position={[0,400,0]}/> */}
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <dodecahedronBufferGeometry args={[0.5, 0]} />
-        <meshStandardMaterial color="#050505" roughness={[0.1]} metalness={[0]}/>
+        <meshStandardMaterial 
+          color="#ffffff" 
+          roughness={[0.]} 
+          metalness={[0]} 
+          emissive="#00ff00" 
+          emissiveIntensity={[30]}
+          transparent
+          opacity={[0.2]}
+          />
       </instancedMesh>
     </>
   );

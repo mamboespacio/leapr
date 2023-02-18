@@ -8,10 +8,10 @@ import {
     HueSaturation,
     DepthOfField
    } from "@react-three/postprocessing";
-  import { BlendFunction} from "postprocessing";
+  import { BlendFunction } from "postprocessing";
   import { useControls } from 'leva'
-  import {useScroll} from '@react-three/drei'
-  import { useFrame} from '@react-three/fiber'
+  import { useScroll }  from '@react-three/drei'
+  import { useFrame } from '@react-three/fiber'
 import { useState } from "react";
 
 
@@ -21,7 +21,6 @@ import { useState } from "react";
 
     const dataScroll = useScroll()
     
-
     let [focusDistance, setFD] = useState()
     let updateFocusDistance = () =>
     {
@@ -47,7 +46,7 @@ import { useState } from "react";
                             setFD(0.25)
                           }
 
-        console.log("focus " + focusDistance + " " + "offset " + offset)
+        // console.log("focus " + focusDistance + " " + "offset " + offset)
     }
 
     useFrame((state, delta) =>
@@ -59,7 +58,7 @@ import { useState } from "react";
     return <EffectComposer>
                 <Bloom
                     mipmapBlur
-                    luminanceThreshold={0.2}
+                    luminanceThreshold={0.8}
                     luminanceSmoothing={0.1}
                     height={300}
                 />
@@ -81,6 +80,6 @@ import { useState } from "react";
                 />
                 <ColorDepth bits={[64]}/>
                 <DepthOfField focalLength={[0.3]} focusDistance={[focusDistance]} bokehScale={[7]} />
-                <HueSaturation saturation={[0.5]} hue={[0]}/>
+                <HueSaturation saturation={[0.]} hue={[0]}/>
             </EffectComposer>
   }
