@@ -14,7 +14,6 @@ export default function SkyBox() {
       "/skybox/cubemap_color/-z.jpg",
       "/skybox/cubemap_color/+z.jpg",
     ]);
-    console.log(texture)
     texture.minFilter = LinearFilter
     // Set the scene background property to the resulting texture.
     scene.background = texture;

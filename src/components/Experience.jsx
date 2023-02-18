@@ -6,7 +6,7 @@ import {
   Sky
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Model from "./Model";
 import About from "./About";
 import Claim from './Claim'
@@ -16,8 +16,10 @@ import Projects from './Projects'
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import SkyBox from "./SkyBox";
+import { useFrame} from "@react-three/fiber";
 
 export default function Experience() {
+
 
   return (
     <>
@@ -44,7 +46,6 @@ export default function Experience() {
       </Suspense>
 
       <SpaceParticles count={[5000]}/>
-      {/* <CameraShake maxYaw={0.01} maxPitch={0.01} maxRoll={0.01} yawFrequency={0.5} pitchFrequency={0.5} rollFrequency={0.4} /> */}
     </>
   );
 }
