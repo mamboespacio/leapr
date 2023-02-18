@@ -13,6 +13,8 @@ import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
 import Projects from './Projects'
+import Background from './Background'
+import Navigation from "./Navigation";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import SkyBox from "./SkyBox";
@@ -34,14 +36,16 @@ export default function Experience() {
       <Suspense>
         <ScrollControls pages={6}>
           <Scroll html style={{ width: '100%', height: '100%' }}>
+          
             <Claim/>
             <Partners/>
             <About/>
             <Projects/>
             <Dive/>
           </Scroll>
+          
           <Model />
-          <Effect/>
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
 
