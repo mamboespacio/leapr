@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF, useScroll, Float, useEnvironment } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
 
@@ -20,7 +20,7 @@ export default function Model()
 
     //Dinamic values
     let fovToLerp
-
+    let materialOpacity = useRef()
 
     //CONFIGSS
     const config = useControls({
@@ -34,8 +34,6 @@ export default function Model()
         color: '#0dff00',
     })
     //'#0dff00'
-
-
 
     //START
     useEffect(() =>
@@ -88,9 +86,9 @@ export default function Model()
                 {
                     child.material.roughness = 0.1 
                     child.material.metalness = 0.5
-                    child.material.transparent = 1
-                    child.material.opacity = 1
-                    child.material.visible = 0
+                    child.material.transparent = true
+                    child.material.opacity = 0.5
+                    // child.material.visible = 0
                 }
                 
               
@@ -191,14 +189,6 @@ export const UpdateFov = (inicio,  final) =>
     inicio.lerp(final, 0.025)
 }
 
-export function clamp(input, min, max) {
-    return input < min ? min : input > max ? max : input;
-  }
-
-export function map(current, in_min, in_max, out_min, out_max) {
-    const mapped = ((current - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
-    return clamp(mapped, out_min, out_max);
-  }
 
 
 

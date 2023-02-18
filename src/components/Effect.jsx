@@ -21,7 +21,6 @@ import { useState } from "react";
 
     const dataScroll = useScroll()
     
-
     let [focusDistance, setFD] = useState()
     let updateFocusDistance = () =>
     {
