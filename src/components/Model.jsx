@@ -3,6 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
+import { Vector3 } from 'three'
 
 export default function Model()
 {   
@@ -19,7 +20,7 @@ export default function Model()
     const fovOurProcess = new THREE.Vector3(80,0,0)
 
     //Dinamic values
-    let fovToLerp
+    let fovToLerp = new Vector3(0,0,0)
     let materialOpacity = useRef()
 
     //CONFIGSS
@@ -87,10 +88,8 @@ export default function Model()
                     child.material.roughness = 0.1 
                     child.material.metalness = 0.5
                     child.material.transparent = true
-                    child.material.opacity = 0.5
-                    // child.material.visible = 0
+                    child.material.opacity = 1.0
                 }
-                
               
             }
         }) 
@@ -99,38 +98,34 @@ export default function Model()
     //CUSTOM FUNCTIONS
     let updateFov = (state, offset) => 
     {
+        //VER PERFORMANCE 
         // Remplazar con leapr de valores
+        fovToLerp.x = state.camera.fov
         if(offset < 0.03)
         {   
-
-            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
             state.camera.fov = fovToLerp.lerp(fovInicio, 0.1).x
         }
 
         if(offset > 0.03 && offset < 0.2)
         {
-            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
             state.camera.fov = fovToLerp.lerp(fovPartners, 0.25).x
         }
         else if(offset > 0.2 && offset < 0.45) 
             {
-                fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
                 state.camera.fov = fovToLerp .lerp(fovDNA, 0.25).x
             } else if (offset > 0.45 && offset < 0.6)
                    {
-                    fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
                     state.camera.fov = fovToLerp .lerp(fovOurWork, 0.25).x
                    } else if (offset > 0.6 && offset < 1)
                           {
-                            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
                             state.camera.fov = fovToLerp .lerp(fovOurProcess, 0.25).x
                           }
     }
+
    //UPDATE
    useFrame((state, delta) =>
    {
-        
-        
+        let r1 = dataScroll.range(0, 8/10)
 
         state.camera.position.set(  
             model.cameras[0].position.x,
@@ -150,14 +145,17 @@ export default function Model()
         {
             if(offset < 0.97)
             {
-                actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration) * offset, 100, delta)
+                // actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration * 1.2) * offset, 100, delta)
+                actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * offset, 1.0)
+
             }else
             {
                 actions[action].time = actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration) * 0.98, 100, delta)
             }
         }
-        
-        
+
+        model.scene.children[60].material.opacity = 1.0
+        console.log(delta)
    }) 
 
     return (
