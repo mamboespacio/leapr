@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
 import { Vector3 } from 'three'
+import { mapRange } from 'canvas-sketch-util/math'
 
 export default function Model()
 {   
@@ -13,28 +14,16 @@ export default function Model()
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
 
-    const fovInicio = new THREE.Vector3(1,0,0)
-    const fovPartners = new THREE.Vector3(120,0,0)
-    const fovDNA = new THREE.Vector3(15,0,0)
-    const fovOurWork = new THREE.Vector3(50,0,0)
-    const fovOurProcess = new THREE.Vector3(80,0,0)
+    // FieldOfView | Valor del Scroll al final de la seccion |
+    const paramsInicio = new THREE.Vector3(1,0.03,0)
+    const paramsPartners = new THREE.Vector3(120,0.2,0)
+    const paramsDNA = new THREE.Vector3(15,0.45,0)
+    const paramsOurWork = new THREE.Vector3(50,0.6,0)
+    const paramsOurProcess = new THREE.Vector3(80,1,0)
 
     //Dinamic values
     let fovToLerp = new Vector3(0,0,0)
-    let materialOpacity = useRef()
-
-    //CONFIGSS
-    const config = useControls({
-        transmission: { value: 0.5, min: 0, max: 1 },
-        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3, min: 0, max: 10, step: 0.01 },
-        ior: { value: 5, min: 1, max: 5, step: 0.01 },
-        clearcoat: { value: 1, min: 0, max: 1 },
-        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
-        attenuationColor: '#ffffff',
-        color: '#0dff00',
-    })
-    //'#0dff00'
+    let greenLigth = useRef()
 
     //START
     useEffect(() =>
@@ -54,7 +43,7 @@ export default function Model()
 
                 if(child.material.name == 'material_cubos')
                 {
-                    child.material = TranssmisiveMaterial(config)
+                    child.material = TranssmisiveMaterial()
                 }
 
                 if(child.material.name == 'material_cubos.001')
@@ -96,29 +85,31 @@ export default function Model()
     }, [])
 
     //CUSTOM FUNCTIONS
-    let updateFov = (state, offset) => 
+    let modelEffects = (state, offset) => 
     {
         //VER PERFORMANCE 
         // Remplazar con leapr de valores
         fovToLerp.x = state.camera.fov
-        if(offset < 0.03)
+        // console.log(offset)
+
+        if(offset < paramsInicio.y) // INICIO
         {   
-            state.camera.fov = fovToLerp.lerp(fovInicio, 0.1).x
+            state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x
         }
 
-        if(offset > 0.03 && offset < 0.2)
+        if(offset > paramsInicio.y && offset < paramsPartners.y) // SECCION PARTNERS
         {
-            state.camera.fov = fovToLerp.lerp(fovPartners, 0.25).x
+            state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x
         }
-        else if(offset > 0.2 && offset < 0.45) 
+        else if(offset > paramsPartners.y && offset < paramsDNA.y) // SECCION DNA
             {
-                state.camera.fov = fovToLerp .lerp(fovDNA, 0.25).x
-            } else if (offset > 0.45 && offset < 0.6)
+                state.camera.fov = fovToLerp .lerp(paramsDNA, 0.25).x
+            } else if (offset > paramsDNA.y && offset < paramsOurWork.y) // SECCION OUR WORK
                    {
-                    state.camera.fov = fovToLerp .lerp(fovOurWork, 0.25).x
-                   } else if (offset > 0.6 && offset < 1)
+                    state.camera.fov = fovToLerp .lerp(paramsOurWork, 0.25).x
+                   } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) // SECCION OUR PROCESS
                           {
-                            state.camera.fov = fovToLerp .lerp(fovOurProcess, 0.25).x
+                            state.camera.fov = fovToLerp .lerp(paramsOurProcess, 0.25).x
                           }
     }
 
@@ -140,13 +131,13 @@ export default function Model()
         
         const offset = dataScroll.offset
         
-        updateFov(state, offset)
+        modelEffects(state, r1)
         for(let action in actions)
         {
-            if(offset < 0.97)
+            if(r1 < 0.97)
             {
                 // actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration * 1.2) * offset, 100, delta)
-                actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * offset, 1.0)
+                actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * r1, 1.0)
 
             }else
             {
@@ -154,11 +145,28 @@ export default function Model()
             }
         }
 
-        model.scene.children[60].material.opacity = 1.0
-        console.log(delta)
+        //Animated values on Model
+        let opacityCubo = dataScroll.range(5/10 + 0.05, 1/10)
+        let emissiveIntensityCubo = dataScroll.range(8/10 - 0.02, 1/10) 
+        model.scene.children[60].material.opacity = mapRange(opacityCubo, 0, 1, 1, 0) // OPACIDAD CUBO PIEDRA
+        model.scene.children[4].material.emissiveIntensity = emissiveIntensityCubo // INTENSIDAD EMISION CUBO
+
+        //Animated values at Ligths
+        greenLigth.intensity = mapRange(dataScroll.range(0, 3/10) * 10, 0, 10, 10, 0)
+        if(greenLigth.intensity <= 0)
+        {
+            greenLigth.color = new THREE.Color('#000000')
+        } 
+        else
+        {
+            greenLigth.color = new THREE.Color("#0dff00")
+        }
+        //logs
+        console.log(greenLigth.intensity)
    }) 
 
     return (
+        <>
         <Float
         speed={0.2} // Animation speed, defaults to 1
         rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
@@ -166,18 +174,27 @@ export default function Model()
         floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
         >
             <primitive object={model.scene} scale={ 1 }/>
-            
         </Float>
-            
+
+        <directionalLight ref={greenLigth} position={[0,0,100]}  />
+        </>   
     )
 }
 
 useGLTF.preload('./leapr2.glb')
 
 
-export const TranssmisiveMaterial = (config) =>
+export const TranssmisiveMaterial = () =>
 {
-    const material = new THREE.MeshPhysicalMaterial({...config})
+    const material = new THREE.MeshPhysicalMaterial({     
+        transmission: { value: 0.5, min: 0, max: 1 },
+        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
+        thickness: { value: 3, min: 0, max: 10, step: 0.01 },
+        ior: { value: 5, min: 1, max: 5, step: 0.01 },
+        clearcoat: { value: 1, min: 0, max: 1 },
+        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
+        attenuationColor: '#ffffff',
+        color: '#0dff00',})
     return material
 }
 

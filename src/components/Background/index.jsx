@@ -14,7 +14,7 @@ const Background = () => {
   },[])
 
   useFrame((state, delta) => {
-    const r1 = scroll.range(2 / 5, 1 / 5)
+    const r1 = scroll.range(2 / 10, 1 / 10)
     // ref.current.material.zoom = 1 + r1  // 1 and higher
     ref.current.material.grayscale = r1 // between 0 and 1
     ref.current.material.transparent = true
