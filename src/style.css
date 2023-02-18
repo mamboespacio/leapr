@@ -81,11 +81,19 @@ h1{
     height: auto;
 }
 #navigation .col-9{
-    background: #000;
 }
 #navigation.true img{
     height: 50% !important;
 }
 #navigation.true .col-9{
     background: transparent;
+}
+.background{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/images/gradient-01.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: -9999;
 }

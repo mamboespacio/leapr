@@ -3,16 +3,17 @@ import React, { useEffect, useState } from "react";
 import { List } from 'react-bootstrap-icons';
 
 const Navigation = () => {
-  const [navbar, setNavbar] = useState(false);
+  const [navbar, setNavbar] = useState('white');
   useEffect(() => {
     window.addEventListener("scroll", changeBackground);
   }, []);
   const changeBackground = () => {
     if (window.scrollY >= 80) {
-      setNavbar(true);
+      setNavbar('white');
     } else {
-      setNavbar(false);
+      setNavbar('black');
     }
+    console.log('hola')
   };
   const [showNav, setShowNav] = useState(false);
   const NavModal = (props) => {
@@ -53,9 +54,9 @@ const Navigation = () => {
 
   return (
     <>
-      <div id="navigation" className={`row gx-0 fixed-top ` + navbar }>
-        <div className="col-3">
-          <img className="" src="/images/leapr-logo.svg"/>
+      <div id="navigation" className="row gx-0 fixed-top">
+        <div className="col-9 col-md-3">
+          <img className={navbar} alt="Leapr logo" src="/images/leapr-logo-black.svg"/>
           {/* <Image
             src="/images/leapr-logo.svg"
             alt="logo"
@@ -66,7 +67,7 @@ const Navigation = () => {
               height: "auto",
             }} /> */}
         </div>
-        <div className="col-9 d-flex justify-content-end align-items-center">
+        <div className="col-3 col-md-9 d-flex justify-content-end align-items-center">
           <button
             className="btn btn-link text-white"
             onClick={() => setShowNav(true)}>

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section className="h-100">
         <div className="row gx-0 h-100 align-items-center">
-          <div className="col-5">
+          <div className="col-6 col-md-5">
             <p>
               <span className="text-highlight">
                 LEAPR

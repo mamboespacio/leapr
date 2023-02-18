@@ -13,6 +13,8 @@ import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
 import Projects from './Projects'
+import Background from './Background'
+import Navigation from "./Navigation";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import SkyBox from "./SkyBox";
@@ -23,11 +25,11 @@ export default function Experience() {
     <>
       {/* <Perf position="top-left" /> */}
 
-      <Environment preset="forest"  />
+      {/* <Environment preset="forest"  /> */}
       {/* <Sky turbidity={[10]} distance={[100000]} sunPosition={[1,100,100]} mieDirectionalG={[1]} rayleigh={[0.3]} /> */}
-      <SkyBox/>
+      {/* <SkyBox/> */}
       {/* <Sky distance={450000} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25} /> */}
-      <directionalLight color='green' position={[0,40,0]} intensity={[5]}/>
+      {/* <directionalLight color='green' position={[0,40,0]} intensity={[5]}/> */}
 
       <Suspense
         fallback={
@@ -37,20 +39,23 @@ export default function Experience() {
           </mesh>
         }
       >
-        <ScrollControls pages={6}>
+        <ScrollControls pages={5}>
+          
           <Scroll html style={{ width: '100%', height: '100%' }}>
+          
             <Claim/>
             <Partners/>
             <About/>
             <Projects/>
             <Dive/>
           </Scroll>
+          
           <Model />
-          <Effect/>
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
 
-      <SpaceParticles count={[5000]}/>
+      {/* <SpaceParticles count={[5000]}/> */}
       {/* <CameraShake maxYaw={0.01} maxPitch={0.01} maxRoll={0.01} yawFrequency={0.5} pitchFrequency={0.5} rollFrequency={0.4} /> */}
     </>
   );
