@@ -1,36 +1,36 @@
-import { useAnimations, useGLTF, useScroll, Float, Caustics } from '@react-three/drei'
+import { useAnimations, useGLTF, useScroll, Float, useEnvironment } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect } from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
 
 export default function Model()
-{
+{   
+    const state_ = useThree()
     const dataScroll = useScroll()
-    const model = useGLTF('./leapr2.glb')
+    const model = useGLTF('./leapr_syncCubito2.glb')
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
 
+    const fovInicio = new THREE.Vector3(1,0,0)
+    const fovPartners = new THREE.Vector3(120,0,0)
+    const fovDNA = new THREE.Vector3(10,0,0)
+    const fovOurWork = new THREE.Vector3(50,0,0)
+    const fovOurProcess = new THREE.Vector3(80,0,0)
+    let fovToLerp
+
     //CONFIGSS
     const config = useControls({
-        transmissionSampler: false,
-        backside: false,
-        samples: { value: 10, min: 1, max: 32, step: 1 },
-        resolution: { value: 2048, min: 256, max: 2048, step: 256 },
-        transmission: { value: 0.8, min: 0, max: 1 },
-        roughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3.5, min: 0, max: 10, step: 0.01 },
-        ior: { value: 1.5, min: 1, max: 5, step: 0.01 },
-        chromaticAberration: { value: 0.6, min: 0, max: 1 },
-        anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
-        distortion: { value: 0.2, min: 0, max: 1, step: 0.01 },
-        distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
-        temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
+        transmission: { value: 0., min: 0, max: 1 },
+        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
+        thickness: { value: 3, min: 0, max: 10, step: 0.01 },
+        ior: { value: 5, min: 1, max: 5, step: 0.01 },
         clearcoat: { value: 1, min: 0, max: 1 },
         attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
         attenuationColor: '#ffffff',
-        color: '#74d656',
+        color: '#0dff00',
     })
+    //'#0dff00'
 
 
 
@@ -41,7 +41,8 @@ export default function Model()
         {
            actions[action].play()
         }
-        
+
+        state_.camera.fov = 300
         
         model.scene.traverse(function (child) {
 
@@ -51,10 +52,6 @@ export default function Model()
 
                 if(child.material.name == 'material_cubos')
                 {
-                    // child.material.metalness = 0
-                    // child.material.roughness = 0.
-                    // child.material.emissiveIntensity = 0
-                    // child.material.depthFunc = 3
                     child.material = TranssmisiveMaterial(config)
                     console.log(TranssmisiveMaterial(config))
                 }
@@ -62,7 +59,7 @@ export default function Model()
                 if(child.material.name == 'material_cubos.001')
                 {
                     child.material.metalness = 0.2
-                    child.material.roughness = 0.1
+                    child.material.roughness = 1
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0.1
                     // console.log(child.material) 
@@ -82,36 +79,44 @@ export default function Model()
                     child.material.color = new THREE.Color('rgb(50,50,50)')
                     child.material.emissive = new THREE.Color('rgb(0,255,100)') 
                     child.material.depthFunc = 3 
-                    child.material.emissiveIntensity = 0
+                    child.material.emissiveIntensity = 1
                     child.material.wireframe = true
                 }
               
-                
             }
         }) 
     }, [])
 
     //CUSTOM FUNCTIONS
-    let updateFov = (state, offset) =>
+    let updateFov = (state, offset) => 
     {
         // Remplazar con leapr de valores
         // console.log(offset)
         if(offset < 0.03)
-        {
-            state.camera.fov = 1
+        {   
+
+            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
+            state.camera.fov = fovToLerp.lerp(fovInicio, 0.1).x
         }
 
         if(offset > 0.03 && offset < 0.2)
         {
-            state.camera.fov = 120
+            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
+            state.camera.fov = fovToLerp.lerp(fovPartners, 0.25).x
         }
         else if(offset > 0.2 && offset < 0.45) 
             {
-                state.camera.fov = 10
-            } else if (offset > 0.45 && offset < 1)
+                fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
+                state.camera.fov = fovToLerp .lerp(fovDNA, 0.25).x
+            } else if (offset > 0.45 && offset < 0.6)
                    {
-                        state.camera.fov = 60
-                   } 
+                    fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
+                    state.camera.fov = fovToLerp .lerp(fovOurWork, 0.25).x
+                   } else if (offset > 0.6 && offset < 1)
+                          {
+                            fovToLerp = new THREE.Vector3(state.camera.fov, 0, 0)
+                            state.camera.fov = fovToLerp .lerp(fovOurProcess, 0.25).x
+                          }
     }
    //UPDATE
    useFrame((state, delta) =>
@@ -172,5 +177,12 @@ export const TranssmisiveMaterial = (config) =>
     const material = new THREE.MeshPhysicalMaterial({...config})
     return material
 }
+
+
+export const UpdateFov = (inicio,  final) =>
+{
+    inicio.lerp(final, 0.025)
+}
+
 
 

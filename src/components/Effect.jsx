@@ -81,7 +81,6 @@ import { useState } from "react";
                 />
                 <ColorDepth bits={[64]}/>
                 <DepthOfField focalLength={[0.3]} focusDistance={[focusDistance]} bokehScale={[7]} />
-                <HueSaturation saturation={[0.3
-                ]} hue={[0]}/>
+                <HueSaturation saturation={[0.]} hue={[0]}/>
             </EffectComposer>
   }

@@ -7,12 +7,12 @@ export default function SkyBox() {
     const loader = new CubeTextureLoader();
     // The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
     const texture = loader.load([
-      "/skybox/cubemap/nx.png",
-      "/skybox/cubemap/px.png",
-      "/skybox/cubemap/ny.png",
-      "/skybox/cubemap/py.png",
-      "/skybox/cubemap/nz.png",
-      "/skybox/cubemap/pz.png",
+      "/skybox/cubemap_color/-x.jpg",
+      "/skybox/cubemap_color/+x.jpg",
+      "/skybox/cubemap_color/-y.jpg",
+      "/skybox/cubemap_color/+y.jpg",
+      "/skybox/cubemap_color/-z.jpg",
+      "/skybox/cubemap_color/+z.jpg",
     ]);
     console.log(texture)
     texture.minFilter = LinearFilter

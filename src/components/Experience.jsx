@@ -21,13 +21,13 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
 
       <Environment preset="forest"/>
       {/* <Sky turbidity={[10]} distance={[100000]} sunPosition={[1,100,100]} mieDirectionalG={[1]} rayleigh={[0.3]} /> */}
-      {/* <SkyBox/> */}
+      <SkyBox />
       {/* <Sky distance={450000} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25} /> */}
-      {/* <directionalLight position={[0,0,100]}  color="white" intensity={[0]}/> */}
+      <directionalLight position={[0,0,100]}  color="#0dff00" intensity={[1]}/>
 
       <Suspense>
         <ScrollControls pages={6}>
@@ -43,7 +43,7 @@ export default function Experience() {
         </ScrollControls>
       </Suspense>
 
-      <SpaceParticles count={[10000]}/>
+      <SpaceParticles count={[5000]}/>
       {/* <CameraShake maxYaw={0.01} maxPitch={0.01} maxRoll={0.01} yawFrequency={0.5} pitchFrequency={0.5} rollFrequency={0.4} /> */}
     </>
   );
