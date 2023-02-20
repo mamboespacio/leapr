@@ -58,7 +58,7 @@ import { useState } from "react";
     return <EffectComposer>
                 <Bloom
                     mipmapBlur
-                    luminanceThreshold={0.8}
+                    luminanceThreshold={0.9}
                     luminanceSmoothing={0.1}
                     height={300}
                 />

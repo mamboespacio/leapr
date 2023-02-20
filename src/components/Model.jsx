@@ -33,7 +33,7 @@ export default function Model()
            actions[action].play()
         }
 
-        state_.camera.fov = 300        
+        state_.camera.fov = 1     
         
         model.scene.traverse(function (child) {
 
@@ -127,7 +127,7 @@ export default function Model()
             model.cameras[0].rotation.y,
             model.cameras[0].rotation.z)
         
-        state.camera.updateProjectionMatrix()
+        // state.camera.updateProjectionMatrix()
         
         const offset = dataScroll.offset
         
@@ -138,6 +138,7 @@ export default function Model()
             {
                 // actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration * 1.2) * offset, 100, delta)
                 actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * r1, 1.0)
+                // actions[action].time = r1 * 100
 
             }else
             {
@@ -183,7 +184,6 @@ export default function Model()
 
 useGLTF.preload('./leapr2.glb')
 
-
 export const TranssmisiveMaterial = () =>
 {
     const material = new THREE.MeshPhysicalMaterial({     
@@ -195,6 +195,7 @@ export const TranssmisiveMaterial = () =>
         attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
         attenuationColor: '#ffffff',
         color: '#0dff00',})
+        //color: '#0dff00',})
     return material
 }
 
