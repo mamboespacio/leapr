@@ -19,6 +19,7 @@ import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import SkyBox from "./SkyBox";
 import { useFrame} from "@react-three/fiber";
+import { PlaneGeometry } from "three";
 
 export const sectionsLength = 12
 
@@ -26,14 +27,18 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
-
-      <Environment preset="forest"/>
-      <SkyBox />
-      <Suspense>
+      <Perf position="top-left" />
+      
+      {/* <SkyBox /> */}
+      <Suspense
+        fallback={<mesh scale={[100,100,1]}>
+                      <planeBufferGeometry />
+                      <meshBasicMaterial/>
+                  </mesh>}
+      >
         <ScrollControls pages={sectionsLength} damping={0.9} maxSpeed={0.5}>
           <Scroll html style={{ width: '100%', height: '100%' }}>
-          
+     
             <Claim/>
             <Partners/>
             <section style={{height:'175%'}}></section>
@@ -54,6 +59,8 @@ export default function Experience() {
           <Effect/>
         </ScrollControls>
       </Suspense>
+      <Environment files="/skybox/leapr_skybox1.hdr" background/>
+      <Environment preset="forest"/>
       <SpaceParticles count={[5000]}/>
     </>
   );

@@ -6,13 +6,14 @@ import {
     ColorDepth,
     ToneMapping,
     HueSaturation,
-    DepthOfField
+    DepthOfField,
+    ChromaticAberration,
    } from "@react-three/postprocessing";
   import { BlendFunction } from "postprocessing";
-  import { useControls } from 'leva'
   import { useScroll }  from '@react-three/drei'
   import { useFrame } from '@react-three/fiber'
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { Vector2 } from "three";
 
 
   export default function Effect()
@@ -20,6 +21,7 @@ import { useState } from "react";
     // const hueEffect = useControls({ hue: { value: 1.38, min: 0, max: 6.28319, step: 0.001 }})
 
     const dataScroll = useScroll()
+    const sunRef = useRef()
     
     let [focusDistance, setFD] = useState()
     let updateFocusDistance = () =>
@@ -41,10 +43,14 @@ import { useState } from "react";
             } else if (offset > 0.45 && offset < 0.6)
                    {
                     setFD(0.1)
-                   } else if (offset > 0.6 && offset < 1)
+                   } else if (offset > 0.6 && offset < 0.78)
                           {
-                            setFD(0.25)
-                          }
+                            setFD(0.2)
+                          } else if (offset > 0.78 && offset < 1)
+                                 {
+                                    setFD(0.1)
+                                 }
+                                 
 
         // console.log("focus " + focusDistance + " " + "offset " + offset)
     }
@@ -55,7 +61,8 @@ import { useState } from "react";
         state.camera.updateProjectionMatrix()
     })
 
-    return <EffectComposer>
+    return  <>
+            <EffectComposer>
                 <Bloom
                     mipmapBlur
                     luminanceThreshold={0.9}
@@ -79,7 +86,10 @@ import { useState } from "react";
                     adaptationRate={1.0} // luminance adaptation rate
                 />
                 <ColorDepth bits={[64]}/>
-                <DepthOfField focalLength={[0.3]} focusDistance={[focusDistance]} bokehScale={[7]} />
+                <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
                 <HueSaturation saturation={[0.]} hue={[0]}/>
+                <ChromaticAberration />
+                {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>
+            </>
   }

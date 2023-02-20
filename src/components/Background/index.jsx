@@ -20,7 +20,7 @@ const Background = () => {
     ref.current.material.transparent = true
     ref.current.material.opacity = mapRange(r1, 0, 1, 1, 0)
     ref.current.parent = state.camera
-    console.log(ref.current.material)
+    // console.log(ref.current.material)
   })
   return <Image ref={ref} url="/images/gradient-01.jpg" scale={[w *100, h * 100, 1]} position={[0, 0, -140]} />
 }

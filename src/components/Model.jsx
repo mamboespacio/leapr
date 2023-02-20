@@ -48,8 +48,8 @@ export default function Model()
 
                 if(child.material.name == 'material_cubos.001')
                 {
-                    child.material.metalness = 0.2
-                    child.material.roughness = 1
+                    child.material.metalness = 1
+                    child.material.roughness = 0
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0.1
                 }
@@ -139,6 +139,7 @@ export default function Model()
                 // actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration * 1.2) * offset, 100, delta)
                 actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * r1, 1.0)
                 // actions[action].time = r1 * 100
+                // console.log(actions[action].time)
 
             }else
             {
@@ -163,7 +164,7 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
-        console.log(greenLigth.intensity)
+        // console.log(greenLigth.intensity)
    }) 
 
     return (
@@ -187,14 +188,16 @@ useGLTF.preload('./leapr2.glb')
 export const TranssmisiveMaterial = () =>
 {
     const material = new THREE.MeshPhysicalMaterial({     
-        transmission: { value: 0.5, min: 0, max: 1 },
-        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3, min: 0, max: 10, step: 0.01 },
-        ior: { value: 5, min: 1, max: 5, step: 0.01 },
-        clearcoat: { value: 1, min: 0, max: 1 },
-        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
+        transmission: 0.5,
+        metalness: 0.3,
+        roughness: 0,
+        thickness: 3,
+        ior: 10,
+        clearcoat: 1,
+        attenuationDistance: 0.5,
         attenuationColor: '#ffffff',
-        color: '#0dff00',})
+        color: '#0dff00'
+    })
         //color: '#0dff00',})
     return material
 }
