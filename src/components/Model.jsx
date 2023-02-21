@@ -162,7 +162,7 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
-        console.log(greenLigth.intensity)
+        // console.log(greenLigth.intensity)
    }) 
 
     return (

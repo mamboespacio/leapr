@@ -8,7 +8,6 @@ import React from "react";
 import Navigation from './components/Navigation';
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-
 root.render(
   <>
     <Navigation/>

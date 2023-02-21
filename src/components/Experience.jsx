@@ -12,9 +12,14 @@ import About from "./About";
 import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
+import Define from './Define'
+import Design from './Design'
+import Deploy from './Deploy'
 import Projects from './Projects'
+import Team from './Team'
 import Background from './Background'
 import Navigation from "./Navigation";
+import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import SkyBox from "./SkyBox";
@@ -31,9 +36,10 @@ export default function Experience() {
       <Environment preset="forest"/>
       <SkyBox />
       <Suspense>
+      
         <ScrollControls pages={sectionsLength}>
-          <Scroll html style={{ width: '100%', height: '100%' }}>
           
+          <Scroll html style={{ width: '100%', height: '100%' }}>
             <Claim/>
             <Partners/>
             <section style={{height:'175%'}}></section>
@@ -42,16 +48,15 @@ export default function Experience() {
             <section style={{height:'20%'}}></section>
             <Projects/>
             <Dive/>
-            <Dive/>
-            <Dive/>
-            <Dive/>
-            <section style={{height:'100%'}}></section>
-            <section style={{height:'100%'}}></section>
-            
+            <Define/>
+            <Design/>
+            <Deploy/>
+            <Team/>
+            <p className="mt-3 text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
-          <Background/>
-          <Model />
-          <Effect/>
+          {/* <Background/>
+          <Model /> */}
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
 

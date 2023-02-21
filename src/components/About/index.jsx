@@ -6,12 +6,12 @@ const About = () => {
   return (
     <section className="h-100">
         <div className="row gx-0 h-100 align-items-center">
-          <div className="col-6 col-md-5">
+          <div className="col-6">
             <p>
               <span className="text-highlight">
                 LEAPR
               </span>
-              is a web3 innovation design agency based in Buenos Aires.<br/>
+               is a web3 innovation design agency based in Buenos Aires.<br/>
               We are a group of creatives who collaborate with clients helping them understand,
               envision, and plan the endless possibilities within virtual platforms.<br/>
               <span className="text-highlight">

@@ -79,7 +79,22 @@ h1{
     outline: none;
 }
 #navigation{
-    height: auto;
+    position: fixed;
+    top: 0;
+    right: 2%;
+    z-index: 1;
+    width: 10%;
+}
+#navigation .wrapper{
+  flex-wrap: wrap;
+}
+
+#navigation .link p{
+  opacity: 0;
+  transition: all 300 ease;
+}
+#navigation .link:hover p{
+  opacity: 1;
 }
 #navigation .col-9{
 }
@@ -97,4 +112,51 @@ h1{
   background-position: center;
   background-size: cover;
   z-index: -9999;
+}
+#team{
+  /* background-color: #E0DCD3; */
+  background-color: #000;
+}
+
+
+.navModal .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: transparent !important;
+  background-clip: padding-box;
+  border: none !important;
+  padding: 0!important;
+}
+.modal-backdrop{
+  background-color: #00FF39 !important;
+  opacity:0.7 !important;
+}
+.navModal .modal-dialog{
+  margin:0 !important;
+}
+.navModal .modal-content a,.navModal .modal-content button{
+  color: #fff;
+  font-size: 3.5rem;
+  text-align: left;
+  line-height: 1;
+  background: transparent;
+  outline: 0;
+  border: none;
+  padding: 0;
+  -webkit-transition: all 0.3s 0s ease-in;
+  -moz-transition: all 0.3s 0s ease-in;
+  -o-transition: all 0.3s 0s ease-in;
+  transition: all 0.3s 0s ease-in;
+  text-decoration: none;
+}
+.navModal .modal-content a:hover, .navModal .modal-content button:hover{
+  color: #000;
+  -webkit-text-stroke: 1px #fff;
+  -webkit-transition: all 0.3s 0s ease-out;
+  -moz-transition: all 0.3s 0s ease-out;
+  -o-transition: all 0.3s 0s ease-out;
+  transition: all 0.3s 0s ease-out;
 }
