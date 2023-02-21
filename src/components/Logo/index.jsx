@@ -1,15 +1,21 @@
 import { Modal } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import { List } from 'react-bootstrap-icons';
-import { Iso } from '../Icons';
-import { Square } from '../Icons';
+import { Html, Image, useScroll } from "@react-three/drei";
 
-const Navigation = () => {
-  const [activeItem, setActiveItem] = useState(0);
+const Logo = () => {
+  const [navbar, setNavbar] = useState('white');
   useEffect(() => {
-  
+    window.addEventListener("scroll", changeBackground);
   }, []);
-  
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar('white');
+    } else {
+      setNavbar('black');
+    }
+    console.log('hola')
+  };
   const [showNav, setShowNav] = useState(false);
   const NavModal = (props) => {
     return (
@@ -46,12 +52,12 @@ const Navigation = () => {
       </Modal>
     );
   };
-  const sections = ['home', 'about', 'projects', 'our process', 'team', 'contact']
+
   return (
-    <>
-      <div id="navigation" className="w-100 row gx-0 fixed-top">
+    <Html wrapperClass="root">
+      <div id="navigation" className="row gx-0 fixed-top">
         <div className="col-9 col-md-3">
-          <img className="w-100" alt="Leapr logo" src="/images/leapr-logo-black.svg"/>
+          <img className={navbar} alt="Leapr logo" src="/images/leapr-logo-black.svg"/>
           {/* <Image
             src="/images/leapr-logo.svg"
             alt="logo"
@@ -66,12 +72,12 @@ const Navigation = () => {
           <button
             className="btn btn-link text-white"
             onClick={() => setShowNav(true)}>
-              <img style={{width: '30px'}} alt="Leapr logo" src="/images/menu_hamburguesa.svg"/>
+              <List/>
           </button>
         </div>
       </div>
       <NavModal show={showNav} onHide={() => setShowNav(false)} />
-    </>
+    </Html>
   );
 };
-export default Navigation;
+export default Logo;

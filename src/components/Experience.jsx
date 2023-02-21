@@ -10,8 +10,14 @@ import About from "./About";
 import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
+import Define from './Define'
+import Design from './Design'
+import Deploy from './Deploy'
 import Projects from './Projects'
+import Team from './Team'
 import Background from './Background'
+import Navigation from "./Navigation";
+import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import Loader from "./Loader";
@@ -38,12 +44,11 @@ export default function Experience() {
             <section style={{height:'20%'}}></section>
             <Projects/>
             <Dive/>
-            <Dive/>
-            <Dive/>
-            <Dive/>
-            <section style={{height:'100%'}}></section>
-            <section style={{height:'100%'}}></section>
-            
+            <Define/>
+            <Design/>
+            <Deploy/>
+            <Team/>
+            <p className="mt-3 text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
           <Background/>
           <Model />
