@@ -1,9 +1,7 @@
 import {
   ScrollControls,
   Scroll,
-  useScroll,
   Environment,
-  Sky
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense, useEffect, useRef, useState } from "react";
@@ -14,12 +12,10 @@ import Partners from './Partners'
 import Dive from './Dive'
 import Projects from './Projects'
 import Background from './Background'
-import Navigation from "./Navigation";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
-import SkyBox from "./SkyBox";
-import { useFrame} from "@react-three/fiber";
-import { PlaneGeometry } from "three";
+import Loader from "./Loader";
+
 
 export const sectionsLength = 12
 
@@ -28,13 +24,8 @@ export default function Experience() {
   return (
     <>
       <Perf position="top-left" />
-      
-      {/* <SkyBox /> */}
       <Suspense
-        fallback={<mesh scale={[100,100,1]}>
-                      <planeBufferGeometry />
-                      <meshBasicMaterial/>
-                  </mesh>}
+        fallback={<Loader/>}
       >
         <ScrollControls pages={sectionsLength} damping={0.9} maxSpeed={0.5}>
           <Scroll html style={{ width: '100%', height: '100%' }}>
