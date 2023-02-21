@@ -48,7 +48,7 @@ import { Vector2 } from "three";
                             setFD(0.2)
                           } else if (offset > 0.78 && offset < 1)
                                  {
-                                    setFD(0.1)
+                                    setFD(0.2)
                                  }
                                  
 

@@ -14,7 +14,6 @@ export default function Model()
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
     
-
     // FieldOfView | Valor del Scroll al final de la seccion |
     const paramsInicio = new THREE.Vector3(1,0.03,0)
     const paramsPartners = new THREE.Vector3(120,0.2,0)
