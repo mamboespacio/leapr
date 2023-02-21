@@ -2,7 +2,6 @@ import { useAnimations, useGLTF, useScroll, Float, useEnvironment } from '@react
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { useControls } from 'leva'
 import { Vector3 } from 'three'
 import { mapRange } from 'canvas-sketch-util/math'
 
@@ -10,9 +9,11 @@ export default function Model()
 {   
     const state_ = useThree()
     const dataScroll = useScroll()
+  
     const model = useGLTF('./leapr_syncCubito3.glb')
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
+    
 
     // FieldOfView | Valor del Scroll al final de la seccion |
     const paramsInicio = new THREE.Vector3(1,0.03,0)
@@ -33,7 +34,7 @@ export default function Model()
            actions[action].play()
         }
 
-        state_.camera.fov = 300        
+        state_.camera.fov = 1     
         
         model.scene.traverse(function (child) {
 
@@ -48,8 +49,8 @@ export default function Model()
 
                 if(child.material.name == 'material_cubos.001')
                 {
-                    child.material.metalness = 0.2
-                    child.material.roughness = 1
+                    child.material.metalness = 1
+                    child.material.roughness = 0
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0.1
                 }
@@ -90,7 +91,6 @@ export default function Model()
         //VER PERFORMANCE 
         // Remplazar con leapr de valores
         fovToLerp.x = state.camera.fov
-        // console.log(offset)
 
         if(offset < paramsInicio.y) // INICIO
         {   
@@ -127,18 +127,15 @@ export default function Model()
             model.cameras[0].rotation.y,
             model.cameras[0].rotation.z)
         
-        state.camera.updateProjectionMatrix()
+        // state.camera.updateProjectionMatrix()
         
         const offset = dataScroll.offset
-        
         modelEffects(state, r1)
         for(let action in actions)
         {
             if(r1 < 0.97)
             {
-                // actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration * 1.2) * offset, 100, delta)
                 actions[action].time = THREE.MathUtils.lerp(actions[action].time, (actions[action].getClip().duration) * r1, 1.0)
-
             }else
             {
                 actions[action].time = actions[action].time = THREE.MathUtils.damp(actions[action].time, (actions[action].getClip().duration) * 0.98, 100, delta)
@@ -162,7 +159,6 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
-        // console.log(greenLigth.intensity)
    }) 
 
     return (
@@ -181,20 +177,21 @@ export default function Model()
     )
 }
 
-useGLTF.preload('./leapr2.glb')
-
+// useGLTF.preload('./leapr2.glb')
 
 export const TranssmisiveMaterial = () =>
 {
     const material = new THREE.MeshPhysicalMaterial({     
-        transmission: { value: 0.5, min: 0, max: 1 },
-        roughness: { value: 0.0, min: 0, max: 1, step: 0.01 },
-        thickness: { value: 3, min: 0, max: 10, step: 0.01 },
-        ior: { value: 5, min: 1, max: 5, step: 0.01 },
-        clearcoat: { value: 1, min: 0, max: 1 },
-        attenuationDistance: { value: 0.5, min: 0, max: 10, step: 0.01 },
+        transmission: 0.5,
+        metalness: 0.3,
+        roughness: 0,
+        thickness: 3,
+        ior: 10,
+        clearcoat: 1,
+        attenuationDistance: 0.5,
         attenuationColor: '#ffffff',
-        color: '#0dff00',})
+        color: '#0dff00'
+    })
     return material
 }
 

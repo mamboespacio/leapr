@@ -1,9 +1,7 @@
 import {
   ScrollControls,
   Scroll,
-  useScroll,
   Environment,
-  Sky
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense, useEffect, useRef, useState } from "react";
@@ -22,8 +20,8 @@ import Navigation from "./Navigation";
 import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
-import SkyBox from "./SkyBox";
-import { useFrame} from "@react-three/fiber";
+import Loader from "./Loader";
+
 
 export const sectionsLength = 12
 
@@ -31,15 +29,13 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
-
-      <Environment preset="forest"/>
-      <SkyBox />
-      <Suspense>
-      
-        <ScrollControls pages={sectionsLength}>
-          
+      <Perf position="top-left" />
+      <Suspense
+        fallback={<Loader/>}
+      >
+        <ScrollControls pages={sectionsLength} damping={0.9} maxSpeed={0.5}>
           <Scroll html style={{ width: '100%', height: '100%' }}>
+     
             <Claim/>
             <Partners/>
             <section style={{height:'175%'}}></section>
@@ -54,12 +50,13 @@ export default function Experience() {
             <Team/>
             <p className="mt-3 text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
-          {/* <Background/>
-          <Model /> */}
-          {/* <Effect/> */}
+          <Background/>
+          <Model />
+          <Effect/>
         </ScrollControls>
       </Suspense>
-
+      <Environment files="/skybox/leapr_skybox1.hdr" background/>
+      <Environment preset="forest"/>
       <SpaceParticles count={[5000]}/>
     </>
   );
