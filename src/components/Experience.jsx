@@ -29,7 +29,7 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
       <Suspense
       >
         <ScrollControls pages={sectionsLength} damping={0.4} maxSpeed={0.5}>
@@ -51,7 +51,7 @@ export default function Experience() {
           </Scroll>
           <Background/>
           <Model />
-          {/* <Effect/> */}
+          <Effect/>
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 

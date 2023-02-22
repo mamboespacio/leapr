@@ -56,13 +56,13 @@ import { Vector2 } from "three";
 
     useFrame((state, delta) =>
     {
-        updateFocusDistance()
+        // updateFocusDistance()
         state.camera.updateProjectionMatrix()
     })
 
     return  <>
             <EffectComposer>
-                <Bloom
+                {/* <Bloom
                     mipmapBlur
                     luminanceThreshold={0.9}
                     luminanceSmoothing={0.1}
@@ -83,11 +83,11 @@ import { Vector2 } from "three";
                     maxLuminance={16.0} // maximum luminance
                     averageLuminance={1.0} // average luminance
                     adaptationRate={1.0} // luminance adaptation rate
-                />
+                /> */}
                 {/* <ColorDepth bits={[64]}/> */}
-                <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
+                {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
                 <HueSaturation saturation={[0.]} hue={[0]}/>
-                <ChromaticAberration/>
+                <ChromaticAberration/> */}
                 {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>
             </>
