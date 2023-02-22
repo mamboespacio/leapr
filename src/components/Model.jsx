@@ -177,7 +177,7 @@ export default function Model()
     )
 }
 
-// useGLTF.preload('./leapr2.glb')
+useGLTF.preload('./leapr2.glb')
 
 export const TranssmisiveMaterial = () =>
 {
