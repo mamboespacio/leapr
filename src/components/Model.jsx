@@ -12,7 +12,7 @@ export default function Model()
     const state_ = useThree()
     const dataScroll = useScroll()
   
-    const model = useGLTF('./leapr_syncCubito3.glb')
+    const model = useGLTF('./0123_LEAPR_boceto3d_8_OPTIMIZE.glb')
     const animations = useAnimations(model.animations, model.scene)
     const actions = animations.actions
     
@@ -49,12 +49,13 @@ export default function Model()
                     child.material = TranssmisiveMaterial()
                 }
 
-                if(child.material.name == 'material_cubos.001')
+                if(child.material.name == 'material_cubos.002')
                 {
                     child.material.metalness = 1
                     child.material.roughness = 0
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0.1
+                    // console.log(child)
                 }
 
                 if(child.material.name == 'concrete_floor_worn_001')
@@ -82,7 +83,7 @@ export default function Model()
                     child.material.transparent = true
                     child.material.opacity = 1.0
                 }
-            //   console.log(child)
+              console.log(child.material)
             }
         }) 
     }, [])
@@ -147,8 +148,8 @@ export default function Model()
         //Animated values on Model
         let opacityCubo = dataScroll.range(5/10 + 0.05, 1/10)
         let emissiveIntensityCubo = dataScroll.range(8/10 - 0.02, 1/10) 
-        model.scene.children[60].material.opacity = mapRange(opacityCubo, 0, 1, 1, 0) // OPACIDAD CUBO PIEDRA
-        model.scene.children[4].material.emissiveIntensity = emissiveIntensityCubo // INTENSIDAD EMISION CUBO
+        // model.scene.children[60].material.opacity = mapRange(opacityCubo, 0, 1, 1, 0) // OPACIDAD CUBO PIEDRA
+        model.scene.children[6].material.emissiveIntensity = emissiveIntensityCubo // INTENSIDAD EMISION CUBO
 
         //Animated values at Ligths
         greenLigth.intensity = mapRange(dataScroll.range(0, 3/10) * 10, 0, 10, 10, 0)
@@ -161,7 +162,7 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
-        console.log(actions)
+        // console.log(model.scene)
    }) 
 
     return (
@@ -181,7 +182,7 @@ export default function Model()
 }
 
 
-useGLTF.preload('./leapr_syncCubito3.glb')
+useGLTF.preload('./0123_LEAPR_boceto3d_8_OPTIMIZE.glb')
 
 export const TranssmisiveMaterial = () =>
 {
