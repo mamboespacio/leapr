@@ -1,5 +1,5 @@
 import React, {useRef} from "react";
-import { useScroll } from "@react-three/drei";
+import { useScroll,  Text3D } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 const Dive = () => {
@@ -18,6 +18,7 @@ const Dive = () => {
     ref1.current.style.top = r1*200 + '%'
   })
   return (
+    <>
     <section id="process" className="h-100">
       <div className="container-fluid h-100">
         <div className="row h-100 align-items-center justify-content-center">
@@ -27,6 +28,7 @@ const Dive = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 export default Dive;

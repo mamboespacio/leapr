@@ -21,7 +21,10 @@ function App() {
         near: 0.01,
         far: 300,
         position: [ 4, 3, 20 ],
-    }}>
+      
+    }}
+    // frameloop="demand"
+    >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>
     </>
