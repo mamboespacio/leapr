@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { Canvas } from "@react-three/fiber";
+import Experience from "./components/Experience";
+
+import React, {useState} from "react";
+import Navigation from './components/Navigation';
+import Contact from './components/Contact';
+
 
 function App() {
+  const [navStyle, setNavStyle] = useState('black');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navigation navStyle={navStyle}/>
+    {/* <Contact/> */}
+    <Canvas
+      shadows
+      camera={{
+        fov: 45,
+        near: 0.01,
+        far: 300,
+        position: [ 4, 3, 20 ],
+    }}>
+      <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
+    </Canvas>
+    </>
   );
 }
 

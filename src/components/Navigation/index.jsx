@@ -4,12 +4,7 @@ import { List } from 'react-bootstrap-icons';
 import { Iso } from '../Icons';
 import { Square } from '../Icons';
 
-const Navigation = () => {
-  const [activeItem, setActiveItem] = useState(0);
-  useEffect(() => {
-  
-  }, []);
-  
+const Navigation = (navStyle, setNavStyle) => {
   const [showNav, setShowNav] = useState(false);
   const NavModal = (props) => {
     return (
@@ -20,37 +15,37 @@ const Navigation = () => {
         className="navModal text-black text-center"
       >
         <a 
-          href="#index"
+          href="#dna"
           className="btn btn-link text-white"
           >
-          Home
+          OUR DNA
         </a>
         <a
           href="#work"
           className="btn btn-link text-white"
           >
-          Work
+          OUR WORK
         </a>
         <a
-          href="#approach"
+          href="#process"
           className="btn btn-link text-white"
           >
-          Approach
+          OUR PROCESS
         </a>
         <a
           href="#team"
           className="btn btn-link text-white"
           >
-          Team
+          OUR TEAM
         </a>
       </Modal>
     );
   };
-  const sections = ['home', 'about', 'projects', 'our process', 'team', 'contact']
+  const sections = ['OUR DNA', 'OUR WORK', 'OUR PROCESS', 'OUR TEAM']
   return (
     <>
-      <div id="navigation" className="w-100 row gx-0 fixed-top">
-        <div className="col-9 col-md-3">
+      <div id="navigation" className={`w-100 row gx-0 fixed-top ${navStyle.navStyle}`}>
+        <div className="col-9 col-md-3 logo">
           <img className="w-100" alt="Leapr logo" src="/images/leapr-logo-black.svg"/>
           {/* <Image
             src="/images/leapr-logo.svg"

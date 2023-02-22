@@ -1,58 +1,69 @@
-import React, {useRef} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Marquee from "../Marquee";
-import { projects as items } from "../../data/projects";
+import { Sandbox } from "./sandbox";
+import { Decentraland } from "./decentraland";
+import { Spatial } from "./spatial";
+import { Gaby } from "./gaby";
 
 const Projects = () => {
+  const ref = useRef(null)
+  const previous = () => {
+    ref.current.slidePrev();
+  };
+
+  const next = (slide) => {
+    console.log(slide)
+    ref.current.slideTo(slide);
+  };
   return (
-    <section className="h-100">
+    <section id="work" className="h-100">
       <div className="row gx-0 align-items-center h-100">
         <div className="col-12 col-md-11">
           <div className="row">
-            <div className="col-12">
-              <Marquee
-                rtl={false}
-                items={items}
-              />
+            <div className="col-12 col-md-11">
+              <div className="marquee">
+                <div
+                  className="marqueeContentLeft"
+                >
+                  <div className="marqueeItem">
+                    <a onClick={()=> next(0)}>NERA</a>
+                  </div>
+                  <div className="marqueeItem">
+                    <a onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                  </div>
+                  <div className="marqueeItem">
+                    <a onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                  </div>
+                  <div className="marqueeItem">
+                    <a onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="row mt-3">
-            <div className="col-12 col-md-2">
-              <p>
-                We are a group of creatives who collaborate with clients helping them understand, envision, and plan the endless possibilities within virtual platforms.
-              </p>
-            </div>
-            <div className="col-12 col-md-10">
+            <div className="col-12 col-md-11">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
-                slidesPerView={1}
-                loop={true}
-                pagination={{ clickable: true }}
-                className="projectsSwiper"
+                slidesPerView={1}              
+                onSwiper={(swiper) => {
+                  ref.current = swiper;
+                }}
                 // autoplay={{
                 //   delay: 5200,
                 //   disableOnInteraction: true,
                 // }}
                 // speed={800}
               >
-                {items.map((item, index) => {
-                  return (
-                  <SwiperSlide key={index}>
-                    <img
-                      src={item.src}
-                      alt={item.name}
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                      }} />
-                  </SwiperSlide>
-                  )
-                })}
+                <SwiperSlide><Sandbox/></SwiperSlide>
+                <SwiperSlide><Spatial/></SwiperSlide>
+                <SwiperSlide><Decentraland/></SwiperSlide>
+                {/* <SwiperSlide><Gaby/></SwiperSlide> */}
               </Swiper>
             </div>
           </div>

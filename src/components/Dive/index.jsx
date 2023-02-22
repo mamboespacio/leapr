@@ -18,7 +18,7 @@ const Dive = () => {
     ref1.current.style.top = r1*200 + '%'
   })
   return (
-    <section className="h-100">
+    <section id="process" className="h-100">
       <div className="container-fluid h-100">
         <div className="row h-100 align-items-center justify-content-center">
           <div className="col-md-12 text-center">

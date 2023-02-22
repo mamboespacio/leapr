@@ -5,9 +5,16 @@ const Partners = () => {
   return (
     <section className="h-100">
       <div className="container-fluid h-100">
-        <div className="row h-100 align-items-center">
-          <div className="col-md-12">
-            
+        <div className="row h-100 align-items-end justify-content-center pb-5">
+          
+          <div className="col-3">
+            <img className="w-100" src="/images/partners/SANDBOX.png"/>
+          </div>
+          <div className="col-3">
+            <img className="w-100" src="/images/partners/NVIDIA.png"/>
+          </div>
+          <div className="col-3">
+            <img className="w-100" src="/images/partners/DCL.png"/>
           </div>
         </div>
       </div>

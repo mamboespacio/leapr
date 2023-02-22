@@ -29,7 +29,7 @@ export default function Experience() {
 
   return (
     <>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <Suspense
         fallback={<Loader/>}
       >
@@ -48,7 +48,7 @@ export default function Experience() {
             <Design/>
             <Deploy/>
             <Team/>
-            <p className="mt-3 text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
+            <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
           <Background/>
           <Model />

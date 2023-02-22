@@ -1,22 +1,20 @@
 export const projects = [
   {
-    name: 'Project 1',
-    src: '/images/project.jpg'
+    name: 'NERA',
+    images: ['/images/sandbox1.png'],
+    videos: ['/images/sandbox2.mp4'],
   },
   {
-    name: 'Project 2',
-    src: '/images/project.jpg'
+    name: "LEAPR’S AUDITORIUM",
+    images: ['/images/spatial1.png', '/images/spatial2.png', '/images/spatial3.png'],
   },
   {
-    name: 'Project 3',
-    src: '/images/project.jpg'
+    name: "LEAPER'S HEADQUARTERS",
+    images: ['/images/dcl1.png', '/images/dcl2.png', '/images/dcl3.png'],
+    videos: ['/images/sandbox2.mp4'],
   },
   {
-    name: 'Project 4',
-    src: '/images/project.jpg'
-  },
-  {
-    name: 'Project 5',
-    src: '/images/project.jpg'
+    name: 'LEAPR FT GABY PEÑALBA',
+    videos: ['/images/gabyFTleapr_1.mp4', '/images/gabyFTleapr_1.mp4', '/images/gabyFTleapr_1.mp4'],
   },
 ]
