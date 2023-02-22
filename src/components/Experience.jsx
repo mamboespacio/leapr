@@ -31,10 +31,6 @@ export default function Experience() {
     <>
       {/* <Perf position="top-left" /> */}
       <Suspense
-        // fallback={<mesh>
-        //               <boxGeometry scale={[10,10,10]}/>
-        //               <meshBasicMaterial/>
-        //           </mesh>}
       >
         <ScrollControls pages={sectionsLength} damping={0.9} maxSpeed={0.5}>
           <Scroll html style={{ width: '100%', height: '100%' }}>
