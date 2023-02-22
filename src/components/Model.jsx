@@ -5,6 +5,8 @@ import * as THREE from 'three'
 import { Vector3 } from 'three'
 import { mapRange } from 'canvas-sketch-util/math'
 
+// const url = './0123_LEAPR_boceto3d_7_OPTIMIZE.glb'
+
 export default function Model()
 {   
     const state_ = useThree()
@@ -80,7 +82,7 @@ export default function Model()
                     child.material.transparent = true
                     child.material.opacity = 1.0
                 }
-              
+            //   console.log(child)
             }
         }) 
     }, [])
@@ -159,6 +161,7 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
+        console.log(actions)
    }) 
 
     return (
@@ -179,7 +182,6 @@ export default function Model()
 
 
 useGLTF.preload('./leapr_syncCubito3.glb')
-
 
 export const TranssmisiveMaterial = () =>
 {
