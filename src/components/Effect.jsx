@@ -85,10 +85,10 @@ import { Vector2 } from "three";
                     averageLuminance={1.0} // average luminance
                     adaptationRate={1.0} // luminance adaptation rate
                 />
-                <ColorDepth bits={[64]}/>
+                {/* <ColorDepth bits={[64]}/> */}
                 <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
                 <HueSaturation saturation={[0.]} hue={[0]}/>
-                <ChromaticAberration />
+                <ChromaticAberration/>
                 {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>
             </>
