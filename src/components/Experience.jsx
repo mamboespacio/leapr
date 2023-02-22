@@ -49,9 +49,9 @@ export default function Experience() {
             <Team/>
             <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
-          <Background/>
-          <Model />
-          <Effect/>
+          {/* <Background/> */}
+          {/* <Model /> */}
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
       {/* <Environment files="/skybox/leapr_skybox1.hdr" background/>  */}
