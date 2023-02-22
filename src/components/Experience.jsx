@@ -50,12 +50,12 @@ export default function Experience() {
             <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
           <Background/>
-          {/* <Model /> */}
+          <Model />
           <Effect/>
         </ScrollControls>
       </Suspense>
-      <Environment files="/skybox/leapr_skybox1.hdr" background/> 
-      <Environment preset="forest"/>
+      {/* <Environment files="/skybox/leapr_skybox1.hdr" background/>  */}
+      {/* <Environment preset="forest"/> */}
       <SpaceParticles count={[5000]}/>
     </>
   );
