@@ -4,7 +4,7 @@ import {
   Environment,
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense} from "react";
 import Model from "./Model";
 import About from "./About";
 import Claim from './Claim'
@@ -51,7 +51,7 @@ export default function Experience() {
           </Scroll>
           <Background/>
           <Model />
-          <Effect/>
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 

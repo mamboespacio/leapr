@@ -55,7 +55,6 @@ export default function Model()
                     child.material.roughness = 0
                     child.material.depthFunc = 1
                     child.material.emissiveIntensity = 0.1
-                    // console.log(child)
                 }
 
                 if(child.material.name == 'concrete_floor_worn_001')
@@ -83,7 +82,6 @@ export default function Model()
                     child.material.transparent = true
                     child.material.opacity = 1.0
                 }
-              console.log(child.material)
             }
         }) 
     }, [])
@@ -162,7 +160,6 @@ export default function Model()
             greenLigth.color = new THREE.Color("#0dff00")
         }
         //logs
-        // console.log(model.scene)
    }) 
 
     return (

@@ -3,7 +3,6 @@ import {
     Bloom,
     Noise,
     Vignette,
-    ColorDepth,
     ToneMapping,
     HueSaturation,
     DepthOfField,
