@@ -23,7 +23,7 @@ import Effect from "./Effect";
 import Loader from "./Loader";
 
 
-export const sectionsLength = 12.62
+export const sectionsLength = 12.98
 
 export default function Experience() {
 
@@ -40,7 +40,7 @@ export default function Experience() {
             <section style={{height:'175%'}}></section>
             {/* <section className="h-50"></section> */}
             <About/>
-            <section style={{height:'20%'}}></section>
+            <section style={{height:'50%'}}></section>
             <Projects/>
             <Dive/>
             <Define/>
@@ -54,7 +54,7 @@ export default function Experience() {
           <Effect/>
         </ScrollControls>
       </Suspense>
-      <Environment files="/skybox/leapr_skybox1.hdr" background/> 
+      <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
       <SpaceParticles count={[5000]}/>
     </>
