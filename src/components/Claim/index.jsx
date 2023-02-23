@@ -3,7 +3,7 @@ import React from "react";
 const Claim = () => {
 
   return (
-    <section className="h-100">
+    <section className="h-100" id="claim">
       <div className="row gx-0 h-100 align-items-center">
         <div className="col-10 offset-2 col-md-5 offset-md-7 text-uppercase">
           <div className="row">

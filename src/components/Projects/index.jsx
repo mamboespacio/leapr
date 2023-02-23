@@ -8,6 +8,7 @@ import { Sandbox } from "./sandbox";
 import { Decentraland } from "./decentraland";
 import { Spatial } from "./spatial";
 import { Gaby } from "./gaby";
+import Marquee from "react-fast-marquee";
 
 const Projects = () => {
   const ref = useRef(null)
@@ -25,7 +26,10 @@ const Projects = () => {
         <div className="col-12 col-md-12">
           <div className="row">
             <div className="col-12 col-md-12">
-              <div className="marquee">
+              <Marquee
+                pauseOnHover={true}
+                gradient={false}
+              >
                 <div
                   className="row gx-0 flex-nowrap marqueeContentLeft"
                 >
@@ -41,32 +45,8 @@ const Projects = () => {
                   <div className="col-6 col-md-3 marqueeItem">
                     <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
                   </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
-                  </div>
-                  <div className="col-6 col-md-3 marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
-                  </div>
                 </div>
-              </div>
+              </Marquee>
             </div>
           </div>
           <div className="row">

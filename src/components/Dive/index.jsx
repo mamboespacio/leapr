@@ -1,34 +1,30 @@
 import React, {useRef} from "react";
-import { useScroll,  Text3D } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useScroll, Text, Billboard } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { mapRange } from "canvas-sketch-util/math";
 
 const Dive = () => {
-  const ref1 = useRef()
-
+  const ref = useRef()
   const scroll = useScroll()
-  useFrame(() => {
-    const r1 = scroll.range(5 / 10, 1 / 10)
-
+  useFrame((state, camera) => {
+    const r1 = scroll.range(4 / 5, 1 / 5)
     // ref.current.classList.toggle('show', r1)
     // let filter = `blur(${r1*10}px)`
     // console.log(filter)
     // ref.current.style.flter = filter
-    ref1.current.style.letterSpacing = r1*30 + 'px'
-    ref1.current.style.scale = r1*10
-    ref1.current.style.top = r1*200 + '%'
+    ref.current.fontSize = mapRange(r1, 0, 1, 1, 5)
+    ref.current.letterSpacing = r1
+    ref.current.fillOpacity = mapRange(r1, 0, 1, 1, 0)
   })
   return (
-    <>
-    <section id="process" className="h-100">
-      <div className="container-fluid h-100">
-        <div className="row h-100 align-items-center justify-content-center">
-          <div className="col-md-12 text-center">
-            <h1 ref={ref1}>We Dive</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    </>
+    <Billboard
+      follow={false}
+      lockX={false}
+      lockY={false}
+      lockZ={false} // Lock the rotation on the z axis (default=false)
+    >
+      <Text ref={ref} fontSize={1}>We Dive</Text>
+    </Billboard>
   );
 };
 export default Dive;

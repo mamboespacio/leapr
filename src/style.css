@@ -113,10 +113,7 @@ h1{
   background-size: cover;
   z-index: -9999;
 }
-#team{
-  /* background-color: #E0DCD3; */
-  background-color: #000;
-}
+
 
 
 .navModal .modal-content {
@@ -219,7 +216,7 @@ h1{
 }
 
 .marqueeContentLeft {
-  animation: scrollingLeft 20s linear infinite;
+  /* animation: scrollingLeft 20s linear infinite; */
 }
 
 .marqueeItem a {

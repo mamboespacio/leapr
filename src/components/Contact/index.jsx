@@ -7,7 +7,7 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   
   const [showContact, setShowContact] = useState(false);
-  const contactModal = (props) => {
+  const ContactModal = (props) => {
     return (
       <Modal
         {...props}
@@ -75,7 +75,7 @@ const Contact = () => {
       <button className='contactBadge' onClick={() => setShowContact(true)}>
         <p>Contact Us :)</p>
       </button>
-      <contactModal show={showContact} onHide={() => setShowContact(false)} />
+      <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>
   );
 };

@@ -13,7 +13,7 @@ function App() {
   return (
     <>
     <Navigation navStyle={navStyle}/>
-    {/* <Contact/> */}
+    <Contact/>
     
     <Canvas
       shadows

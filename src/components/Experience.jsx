@@ -2,6 +2,8 @@ import {
   ScrollControls,
   Scroll,
   Environment,
+  Billboard,
+  Text
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense} from "react";
@@ -44,21 +46,25 @@ export default function Experience() {
             <About/>
             <section style={{height:'50%'}}></section>
             <Projects/>
-            <Dive/>
-            <Define/>
-            <Design/>
-            <Deploy/>
+            <section style={{height:'100%'}}></section>
+            <section style={{height:'100%'}}></section>
+            <section style={{height:'100%'}}></section>
+            <section style={{height:'100%'}}></section>
             <Team/>
             <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
           </Scroll>
+          <Dive/>
+          {/* <Define/>
+          <Design/>
+          <Deploy/> */}
           <Background/>
           <Model />
-          {/* <Effect/> */}
+          <Effect/>
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
-      {/* <SpaceParticles count={[5000]}/> */}
+      <SpaceParticles count={[5000]}/>
     </>
   );
 }

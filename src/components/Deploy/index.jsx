@@ -1,9 +1,9 @@
 import React, {useRef} from "react";
-import { useScroll } from "@react-three/drei";
+import { useScroll, Text, Billboard } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 const Deploy = () => {
-  const ref1 = useRef()
+  const ref = useRef()
 
   const scroll = useScroll()
   useFrame(() => {
@@ -13,20 +13,17 @@ const Deploy = () => {
     // let filter = `blur(${r1*10}px)`
     // console.log(filter)
     // ref.current.style.flter = filter
-    ref1.current.style.letterSpacing = r1*30 + 'px'
-    ref1.current.style.scale = r1*10
-    ref1.current.style.top = r1*200 + '%'
+    ref.current.scale.set(r1*10, r1*10, 1)
   })
   return (
-    <section className="h-100">
-      <div className="container-fluid h-100">
-        <div className="row h-100 align-items-center justify-content-center">
-          <div className="col-md-12 text-center">
-            <h1 ref={ref1}>We Deploy</h1>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Billboard
+      follow={true}
+      lockX={false}
+      lockY={false}
+      lockZ={false} // Lock the rotation on the z axis (default=false)
+    >
+      <Text fontSize={1}>We Deploy</Text>
+    </Billboard>
   );
 };
 export default Deploy;

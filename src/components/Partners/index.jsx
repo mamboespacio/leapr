@@ -3,7 +3,7 @@ import React from "react";
 const Partners = () => {
 
   return (
-    <section className="h-100">
+    <section className="h-100" id="partners">
       <div className="container-fluid h-100">
         <div className="row h-100 align-items-end justify-content-center pb-5">
           
