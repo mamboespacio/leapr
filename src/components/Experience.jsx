@@ -20,9 +20,7 @@ import Navigation from "./Navigation";
 import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
-import Loader from "./Loader";
 import LoadingPage from "./Loader";
-
 
 export const sectionsLength = 12.98
 

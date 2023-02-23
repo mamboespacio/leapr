@@ -113,10 +113,10 @@ export default function Model() {
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
       state_.camera.position.lerp(partnersPosition, timeLearp)
       state_.camera.lookAt(0,0,0)
-      console.log(dataScroll.range(0, 1/10))
+
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
-      state_.frameloop = "demand"
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsDNA, 0.25).x;
       state_.camera.position.lerp(DNAPosition, timeLearp)
       state_.camera.lookAt(0,-1.5,6)
@@ -138,7 +138,7 @@ export default function Model() {
   //UPDATE
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 10);
-
+    console.log(state.performance)
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
