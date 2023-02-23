@@ -15,7 +15,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./0123_LEAPR_boceto3d_8_OPTIMIZE.glb");
+  const model = useGLTF("./leapr_NLAmerge.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 
@@ -26,14 +26,15 @@ export default function Model() {
   const paramsOurWork = new THREE.Vector3(50, 0.6, 0);
   const paramsOurProcess = new THREE.Vector3(100, 1, 0);
 
-  //Camera path
+  //CAMERA PATHS
 
   const inicialPosition = new THREE.Vector3(21.25, 1.35, -1.63);
   const partnersPosition = new THREE.Vector3(-31.75, 1.37, 116.06);
   const DNAPosition = new THREE.Vector3(-6.90, -2.53, 6.74);
   const ourWorkPosition = new THREE.Vector3(102.77, -354.92, -32.99);
   const ourProcessPosition = new THREE.Vector3(82.96, -707.50, 12.85);
-  const timeLearp = 0.015
+  const timeLearp = 0.025
+
 
   //Dinamic values
   let fovToLerp = new Vector3(0, 0, 0);
@@ -41,6 +42,7 @@ export default function Model() {
 
   //START
   useEffect(() => {
+    console.log(model)
     for (let action in actions) {
       actions[action].play();
     }
@@ -55,24 +57,25 @@ export default function Model() {
         child.castShadow = true;
         child.receiveShadow = true;
 
-        if (child.material.name == "material_cubos") {
+        if (child.material.name == "material_cubos_Bake") {
           child.material = TranssmisiveMaterial();
+          console.log(child)
         }
 
-        if (child.material.name == "material_cubos.002") {
+        if (child.material.name == "material_cubos.002_Bake") {
           child.material.metalness = 1;
           child.material.roughness = 0;
           child.material.depthFunc = 1;
           child.material.emissiveIntensity = 0.1;
         }
 
-        if (child.material.name == "concrete_floor_worn_001") {
+        if (child.material.name == "concrete_floor_worn_001_Bake") {
           child.material.metalness = 0.6;
           child.material.roughness = 0.1;
           child.material.depthFunc = 3;
         }
 
-        if (child.material.name == "Material") {
+        if (child.material.name == "Material_Bake") {
           child.material.metalness = 1;
           child.material.roughness = 0.15;
           child.material.color = new THREE.Color("rgb(50,50,50)");
@@ -82,7 +85,7 @@ export default function Model() {
           child.material.wireframe = true;
         }
 
-        if (child.name == "CuboProcess") {
+        if (child.name == "CuboProcess_Bake") {
           child.material.roughness = 0.1;
           child.material.metalness = 0.5;
           child.material.transparent = true;
@@ -164,7 +167,7 @@ export default function Model() {
  
     //Animated values on Model
     let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
-    model.scene.children[6].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
+    model.scene.children[4].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
 
     //Animated values at Ligths
     greenLigth.intensity = mapRange(
