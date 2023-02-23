@@ -26,6 +26,8 @@ function App() {
     }}
     frameloop="always"
     performance={{ debounce: 200 }}
+    antialias={false}
+    dpr={[1,2]}
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>
