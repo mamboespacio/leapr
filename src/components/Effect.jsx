@@ -57,7 +57,7 @@ import { Vector2 } from "three";
     useFrame((state, delta) =>
     {
         // updateFocusDistance()
-        state.camera.updateProjectionMatrix()
+        
     })
 
     return  <>

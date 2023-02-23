@@ -152,8 +152,8 @@ export default function Model() {
           );
     }
 
+    state.camera.updateProjectionMatrix()
  
-
     //Animated values on Model
     let opacityCubo = dataScroll.range(5 / 10 + 0.05, 1 / 10);
     let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
@@ -173,7 +173,8 @@ export default function Model() {
     } else {
       greenLigth.color = new THREE.Color("#0dff00");
     }
-    //logs
+    
+
   });
 
   return (
