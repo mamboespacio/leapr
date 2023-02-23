@@ -24,6 +24,7 @@ function App() {
         position: [ 4, 3, 20 ],
       
     }}
+    frameloop="always"
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>

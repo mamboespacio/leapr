@@ -24,9 +24,18 @@ export default function Model() {
   // FieldOfView | Valor del Scroll al final de la seccion |
   const paramsInicio = new THREE.Vector3(1, 0.03, 0);
   const paramsPartners = new THREE.Vector3(120, 0.2, 0);
-  const paramsDNA = new THREE.Vector3(15, 0.45, 0);
+  const paramsDNA = new THREE.Vector3(15, 0.45, -10);
   const paramsOurWork = new THREE.Vector3(50, 0.6, 0);
   const paramsOurProcess = new THREE.Vector3(80, 1, 0);
+
+  //Camera path
+
+  const inicialPosition = new THREE.Vector3(21.25, 1.35, -1.63);
+  const partnersPosition = new THREE.Vector3(-31.75, 1.37, 116.06);
+  const DNAPosition = new THREE.Vector3(-6.90, -2.53, 6.74);
+  const ourWorkPosition = new THREE.Vector3(102.77, -354.92, -32.99);
+  const ourProcessPosition = new THREE.Vector3(82.96, -707.50, 12.85);
+  const timeLearp = 0.015
 
   //Dinamic values
   let fovToLerp = new Vector3(0, 0, 0);
@@ -41,9 +50,9 @@ export default function Model() {
     state_.camera.fov = 1;
 
     // console.log(state_.camera)
-    model.scene.children[4].attach(state_.camera)
-    state_.camera.position.set(0,0,0)
-    state_.camera.rotation.set(0,0,0)
+    // model.scene.children[4].attach(state_.camera)
+    state_.camera.position.set(inicialPosition.x, inicialPosition.y, inicialPosition.z)
+    state_.camera.lookAt(new THREE.Vector3(0,0,0))
 
     model.scene.traverse(function (child) {
 
@@ -97,23 +106,37 @@ export default function Model() {
 
     if (offset < paramsInicio.y) {
       // INICIO
-      // state_.frameloop = "always"
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x;
+      state_.camera.position.lerp(inicialPosition, timeLearp)
+      state_.camera.lookAt(0,0,0)
     }
 
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
       // SECCION PARTNERS
-      // state_.frameloop = "demand"
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
+      state_.camera.position.lerp(partnersPosition, timeLearp)
+      state_.camera.lookAt(0,0,0)
+      console.log(dataScroll.range(0, 1/10))
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
+      state_.frameloop = "demand"
       state.camera.fov = fovToLerp.lerp(paramsDNA, 0.25).x;
+      state_.camera.position.lerp(DNAPosition, timeLearp)
+      state_.camera.lookAt(0,-1.5,6)
     } else if (offset > paramsDNA.y && offset < paramsOurWork.y) {
       // SECCION OUR WORK
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.25).x;
+      state_.camera.position.lerp(ourWorkPosition, timeLearp)
+      state_.camera.lookAt(80.77, -324.92, 0)
     } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) {
       // SECCION OUR PROCESS
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurProcess, 0.25).x;
+      state_.camera.position.lerp(ourProcessPosition, timeLearp)
+      state_.camera.lookAt(42.96, -687.50, 0)
     }
   };
 
@@ -145,7 +168,7 @@ export default function Model() {
       
     }
 
-    console.log(state.camera.rotation)
+    console.log(state_.camera.position)
     state.camera.updateProjectionMatrix()
  
     //Animated values on Model
@@ -193,7 +216,7 @@ export const TranssmisiveMaterial = () => {
   const material = new THREE.MeshPhysicalMaterial({
     transmission: 0.5,
     metalness: 0.3,
-    roughness: 0,
+    roughness: 0.,
     thickness: 3,
     ior: 10,
     clearcoat: 1,
