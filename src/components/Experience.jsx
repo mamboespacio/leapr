@@ -22,9 +22,7 @@ import Navigation from "./Navigation";
 import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
-import Loader from "./Loader";
 import LoadingPage from "./Loader";
-
 
 export const sectionsLength = 12.98
 
@@ -32,11 +30,11 @@ export default function Experience() {
 
   return (
     <>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
       <Suspense
         fallback={<LoadingPage/>}
       >
-        <ScrollControls pages={sectionsLength} damping={0.4} maxSpeed={0.1}>
+        <ScrollControls pages={sectionsLength} damping={0.4} maxSpeed={0.1} >
           <Scroll html style={{ width: '100%', height: '100%' }}>
      
             <Claim/>
