@@ -61,7 +61,7 @@ export function SpaceParticles({ count }) {
       {/* <pointLight ref={light} distance={400} intensity={100} color="lightblue"  position={[0,-400,0]}/> */}
       {/* <pointLight ref={light} distance={400} intensity={100} color="lightblue"  position={[0,400,0]}/> */}
       <instancedMesh ref={mesh} args={[null, null, count]}>
-        <dodecahedronBufferGeometry args={[0.5, 0]} />
+        <circleBufferGeometry args={[1, 5]} />
         <meshStandardMaterial 
           color="#ffffff" 
           roughness={[0.]} 

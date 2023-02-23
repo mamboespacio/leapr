@@ -38,7 +38,7 @@ import { Vector2 } from "three";
         }
         else if(offset > 0.2 && offset < 0.45) 
             {
-                setFD(0.1)
+                setFD(0.01)
             } else if (offset > 0.45 && offset < 0.6)
                    {
                     setFD(0.1)
@@ -56,7 +56,7 @@ import { Vector2 } from "three";
 
     useFrame((state, delta) =>
     {
-        // updateFocusDistance()
+        updateFocusDistance()
         
     })
 
@@ -85,7 +85,7 @@ import { Vector2 } from "three";
                     adaptationRate={1.0} // luminance adaptation rate
                 />
                 {/* <ColorDepth bits={[64]}/> */}
-                {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} /> */}
+                <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
                 <HueSaturation saturation={[0.]} hue={[0]}/>
                 <ChromaticAberration/>
                 {/* <GodRays  sun={sunRef}/>  */}

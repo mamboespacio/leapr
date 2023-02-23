@@ -3,7 +3,6 @@ import {
   useGLTF,
   useScroll,
   Float,
-  useEnvironment,
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
@@ -11,7 +10,6 @@ import * as THREE from "three";
 import { Vector3 } from "three";
 import { mapRange } from "canvas-sketch-util/math";
 
-// const url = './0123_LEAPR_boceto3d_7_OPTIMIZE.glb'
 
 export default function Model() {
   const state_ = useThree();
@@ -24,9 +22,18 @@ export default function Model() {
   // FieldOfView | Valor del Scroll al final de la seccion |
   const paramsInicio = new THREE.Vector3(1, 0.03, 0);
   const paramsPartners = new THREE.Vector3(120, 0.2, 0);
-  const paramsDNA = new THREE.Vector3(15, 0.45, 0);
+  const paramsDNA = new THREE.Vector3(15, 0.45, -10);
   const paramsOurWork = new THREE.Vector3(50, 0.6, 0);
   const paramsOurProcess = new THREE.Vector3(80, 1, 0);
+
+  //Camera path
+
+  const inicialPosition = new THREE.Vector3(21.25, 1.35, -1.63);
+  const partnersPosition = new THREE.Vector3(-31.75, 1.37, 116.06);
+  const DNAPosition = new THREE.Vector3(-6.90, -2.53, 6.74);
+  const ourWorkPosition = new THREE.Vector3(102.77, -354.92, -32.99);
+  const ourProcessPosition = new THREE.Vector3(82.96, -707.50, 12.85);
+  const timeLearp = 0.015
 
   //Dinamic values
   let fovToLerp = new Vector3(0, 0, 0);
@@ -39,11 +46,8 @@ export default function Model() {
     }
 
     state_.camera.fov = 1;
-
-    // console.log(state_.camera)
-    model.scene.children[4].attach(state_.camera)
-    state_.camera.position.set(0,0,0)
-    state_.camera.rotation.set(0,0,0)
+    state_.camera.position.set(inicialPosition.x, inicialPosition.y, inicialPosition.z)
+    state_.camera.lookAt(new THREE.Vector3(0,0,0))
 
     model.scene.traverse(function (child) {
 
@@ -97,32 +101,44 @@ export default function Model() {
 
     if (offset < paramsInicio.y) {
       // INICIO
-      // state_.frameloop = "always"
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x;
+      state_.camera.position.lerp(inicialPosition, timeLearp)
+      state_.camera.lookAt(0,0,0)
     }
 
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
       // SECCION PARTNERS
-      // state_.frameloop = "demand"
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
+      state_.camera.position.lerp(partnersPosition, timeLearp)
+      state_.camera.lookAt(0,0,0)
+
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsDNA, 0.25).x;
+      state_.camera.position.lerp(DNAPosition, timeLearp)
+      state_.camera.lookAt(0,-1.5,6)
     } else if (offset > paramsDNA.y && offset < paramsOurWork.y) {
       // SECCION OUR WORK
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.25).x;
+      state_.camera.position.lerp(ourWorkPosition, timeLearp)
+      state_.camera.lookAt(80.77, -324.92, 0)
     } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) {
       // SECCION OUR PROCESS
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurProcess, 0.25).x;
+      state_.camera.position.lerp(ourProcessPosition, timeLearp)
+      state_.camera.lookAt(42.96, -687.50, 0)
     }
   };
 
   //UPDATE
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 10);
-
-    // state.camera.updateProjectionMatrix()
-
+    console.log(state.performance)
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
@@ -145,13 +161,11 @@ export default function Model() {
       
     }
 
-    console.log(state.camera.rotation)
     state.camera.updateProjectionMatrix()
  
     //Animated values on Model
     let opacityCubo = dataScroll.range(5 / 10 + 0.05, 1 / 10);
     let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
-    // model.scene.children[60].material.opacity = mapRange(opacityCubo, 0, 1, 1, 0) // OPACIDAD CUBO PIEDRA
     model.scene.children[6].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
 
     //Animated values at Ligths
@@ -193,7 +207,7 @@ export const TranssmisiveMaterial = () => {
   const material = new THREE.MeshPhysicalMaterial({
     transmission: 0.5,
     metalness: 0.3,
-    roughness: 0,
+    roughness: 0.,
     thickness: 3,
     ior: 10,
     clearcoat: 1,
