@@ -24,7 +24,7 @@ export default function Model() {
   const paramsPartners = new THREE.Vector3(120, 0.2, 0);
   const paramsDNA = new THREE.Vector3(15, 0.45, -10);
   const paramsOurWork = new THREE.Vector3(50, 0.6, 0);
-  const paramsOurProcess = new THREE.Vector3(80, 1, 0);
+  const paramsOurProcess = new THREE.Vector3(100, 1, 0);
 
   //Camera path
 
@@ -131,7 +131,7 @@ export default function Model() {
       state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurProcess, 0.25).x;
       state_.camera.position.lerp(ourProcessPosition, timeLearp)
-      state_.camera.lookAt(42.96, -687.50, 0)
+      state_.camera.lookAt(0, -657.50, 0)
     }
   };
 
