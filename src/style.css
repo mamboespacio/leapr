@@ -186,6 +186,7 @@ h1{
   margin-bottom: 0 !important;
 }
 @media (min-width: 992px) {
+
   h1{
     font-size: 3.5rem !important;
     line-height: 1 !important;
@@ -208,24 +209,24 @@ h1{
   overflow: hidden;
   background-color: #E0DBD3;
 }
+@keyframes scrollingLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 .marqueeContentLeft {
-  display: grid;
-  list-style: none;
-  /* animation: scrollingLeft 40s linear infinite; */
-  grid-template-columns: repeat(4, 1fr);
-}
-.marqueeContentRight {
-  display: grid;
-  list-style: none;
-  /* animation: scrollingRight 40s linear infinite; */
-  grid-template-columns: repeat(4, 1fr);
+  animation: scrollingLeft 20s linear infinite;
 }
 
 .marqueeItem a {
   color: #000 !important;
   display: block;
   padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 .marqueeItem a:hover, .marqueeItem a:focus {
   background-color: #00FF39;
@@ -242,4 +243,23 @@ h1{
 .hero span.right {
   text-align: right;
   margin-left: auto;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.video-container iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+#work  p{
+  border-top: 3px solid #00FF39;
+  background-color: #E0DBD3;
+  color: #000;
+  margin-bottom: 0 !important;
 }

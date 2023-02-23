@@ -22,31 +22,55 @@ const Projects = () => {
   return (
     <section id="work" className="h-100">
       <div className="row gx-0 align-items-center h-100">
-        <div className="col-12 col-md-11">
+        <div className="col-12 col-md-12">
           <div className="row">
-            <div className="col-12 col-md-11">
+            <div className="col-12 col-md-12">
               <div className="marquee">
                 <div
-                  className="marqueeContentLeft"
+                  className="row gx-0 flex-nowrap marqueeContentLeft"
                 >
-                  <div className="marqueeItem">
-                    <a onClick={()=> next(0)}>NERA</a>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
                   </div>
-                  <div className="marqueeItem">
-                    <a onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
                   </div>
-                  <div className="marqueeItem">
-                    <a onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
                   </div>
-                  <div className="marqueeItem">
-                    <a onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                  </div>
+                  <div className="col-6 col-md-3 marqueeItem">
+                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row mt-3">
-            <div className="col-12 col-md-11">
+          <div className="row">
+            <div className="col-12 col-md-12">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -63,7 +87,7 @@ const Projects = () => {
                 <SwiperSlide><Sandbox/></SwiperSlide>
                 <SwiperSlide><Spatial/></SwiperSlide>
                 <SwiperSlide><Decentraland/></SwiperSlide>
-                {/* <SwiperSlide><Gaby/></SwiperSlide> */}
+                <SwiperSlide><Gaby/></SwiperSlide>
               </Swiper>
             </div>
           </div>
