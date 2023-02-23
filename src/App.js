@@ -24,9 +24,9 @@ function App() {
         position: [ 4, 3, 20 ],
       
     }}
-    frameloop="always"
+    frameloop="demand"
     performance={{ debounce: 200 }}
-    antialias={false}
+    antialias={true}
     dpr={[1,2]}
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>

@@ -7,11 +7,12 @@ const Dive = () => {
   const ref = useRef()
   const scroll = useScroll()
   useFrame((state, camera) => {
-    const r1 = scroll.range(4 / 5, 1 / 5)
+    const r1 = scroll.range(7/10, 1 / 10)
     // ref.current.classList.toggle('show', r1)
     // let filter = `blur(${r1*10}px)`
     // console.log(filter)
     // ref.current.style.flter = filter
+    ref.current.parent = state.camera
     ref.current.fontSize = mapRange(r1, 0, 1, 1, 5)
     ref.current.letterSpacing = r1
     ref.current.fillOpacity = mapRange(r1, 0, 1, 1, 0)

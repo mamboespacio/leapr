@@ -104,37 +104,37 @@ export default function Model() {
 
     if (offset < paramsInicio.y) {
       // INICIO
-      state_.frameloop = "always"
+      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x;
-      state_.camera.position.lerp(inicialPosition, timeLearp)
-      state_.camera.lookAt(0,0,0)
+      state.camera.position.lerp(inicialPosition, timeLearp)
+      state.camera.lookAt(0,0,0)
     }
 
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
       // SECCION PARTNERS
-      state_.frameloop = "always"
+      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
-      state_.camera.position.lerp(partnersPosition, timeLearp)
-      state_.camera.lookAt(0,0,0)
+      state.camera.position.lerp(partnersPosition, timeLearp)
+      state.camera.lookAt(0,0,0)
 
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
-      state_.frameloop = "always"
+      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsDNA, 0.25).x;
-      state_.camera.position.lerp(DNAPosition, timeLearp)
-      state_.camera.lookAt(0,-1.5,6)
+      state.camera.position.lerp(DNAPosition, timeLearp)
+      state.camera.lookAt(0,-1.5,6)
     } else if (offset > paramsDNA.y && offset < paramsOurWork.y) {
       // SECCION OUR WORK
-      state_.frameloop = "always"
+      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.25).x;
-      state_.camera.position.lerp(ourWorkPosition, timeLearp)
-      state_.camera.lookAt(80.77, -324.92, 0)
+      state.camera.position.lerp(ourWorkPosition, timeLearp)
+      state.camera.lookAt(80.77, -324.92, 0)
     } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) {
       // SECCION OUR PROCESS
-      state_.frameloop = "always"
+      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurProcess, 0.25).x;
-      state_.camera.position.lerp(ourProcessPosition, timeLearp)
-      state_.camera.lookAt(0, -657.50, 0)
+      state.camera.position.lerp(ourProcessPosition, timeLearp)
+      state.camera.lookAt(0, -657.50, 0)
     }
   };
 
