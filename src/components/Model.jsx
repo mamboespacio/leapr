@@ -91,6 +91,7 @@ export default function Model() {
 
     if (offset < paramsInicio.y) {
       // INICIO
+      state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x;
     }
 
