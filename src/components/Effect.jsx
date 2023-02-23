@@ -50,13 +50,11 @@ import { Vector2 } from "three";
                                     setFD(0.1)
                                  }
                                  
-
-        // console.log("focus " + focusDistance + " " + "offset " + offset)
     }
 
     useFrame((state, delta) =>
     {
-        updateFocusDistance()
+        // updateFocusDistance()
         
     })
 
@@ -85,7 +83,7 @@ import { Vector2 } from "three";
                     adaptationRate={1.0} // luminance adaptation rate
                 />
                 {/* <ColorDepth bits={[64]}/> */}
-                <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} />
+                {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} /> */}
                 <HueSaturation saturation={[0.]} hue={[0]}/>
                 <ChromaticAberration/>
                 {/* <GodRays  sun={sunRef}/>  */}

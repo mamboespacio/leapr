@@ -138,7 +138,6 @@ export default function Model() {
   //UPDATE
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 10);
-    console.log(state.performance)
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
