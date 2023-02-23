@@ -49,7 +49,7 @@ body,
   color: #000;
 }
 h1{
-  font-size: 3.5rem !important;
+  font-size: 2rem !important;
   line-height: 1 !important;
 }
 
@@ -186,6 +186,10 @@ h1{
   margin-bottom: 0 !important;
 }
 @media (min-width: 992px) {
+  h1{
+    font-size: 3.5rem !important;
+    line-height: 1 !important;
+  }
   .memberDetail{
     position: absolute;
     top: 0;
@@ -228,4 +232,14 @@ h1{
 }
 .swiper-button-next, .swiper-button-prev{
   color: #fff !important;
+}
+.hero{
+  display: block;
+}
+.hero span {
+    display: table;
+}
+.hero span.right {
+  text-align: right;
+  margin-left: auto;
 }

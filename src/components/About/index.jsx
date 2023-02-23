@@ -7,7 +7,7 @@ const About = () => {
     <section id="dna" className="h-100">
         <div className="row gx-0 h-100 align-items-center">
           <div className="col-6">
-            <p>
+            <p style={{backgroundColor: 'rgba(0,0,0,0.3)'}}>
               <span className="text-highlight">
                 LEAPR 
               </span> is a strategy and design studio for metaverse platforms based in Argentina <br/>

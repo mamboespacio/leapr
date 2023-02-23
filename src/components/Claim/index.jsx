@@ -5,25 +5,15 @@ const Claim = () => {
   return (
     <section className="h-100">
       <div className="row gx-0 h-100 align-items-center">
-        <div className="col-md-5 offset-md-7 text-uppercase">
+        <div className="col-10 offset-2 col-md-5 offset-md-7 text-uppercase">
           <div className="row">
             <div className="col">
-              <h1 className="">we create</h1>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col text-end">
-              <h1 className="d-inline-block text-highlight">memorable</h1>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col text-end">
-              <h1 className="">metaverse</h1>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col">
-              <h1 className="ms-5">experiences</h1>
+              <h1 class="hero">
+                <span class="left">We create</span>
+                <span class="swap right text-highlight">Memorable</span>
+                <span class="right">metaverse</span>
+                <span class="left">experiences</span>
+              </h1>
             </div>
           </div>
         </div>

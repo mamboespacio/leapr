@@ -53,12 +53,12 @@ export default function Experience() {
           </Scroll>
           <Background/>
           <Model />
-          <Effect/>
+          {/* <Effect/> */}
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
-      <SpaceParticles count={[5000]}/>
+      {/* <SpaceParticles count={[5000]}/> */}
     </>
   );
 }
