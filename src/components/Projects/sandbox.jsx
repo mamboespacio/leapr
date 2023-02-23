@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player'
 
 export function Sandbox(){
   return(
-    <div class="row">
+    <div className="row">
     <div className="col-12 col-md-2">
       <p>
       Nera is a two-leveled game based in The SandBox  in which the player is submerged into a captivating story with different parkour and puzzle challenges. During this journey, they will meet with different characters which will guide them throughout the adventure.
