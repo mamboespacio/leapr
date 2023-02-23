@@ -3,7 +3,6 @@ import {
   useGLTF,
   useScroll,
   Float,
-  useEnvironment,
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
@@ -11,7 +10,6 @@ import * as THREE from "three";
 import { Vector3 } from "three";
 import { mapRange } from "canvas-sketch-util/math";
 
-// const url = './0123_LEAPR_boceto3d_7_OPTIMIZE.glb'
 
 export default function Model() {
   const state_ = useThree();
@@ -48,9 +46,6 @@ export default function Model() {
     }
 
     state_.camera.fov = 1;
-
-    // console.log(state_.camera)
-    // model.scene.children[4].attach(state_.camera)
     state_.camera.position.set(inicialPosition.x, inicialPosition.y, inicialPosition.z)
     state_.camera.lookAt(new THREE.Vector3(0,0,0))
 
@@ -144,8 +139,6 @@ export default function Model() {
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 10);
 
-    // state.camera.updateProjectionMatrix()
-
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
@@ -168,13 +161,11 @@ export default function Model() {
       
     }
 
-    console.log(state_.camera.position)
     state.camera.updateProjectionMatrix()
  
     //Animated values on Model
     let opacityCubo = dataScroll.range(5 / 10 + 0.05, 1 / 10);
     let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
-    // model.scene.children[60].material.opacity = mapRange(opacityCubo, 0, 1, 1, 0) // OPACIDAD CUBO PIEDRA
     model.scene.children[6].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
 
     //Animated values at Ligths
