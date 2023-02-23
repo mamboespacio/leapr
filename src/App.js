@@ -3,7 +3,7 @@ import './App.css';
 import { Canvas } from "@react-three/fiber";
 import Experience from "./components/Experience";
 
-import React, {useState} from "react";
+import React, {useState, Suspense} from "react";
 import Navigation from './components/Navigation';
 import Contact from './components/Contact';
 
@@ -14,6 +14,7 @@ function App() {
     <>
     <Navigation navStyle={navStyle}/>
     {/* <Contact/> */}
+    
     <Canvas
       shadows
       camera={{
@@ -23,10 +24,10 @@ function App() {
         position: [ 4, 3, 20 ],
       
     }}
-    frameloop="demand"
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>
+
     </>
   );
 }

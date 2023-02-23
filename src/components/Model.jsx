@@ -34,7 +34,7 @@ export default function Model() {
 
   //START
   useEffect(() => {
-    console.log("ENTRO");
+   
     for (let action in actions) {
       actions[action].play();
     }
@@ -96,6 +96,7 @@ export default function Model() {
 
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
       // SECCION PARTNERS
+      state_.frameloop = "demand"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
