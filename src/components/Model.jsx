@@ -34,7 +34,6 @@ export default function Model() {
 
   //START
   useEffect(() => {
-    console.log("ENTRO");
     for (let action in actions) {
       actions[action].play();
     }
@@ -112,10 +111,8 @@ export default function Model() {
   //UPDATE
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 10);
-
-    // state.camera.updateProjectionMatrix()
-
     const offset = dataScroll.offset;
+
     modelEffects(state, r1);
 
     for (let action in actions) {
@@ -126,6 +123,7 @@ export default function Model() {
             actions[action].getClip().duration * r1,
             1.0
           );
+
         } else {
           actions[action].time = actions[action].time = THREE.MathUtils.damp(
             actions[action].time,
@@ -134,7 +132,7 @@ export default function Model() {
             delta
           );
         }
-      
+   
     }
 
     if(state.camera.position != model.cameras[0].position)
@@ -152,7 +150,15 @@ export default function Model() {
           );
     }
 
+    // state.camera.position.set(
+    //     0,
+    //     mapRange(r1, ),
+    //     -100
+    //   );
+
     state.camera.updateProjectionMatrix()
+
+    // console.log( model.cameras[0].position.x + " " + model.cameras[0].position.y + " " +  model.cameras[0].position.z)
  
     //Animated values on Model
     let opacityCubo = dataScroll.range(5 / 10 + 0.05, 1 / 10);
@@ -173,7 +179,6 @@ export default function Model() {
     } else {
       greenLigth.color = new THREE.Color("#0dff00");
     }
-    
 
   });
 
