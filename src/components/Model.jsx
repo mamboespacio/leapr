@@ -34,14 +34,19 @@ export default function Model() {
 
   //START
   useEffect(() => {
-   
     for (let action in actions) {
       actions[action].play();
     }
 
     state_.camera.fov = 1;
 
+    // console.log(state_.camera)
+    model.scene.children[4].attach(state_.camera)
+    state_.camera.position.set(0,0,0)
+    state_.camera.rotation.set(0,0,0)
+
     model.scene.traverse(function (child) {
+
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
@@ -80,6 +85,7 @@ export default function Model() {
           child.material.opacity = 1.0;
         }
       }
+
     });
   }, []);
 
@@ -91,13 +97,13 @@ export default function Model() {
 
     if (offset < paramsInicio.y) {
       // INICIO
-      state_.frameloop = "always"
+      // state_.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x;
     }
 
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
       // SECCION PARTNERS
-      state_.frameloop = "demand"
+      // state_.frameloop = "demand"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.25).x;
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
       // SECCION DNA
@@ -139,21 +145,7 @@ export default function Model() {
       
     }
 
-    if(state.camera.position != model.cameras[0].position)
-    {
-        state.camera.position.set(
-            model.cameras[0].position.x,
-            model.cameras[0].position.y,
-            model.cameras[0].position.z
-          );
-      
-          state.camera.rotation.set(
-            model.cameras[0].rotation.x,
-            model.cameras[0].rotation.y,
-            model.cameras[0].rotation.z
-          );
-    }
-
+    console.log(state.camera.rotation)
     state.camera.updateProjectionMatrix()
  
     //Animated values on Model
