@@ -73,7 +73,7 @@ const Contact = () => {
   return (
     <>
       <button className='contactBadge' onClick={() => setShowContact(true)}>
-        <p>Contact Us</p>
+        <p className='text-black'>Contact Us</p>
       </button>
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>

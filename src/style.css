@@ -159,14 +159,14 @@ h1{
 }
 .contactBadge{
   background: rgb(9,209,5);
-  background: linear-gradient(0deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
+  background: linear-gradient(-90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
   position: fixed;
   bottom:35px;
   left: 0;
   z-index: 1000;
   border: 0;
   transform: rotate(-90deg);
-  left: -35px;
+  left: -40px;
 }
 .contactBadge p{
   transform-origin: 0 0;
