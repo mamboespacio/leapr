@@ -33,6 +33,24 @@ export function Spatial(){
             height: "auto",
           }} />
       </SwiperSlide>
+      <SwiperSlide>
+        <img
+          alt='spatial'
+          src="images/work/spatial/spatial2.png"
+          style={{
+            width: "100%",
+            height: "auto",
+          }} />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          alt='spatial'
+          src="images/work/spatial/spatial3.png"
+          style={{
+            width: "100%",
+            height: "auto",
+          }} />
+      </SwiperSlide>
     </Swiper>
     </div>
     </div>
