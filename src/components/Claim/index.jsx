@@ -8,11 +8,11 @@ const Claim = () => {
         <div className="col-10 offset-2 col-md-5 offset-md-7 text-uppercase">
           <div className="row">
             <div className="col">
-              <h1 class="hero">
-                <span class="left">We create</span>
-                <span class="swap right text-highlight">Memorable</span>
-                <span class="right">metaverse</span>
-                <span class="left">experiences</span>
+              <h1 className="hero">
+                <span className="left">We create</span>
+                <span className="swap right text-highlight">Memorable</span>
+                <span className="right">metaverse</span>
+                <span className="left">experiences</span>
               </h1>
             </div>
           </div>
