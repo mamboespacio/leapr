@@ -15,9 +15,9 @@ const Contact = () => {
         centered
         className="text-black text-center"
       >
-        <div className="container h-100 d-flex align-items-center">
-          <div className="row px-5 px-md-0 align-items-center align-items-md-start">
-            <div className="col-12 col-md-3 offset-md-4 pt-5 pt-md-0">
+        <div className="container">
+          <div className="row px-5 py-3 px-md-0">
+            <div className="col-12 pt-5 pt-md-0">
               <h4>
                 Contact
               </h4>
@@ -49,7 +49,7 @@ const Contact = () => {
                     onChange={e => setMessage(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-lg btn-outline-light rounded-pill">Send</button>
+                <button type="submit" className="btn bg-color rounded-pill">Send</button>
               </form>
             </div>
           </div>
@@ -73,7 +73,7 @@ const Contact = () => {
   return (
     <>
       <button className='contactBadge' onClick={() => setShowContact(true)}>
-        <p>Contact Us :)</p>
+        <p>Contact Us</p>
       </button>
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>

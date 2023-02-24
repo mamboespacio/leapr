@@ -161,11 +161,18 @@ h1{
   background: rgb(9,209,5);
   background: linear-gradient(0deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
   position: fixed;
-  bottom:0;
+  bottom:35px;
   left: 0;
-  width: 30px;
-  height: 90px;
   z-index: 1000;
+  border: 0;
+  transform: rotate(-90deg);
+  left: -35px;
+}
+.contactBadge p{
+  transform-origin: 0 0;
+  margin: 0 !important;
+  padding: 1rem;
+  bottom: 10px;
 }
 .bg-color{
   background: rgb(9,209,5);
@@ -201,24 +208,14 @@ h1{
     width: 100%;
   }
 }
-.marquee {
-  width: 100%;
-  overflow: hidden;
+
+.marquee-container{
   background-color: #E0DBD3;
 }
-@keyframes scrollingLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.marqueeItem{
+  background-color: #E0DBD3;
+  width: 30%;
 }
-
-.marqueeContentLeft {
-  /* animation: scrollingLeft 20s linear infinite; */
-}
-
 .marqueeItem a {
   color: #000 !important;
   display: block;

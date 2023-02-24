@@ -24,13 +24,13 @@ import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import LoadingPage from "./Loader";
 
-export const sectionsLength = 12.98
+export const sectionsLength = 12
 
 export default function Experience() {
 
   return (
     <>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <Suspense
         fallback={<LoadingPage/>}
       >
@@ -39,17 +39,17 @@ export default function Experience() {
      
             <Claim/>
             <Partners/>
-            <section style={{height:'175%'}}></section>
+            <section style={{height:'100%'}}></section>
             {/* <section className="h-50"></section> */}
             <About/>
-            <section style={{height:'50%'}}></section>
+            
             <Projects/>
             <section style={{height:'100%'}}></section>
             <section style={{height:'100%'}}></section>
             <section style={{height:'100%'}}></section>
             <section style={{height:'100%'}}></section>
             <Team/>
-            <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p>
+            {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
           </Scroll>
           <Dive/>
           {/* <Define/>
@@ -57,12 +57,12 @@ export default function Experience() {
           <Deploy/> */}
           <Background/>
           <Model />
-          {/* <Effect/> */}
+          <Effect/>
         </ScrollControls>
       </Suspense>
-      {/* <Environment files="/skybox/leapr_skybox2.hdr" background/> 
+      <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
-      <SpaceParticles count={[5000]}/> */}
+      <SpaceParticles count={[5000]}/>
     </>
   );
 }

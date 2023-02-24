@@ -34,7 +34,7 @@ export function Sandbox(){
           }} />
       </SwiperSlide>
       <SwiperSlide>
-        <ReactPlayer wrapper="video-container" url='https://www.youtube.com/watch?v=zBsy-sc0P3k' />
+        <ReactPlayer controls = {true} width="100%" height="100%" wrapper="video-container" url='images/work/sandbox/sandbox2.mp4' />
       </SwiperSlide>
     </Swiper>
     </div>

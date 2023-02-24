@@ -57,13 +57,13 @@ const Navigation = (navStyle, setNavStyle) => {
               height: "auto",
             }} /> */}
         </div>
-        <div className="col-3 col-md-9 d-flex justify-content-end align-items-center">
+        {/* <div className="col-3 col-md-9 d-flex justify-content-end align-items-center">
           <button
             className="btn btn-link text-white"
             onClick={() => setShowNav(true)}>
               <img style={{width: '30px'}} alt="Leapr logo" src="/images/menu_hamburguesa.svg"/>
           </button>
-        </div>
+        </div> */}
       </div>
       <NavModal show={showNav} onHide={() => setShowNav(false)} />
     </>
