@@ -24,7 +24,7 @@ export default function Model() {
   const paramsInicio = new THREE.Vector3(1, 0.06, 0);
   const paramsPartners = new THREE.Vector3(120, 0.2, 0);
   const paramsDNA = new THREE.Vector3(30, 0.47, 0);
-  const paramsOurWork = new THREE.Vector3(30, 0.62, 0);
+  const paramsOurWork = new THREE.Vector3(30, 0.74, 0);
   const paramsOurProcess = new THREE.Vector3(100, 1, 0);
 
   //CAMERA PATHS
@@ -148,8 +148,8 @@ export default function Model() {
       // SECCION OUR WORK
       state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.05).x;
-      gsap.to(state.camera.position, {x: ourWorkPosition.x, y: ourWorkPosition.y, z: ourWorkPosition.z, duration: 10})
-      gsap.to(lookAtRef.current.position,{x: ourWorkLookAt.x, y: ourWorkLookAt.y, z: ourWorkLookAt.z, duration: 20})
+      gsap.to(state.camera.position, {x: ourWorkPosition.x, y: ourWorkPosition.y, z: ourWorkPosition.z, duration: 8})
+      gsap.to(lookAtRef.current.position,{x: ourWorkLookAt.x, y: ourWorkLookAt.y, z: ourWorkLookAt.z, duration: 10})
 
     } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) {
 
@@ -167,7 +167,8 @@ export default function Model() {
 
   //UPDATE
   useFrame((state, delta) => {
-    let r1 = dataScroll.range(0, 8 / 10);
+    let r1 = dataScroll.range(0, 8 / 13);
+    console.log(r1)
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 

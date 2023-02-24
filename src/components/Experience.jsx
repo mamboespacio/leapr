@@ -24,7 +24,7 @@ import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import LoadingPage from "./Loader";
 
-export const sectionsLength = 12
+export const sectionsLength = 13
 
 export default function Experience() {
 
@@ -42,7 +42,7 @@ export default function Experience() {
             <section style={{height:'100%'}}></section>
             {/* <section className="h-50"></section> */}
             <About/>
-            
+            <section style={{height:'100%'}}></section>
             <Projects/>
             <section style={{height:'100%'}}></section>
             <section style={{height:'100%'}}></section>

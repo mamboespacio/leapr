@@ -20,31 +20,30 @@ const Dive = () => {
   
 
   useFrame((state) => {
-    const r1 = scroll.range(5 / 10, 1 / 10)
-    const r2 = scroll.range(6 / 10, 1 / 10)
-    const r3 = scroll.range(7 / 10, 1 / 10)
-    const r4 = scroll.range(8 / 10, 1 / 10)
-    const r1v = scroll.visible(5 / 10, 1 / 10)
-    const r2v = scroll.visible(6 / 10, 1 / 10)
-    const r3v = scroll.visible(7 / 10, 1 / 10)
-    const r4v = scroll.visible(8 / 10, 1 / 10)
-    console.log(ref1.current.visible)
-    ref1.current.fontSize = mapRange(r1, 0, 1, 7, 10)
+    const r1 = scroll.range(7 / 13, 1 / 13)
+    const r2 = scroll.range(8 / 13, 1 / 13)
+    const r3 = scroll.range(9 / 13, 1 / 13)
+    const r4 = scroll.range(10 / 13, 1 / 13)
+    const r1v = scroll.visible(7 / 13, 1 / 13)
+    const r2v = scroll.visible(8 / 13, 1 / 13)
+    const r3v = scroll.visible(9 / 13, 1 / 13)
+    const r4v = scroll.visible(10 / 13, 1 / 13)
+    ref1.current.fontSize = mapRange(r1, 0, 1, 4, 8)
     ref1.current.letterSpacing = r1
     ref1.current.fillOpacity = mapRange(r1, 0, 1, 1, 0)
     ref1.current.parent = state.camera
     ref1.current.visible = r1v
-    ref2.current.fontSize = mapRange(r2, 0, 1, 7, 10)
+    ref2.current.fontSize = mapRange(r2, 0, 1, 4, 8)
     ref2.current.letterSpacing = r2
     ref2.current.fillOpacity = mapRange(r2, 0, 1, 1, 0)
     ref2.current.parent = state.camera
     ref2.current.visible = r2v
-    ref3.current.fontSize = mapRange(r3, 0, 1, 7, 10)
+    ref3.current.fontSize = mapRange(r3, 0, 1, 4, 8)
     ref3.current.letterSpacing = r3
     ref3.current.fillOpacity = mapRange(r3, 0, 1, 1, 0)
     ref3.current.parent = state.camera
     ref3.current.visible = r3v
-    ref4.current.fontSize = mapRange(r4, 0, 1, 7, 10)
+    ref4.current.fontSize = mapRange(r4, 0, 1, 4, 8)
     ref4.current.letterSpacing = r4
     ref4.current.fillOpacity = mapRange(r4, 0, 1, 1, 0)
     ref4.current.parent = state.camera

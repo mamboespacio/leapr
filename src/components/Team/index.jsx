@@ -20,7 +20,7 @@ const members = [
 ]
 const Team = () => {
   return (
-    <section id="team" style={{height:'200%'}} className="py-5 bg-black">
+    <section id="team" style={{height:'300%'}} className="py-5 bg-black">
       <div className="row gx-0 align-items-center py-5">
         <div className="col-12">
           <div className="row gx-0">
