@@ -16,7 +16,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./leapr_NLAmerge.glb");
+  const model = useGLTF("./LEAPR_merge_11_merge.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 
@@ -24,7 +24,7 @@ export default function Model() {
   const paramsInicio = new THREE.Vector3(1, 0.06, 0);
   const paramsPartners = new THREE.Vector3(120, 0.2, 0);
   const paramsDNA = new THREE.Vector3(30, 0.47, 0);
-  const paramsOurWork = new THREE.Vector3(30, 0.74, 0);
+  const paramsOurWork = new THREE.Vector3(30, 0.67, 0);
   const paramsOurProcess = new THREE.Vector3(100, 1, 0);
 
   //CAMERA PATHS
@@ -75,6 +75,7 @@ export default function Model() {
 
         if (child.material.name == "material_cubos_Bake") {
           child.material = TranssmisiveMaterial();
+          console.log(1)
 
         }
 
@@ -83,12 +84,14 @@ export default function Model() {
           child.material.roughness = 0;
           child.material.depthFunc = 3;
           child.material.emissiveIntensity = 0.1;
+          console.log(2)
         }
 
         if (child.material.name == "concrete_floor_worn_001_Bake") {
           child.material.metalness = 0.6;
           child.material.roughness = 0.1;
           child.material.depthFunc = 3;
+          console.log(3)
         }
 
         if (child.material.name == "Material_Bake") {
@@ -99,13 +102,13 @@ export default function Model() {
           child.material.depthFunc = 3;
           child.material.emissiveIntensity = 0;
           child.material.wireframe = true;
+          console.log(4)
         }
 
         if (child.material.name == "Mat_CuboProcess_Bake") {
           child.material.roughness = 0.1;
           child.material.metalness = 0.5; 
-          child.material.transparent = true;
-          child.material.opacity = 1.0;  
+          console.log(5)
         }
       }
 
@@ -148,16 +151,16 @@ export default function Model() {
       // SECCION OUR WORK
       state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.05).x;
-      gsap.to(state.camera.position, {x: ourWorkPosition.x, y: ourWorkPosition.y, z: ourWorkPosition.z, duration: 8})
-      gsap.to(lookAtRef.current.position,{x: ourWorkLookAt.x, y: ourWorkLookAt.y, z: ourWorkLookAt.z, duration: 10})
+      gsap.to(state.camera.position, {x: ourWorkPosition.x, y: ourWorkPosition.y, z: ourWorkPosition.z, duration: 1})
+      gsap.to(lookAtRef.current.position,{x: ourWorkLookAt.x, y: ourWorkLookAt.y, z: ourWorkLookAt.z, duration: 2})
 
     } else if (offset > paramsOurWork.y && offset < paramsOurProcess.y) {
 
       // SECCION OUR PROCESS
       state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurProcess, 0.05).x;
-      gsap.to(state.camera.position, {x: ourProcessPosition.x, y: ourProcessPosition.y, z: ourProcessPosition.z, duration: 10})
-      gsap.to(lookAtRef.current.position,{x: ourProcessLookAt.x, y: ourProcessLookAt.y, z: ourProcessLookAt.z, duration: 8})
+      gsap.to(state.camera.position, {x: ourProcessPosition.x, y: ourProcessPosition.y, z: ourProcessPosition.z, duration: 5})
+      gsap.to(lookAtRef.current.position,{x: ourProcessLookAt.x, y: ourProcessLookAt.y, z: ourProcessLookAt.z, duration: 6})
 
     }
 
@@ -168,12 +171,12 @@ export default function Model() {
   //UPDATE
   useFrame((state, delta) => {
     let r1 = dataScroll.range(0, 8 / 13);
-    console.log(r1)
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
     for (let action in actions) {
-     
+
+
         if (r1 < 0.97) {
           actions[action].time = THREE.MathUtils.lerp(
             actions[action].time,
@@ -195,7 +198,8 @@ export default function Model() {
  
     //Animated values on Model
     let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
-    model.scene.children[5].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
+    model.scene.children[3].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
+    console.log(model.scene.children[3].material)
 
     //Animated values at Ligths
     greenLigth.intensity = mapRange(
