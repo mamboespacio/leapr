@@ -16,7 +16,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./LEAPR_merge_11_merge.glb");
+  const model = useGLTF("./LEAPR.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 
@@ -170,7 +170,7 @@ export default function Model() {
 
   //UPDATE
   useFrame((state, delta) => {
-    let r1 = dataScroll.range(0, 8 / 13);
+    let r1 = dataScroll.range(0, 14 / 14);
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
