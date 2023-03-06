@@ -2,8 +2,6 @@ import {
   ScrollControls,
   Scroll,
   Environment,
-  Billboard,
-  Text
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense} from "react";
@@ -12,14 +10,9 @@ import About from "./About";
 import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
-import Define from './Define'
-import Design from './Design'
-import Deploy from './Deploy'
 import Projects from './Projects'
 import Team from './Team'
 import Background from './Background'
-import Navigation from "./Navigation";
-import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import LoadingPage from "./Loader";

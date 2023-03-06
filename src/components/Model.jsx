@@ -16,7 +16,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./LEAPR.glb");
+  const model = useGLTF("./LEAPR_merge_11_merge.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 
@@ -170,7 +170,7 @@ export default function Model() {
 
   //UPDATE
   useFrame((state, delta) => {
-    let r1 = dataScroll.range(0, 14 / 14);
+    let r1 = dataScroll.range(0, 8 / 13);
     const offset = dataScroll.offset;
     modelEffects(state, r1);
 
@@ -236,7 +236,7 @@ export default function Model() {
   );
 }
 
-useGLTF.preload("./0123_LEAPR_boceto3d_8_OPTIMIZE.glb");
+useGLTF.preload("./LEAPR_merge_11_merge.glb");
 
 export const TranssmisiveMaterial = () => {
   const material = new THREE.MeshPhysicalMaterial({
