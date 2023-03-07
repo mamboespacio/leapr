@@ -59,7 +59,13 @@ export default function Model() {
     console.log(model.scene) 
     lookAtRef.current.material.visible = false
     for (let action in actions) {
-      actions[action].play();
+      
+      if(actions[action]._clip.name === 'AnimationMerge')
+      {
+        console.log(actions[action]._clip.name)
+        console.log('yes') 
+        actions[action].play();
+      }
     }
 
     state_.camera.fov = 1;
@@ -173,18 +179,26 @@ export default function Model() {
 
 
         if (r1 < 0.97) {
-          actions[action].time = THREE.MathUtils.lerp(
-            actions[action].time,
-            actions[action].getClip().duration * r1,
-            1.0
-          );
+
+          if(actions[action]._clip.name === 'AnimationMerge')
+          {
+            actions[action].time = THREE.MathUtils.lerp(
+              actions[action].time,
+              actions[action].getClip().duration * r1,
+              1.0
+            );
+          }
+         
         } else {
-          actions[action].time = actions[action].time = THREE.MathUtils.damp(
-            actions[action].time,
-            actions[action].getClip().duration * 0.98,
-            100,
-            delta
-          );
+          if(actions[action]._clip.name === 'AnimationMerge')
+          {
+            actions[action].time = actions[action].time = THREE.MathUtils.damp(
+              actions[action].time,
+              actions[action].getClip().duration * 0.98,
+              100,
+              delta
+            );
+          }
         }
       
     }
