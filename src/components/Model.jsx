@@ -124,7 +124,6 @@ export default function Model() {
   
     if (offset < paramsInicio.y) {
       // INICIO
-      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsInicio, 0.1).x; 
       gsap.to(state.camera.position, {x: inicialPosition.x, y: inicialPosition.y, z: inicialPosition.z, duration: 5})
       gsap.to(lookAtRef.current.position,{x: inicialLookAt.x, y: inicialLookAt.y, z: inicialLookAt.z, duration: 5})
@@ -135,14 +134,12 @@ export default function Model() {
     if (offset > paramsInicio.y && offset < paramsPartners.y) {
 
       // SECCION PARTNERS
-      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsPartners, 0.15).x;
       gsap.to(state.camera.position, {x: partnersPosition.x, y: partnersPosition.y, z: partnersPosition.z, duration: 5})
       gsap.to(lookAtRef.current.position,{x: partnersLookAt.x, y: partnersLookAt.y, z: partnersLookAt.z, duration: 10})
     } else if (offset > paramsPartners.y && offset < paramsDNA.y) {
 
       // SECCION DNA
-      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsDNA, 0.05).x;
       gsap.to(state.camera.position, {x: DNAPosition.x, y: DNAPosition.y, z: DNAPosition.z, duration: 8})
       gsap.to(lookAtRef.current.position,{x: DNALookAt.x, y: DNALookAt.y, z: DNALookAt.z, duration: 8})
@@ -150,7 +147,6 @@ export default function Model() {
     } else if (offset > paramsDNA.y && offset < paramsOurWork.y) {
 
       // SECCION OUR WORK
-      state.frameloop = "always"
       state.camera.fov = fovToLerp.lerp(paramsOurWork, 0.05).x;
       gsap.to(state.camera.position, {x: ourWorkPosition.x, y: ourWorkPosition.y, z: ourWorkPosition.z, duration: 1})
       gsap.to(lookAtRef.current.position,{x: ourWorkLookAt.x, y: ourWorkLookAt.y, z: ourWorkLookAt.z, duration: 2})
