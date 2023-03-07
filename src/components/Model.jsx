@@ -16,7 +16,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./LEAPR_merge_13_sandbox.glb");
+  const model = useGLTF("./LEAPR_merge_16.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 

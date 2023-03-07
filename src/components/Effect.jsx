@@ -74,7 +74,7 @@ import { Vector2 } from "three";
                     blendFunction={BlendFunction.SOFT_LIGHT}
                 />
                 <ToneMapping
-                    blendFunction={BlendFunction.SUBTRACT} // blend mode
+                    blendFunction={BlendFunction.SOFT_LIGHT} // blend mode
                     adaptive={true} // toggle adaptive luminance map usage
                     resolution={256} // texture resolution of the luminance map
                     middleGrey={0.8} // middle grey factor
