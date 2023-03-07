@@ -1,9 +1,0 @@
-.text {
-  text-transform: uppercase;
-}
-.text:nth-child(2), .text:nth-child(3) {
-  text-align: right;
-}
-.text:nth-child(4) {
-  margin-left: 5rem;
-}

@@ -8,7 +8,7 @@ import {
     DepthOfField,
     ChromaticAberration,
    } from "@react-three/postprocessing";
-  import { BlendFunction } from "postprocessing";
+  import { BlendFunction, ToneMappingMode } from "postprocessing";
   import { useScroll }  from '@react-three/drei'
   import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from "react";
@@ -74,18 +74,20 @@ import { Vector2 } from "three";
                     blendFunction={BlendFunction.SOFT_LIGHT}
                 />
                 <ToneMapping
-                    blendFunction={BlendFunction.NORMAL} // blend mode
+                    blendFunction={BlendFunction.AVERAGE} // blend mode
                     adaptive={true} // toggle adaptive luminance map usage
                     resolution={256} // texture resolution of the luminance map
                     middleGrey={0.8} // middle grey factor
                     maxLuminance={16.0} // maximum luminance
                     averageLuminance={1.0} // average luminance
                     adaptationRate={1.0} // luminance adaptation rate
+                    darkness={0.1}
+                    
                 />
                 {/* <ColorDepth bits={[64]}/> */}
                 {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} /> */}
-                <HueSaturation saturation={[0.]} hue={[0]}/>
-                <ChromaticAberration/>
+                <HueSaturation saturation={[0.2]} hue={[0]}/>
+                <ChromaticAberration />
                 {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>
             </>

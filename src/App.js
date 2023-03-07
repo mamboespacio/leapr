@@ -5,7 +5,6 @@ import Experience from "./components/Experience";
 
 import React, {useState, Suspense} from "react";
 import Navigation from './components/Navigation';
-import Contact from './components/Contact';
 
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
   return (
     <>
     <Navigation navStyle={navStyle}/>
-    <Contact/>
     
     <Canvas
       shadows

@@ -16,7 +16,7 @@ export default function Model() {
   const state_ = useThree();
   const dataScroll = useScroll();
 
-  const model = useGLTF("./LEAPR_merge_11_merge.glb");
+  const model = useGLTF("./LEAPR_merge_13_sandbox.glb");
   const animations = useAnimations(model.animations, model.scene);
   const actions = animations.actions;
 
@@ -75,7 +75,6 @@ export default function Model() {
 
         if (child.material.name == "material_cubos_Bake") {
           child.material = TranssmisiveMaterial();
-          console.log(1)
 
         }
 
@@ -84,14 +83,12 @@ export default function Model() {
           child.material.roughness = 0;
           child.material.depthFunc = 3;
           child.material.emissiveIntensity = 0.1;
-          console.log(2)
         }
 
         if (child.material.name == "concrete_floor_worn_001_Bake") {
           child.material.metalness = 0.6;
           child.material.roughness = 0.1;
           child.material.depthFunc = 3;
-          console.log(3)
         }
 
         if (child.material.name == "Material_Bake") {
@@ -102,13 +99,11 @@ export default function Model() {
           child.material.depthFunc = 3;
           child.material.emissiveIntensity = 0;
           child.material.wireframe = true;
-          console.log(4)
         }
 
         if (child.material.name == "Mat_CuboProcess_Bake") {
           child.material.roughness = 0.1;
           child.material.metalness = 0.5; 
-          console.log(5)
         }
       }
 
@@ -197,9 +192,8 @@ export default function Model() {
     state.camera.updateProjectionMatrix()
  
     //Animated values on Model
-    let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
+    let emissiveIntensityCubo = dataScroll.range(8 / 13, 1 / 13);
     model.scene.children[3].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
-    console.log(model.scene.children[3].material)
 
     //Animated values at Ligths
     greenLigth.intensity = mapRange(
