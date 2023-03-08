@@ -59,7 +59,7 @@ export default function Model() {
     console.log(model.scene) 
     lookAtRef.current.material.visible = false
     for (let action in actions) {
-      actions[action].play();
+      actions[action].play().paused = true;
     }
 
     state_.camera.fov = 1;
