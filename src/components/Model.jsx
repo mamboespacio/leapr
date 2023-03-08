@@ -63,9 +63,8 @@ export default function Model() {
       
       if(actions[action]._clip.name === 'AnimationMerge')
       {
-        console.log(actions[action]._clip.name)
-        console.log('yes') 
-        actions[action].play();
+        actions[action].play().paused = true;
+        
       }
     }
 
@@ -179,18 +178,25 @@ export default function Model() {
 
           if(actions[action]._clip.name === 'AnimationMerge')
           {
-            actions[action].time = 0
+            
+            actions[action].time = THREE.MathUtils.damp(
+              actions[action].time,
+              actions[action].getClip().duration * r1,
+              100,
+              delta
+            );
+
           }
          
         } else {
           if(actions[action]._clip.name === 'AnimationMerge')
           {
-            //   actions[action].time = THREE.MathUtils.damp(
-            //   actions[action].time,
-            //   actions[action].getClip().duration * 0.98,
-            //   100,
-            //   delta
-            // );
+              actions[action].time = THREE.MathUtils.damp(
+              actions[action].time,
+              actions[action].getClip().duration * 0.98,
+              100,
+              delta
+            );
           }
         }
       
