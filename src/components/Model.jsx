@@ -179,28 +179,24 @@ export default function Model() {
 
           if(actions[action]._clip.name === 'AnimationMerge')
           {
-            actions[action].time = THREE.MathUtils.lerp(
-              actions[action].time,
-              actions[action].getClip().duration * r1,
-              1.0
-            );
+            actions[action].time = 0
           }
          
         } else {
           if(actions[action]._clip.name === 'AnimationMerge')
           {
-            actions[action].time = actions[action].time = THREE.MathUtils.damp(
-              actions[action].time,
-              actions[action].getClip().duration * 0.98,
-              100,
-              delta
-            );
+            //   actions[action].time = THREE.MathUtils.damp(
+            //   actions[action].time,
+            //   actions[action].getClip().duration * 0.98,
+            //   100,
+            //   delta
+            // );
           }
         }
       
     }
 
-    state.camera.updateProjectionMatrix()
+    // state.camera.updateProjectionMatrix()
  
     //Animated values on Model
     let emissiveIntensityCubo = dataScroll.range(8 / 13, 1 / 13);
@@ -224,12 +220,12 @@ export default function Model() {
 
   return (
     <>
-      <Float
+      {/* <Float
         speed={0.2} // Animation speed, defaults to 1
         rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
         floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
         floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
-      >
+      > */}
         <group ref={group} dispose={null}>
           <group name="Scene">
             <group name="patita_main" position={[0, 9.24, 0]} rotation={[0, 0.17, 0]}>
@@ -313,7 +309,7 @@ export default function Model() {
         <mesh ref={lookAtRef}>
           <circleBufferGeometry args={[1, 9]} />
         </mesh>
-      </Float>
+      {/* </Float> */}
 
       <directionalLight ref={greenLigth} position={[0, 0, 100]} />
     </>
