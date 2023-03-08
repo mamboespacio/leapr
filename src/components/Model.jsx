@@ -10,9 +10,14 @@ import * as THREE from "three";
 import { Vector3 } from "three";
 import { mapRange } from "canvas-sketch-util/math";
 import { gsap } from "gsap"
+import { getProject, val } from "@theatre/core";
+import { SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
+
 
 
 export default function Model() {
+
+  const sheet = useCurrentSheet();
   const state_ = useThree();
   const dataScroll = useScroll();
 
@@ -62,9 +67,9 @@ export default function Model() {
       actions[action].play().paused = true;
     }
 
-    state_.camera.fov = 1;
-    state_.camera.position.set(inicialPosition.x, inicialPosition.y, inicialPosition.z)
-    state_.camera.lookAt(new THREE.Vector3(0,0,0))
+    // state_.camera.fov = 1;
+    // state_.camera.position.set(inicialPosition.x, inicialPosition.y, inicialPosition.z)
+    // state_.camera.lookAt(new THREE.Vector3(0,0,0))
 
     model.scene.traverse(function (child) {
 
@@ -167,10 +172,14 @@ export default function Model() {
 
   //UPDATE
   useFrame((state, delta) => {
+
+    //THEATERJS
+    const sequenceLength = val(sheet.sequence.pointer.length);
+    sheet.sequence.position = dataScroll.offset * sequenceLength;
+
     let r1 = dataScroll.range(0, 8 / 13);
     console.log(r1)
-    const offset = dataScroll.offset;
-    modelEffects(state, r1);
+    // modelEffects(state, r1);
 
     for (let action in actions) {
      
@@ -215,6 +224,14 @@ export default function Model() {
 
   return (
     <>
+      <PerspectiveCamera
+        theatreKey="Camera"
+        makeDefault
+        position={[4, 3, 30]}
+        fov={90}
+        near={0.1}
+        far={1000}
+      />
       <Float
         speed={0.2} // Animation speed, defaults to 1
         rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1

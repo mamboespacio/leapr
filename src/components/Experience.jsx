@@ -23,10 +23,16 @@ import Logo from "./Logo";
 import { SpaceParticles } from "./SpaceParticles";
 import Effect from "./Effect";
 import LoadingPage from "./Loader";
+import { getProject } from "@theatre/core";
+import { SheetProvider } from "@theatre/r3f";
+import flyThrougState from "../stateCamera.json"
+
 
 export const sectionsLength = 13
 
 export default function Experience() {
+
+  const sheet = getProject("Fly Through", {state: flyThrougState}).sheet("Scene");
 
   return (
     <>
@@ -35,29 +41,31 @@ export default function Experience() {
         fallback={<LoadingPage/>}
       >
         <ScrollControls pages={sectionsLength} damping={0.1} maxSpeed={0.1} >
-          <Scroll html style={{ width: '100%', height: '100%' }}>
-     
-            <Claim/>
-            <Partners/>
-            <section style={{height:'100%'}}></section>
-            {/* <section className="h-50"></section> */}
-            <About/>
-            <section style={{height:'100%'}}></section>
-            <Projects/>
-            <section style={{height:'100%'}}></section>
-            <section style={{height:'100%'}}></section>
-            <section style={{height:'100%'}}></section>
-            <section style={{height:'100%'}}></section>
-            <Team/>
-            {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
-          </Scroll>
-          <Dive/>
-          {/* <Define/>
-          <Design/>
-          <Deploy/> */}
-          <Background/>
-          <Model />
-          <Effect/>
+          <SheetProvider sheet={sheet}>
+            <Scroll html style={{ width: '100%', height: '100%' }}>
+      
+              <Claim/>
+              <Partners/>
+              <section style={{height:'100%'}}></section>
+              {/* <section className="h-50"></section> */}
+              <About/>
+              <section style={{height:'100%'}}></section>
+              <Projects/>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <Team/>
+              {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
+            </Scroll>
+            <Dive/>
+            {/* <Define/>
+            <Design/>
+            <Deploy/> */}
+            <Background/>
+            <Model />
+            <Effect/>
+          </SheetProvider>
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 
