@@ -120,9 +120,9 @@ export default function Model() {
   return (
     <>
       <Float
-        speed={0.2} // Animation speed, defaults to 1
-        rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
-        floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+        speed={0.1} // Animation speed, defaults to 1
+        rotationIntensity={0.1} // XYZ rotation intensity, defaults to 1
+        floatIntensity={0.1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
         floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
       >
         <primitive object={model.scene} scale={1} />

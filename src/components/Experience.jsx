@@ -44,18 +44,32 @@ export default function Experience() {
           <SheetProvider sheet={sheet}>
             <Scroll html style={{ width: '100%', height: '100%' }}>
       
-              {/* <Claim/> */}
-              {/* <Partners/> */}
+              <Claim/>
+              <section style={{height:'100%'}}></section>
+              <Partners/>
+              <section style={{height:'100%'}}></section>
               <section style={{height:'100%'}}></section>
               {/* <section className="h-50"></section> */}
-              {/* <About/> */}
-              <section style={{height:'100%'}}></section>
-              {/* <Projects/> */}
+              <About/>
               <section style={{height:'100%'}}></section>
               <section style={{height:'100%'}}></section>
               <section style={{height:'100%'}}></section>
+              <section style={{height:'50%'}}></section>
+              <Projects/>
               <section style={{height:'100%'}}></section>
-              {/* <Team/> */}
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'100%'}}></section>
+              <section style={{height:'50%'}}></section>
+              <Team/>
               {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
             </Scroll>
             <Dive/>
