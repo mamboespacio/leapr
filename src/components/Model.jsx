@@ -228,7 +228,7 @@ export default function Model() {
         theatreKey="Camera"
         makeDefault
         position={[4, 3, 30]}
-        fov={90}
+        fov={10}
         near={0.1}
         far={1000}
       />
