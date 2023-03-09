@@ -2,8 +2,6 @@ import {
   ScrollControls,
   Scroll,
   Environment,
-  Billboard,
-  Text
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense} from "react";
@@ -26,6 +24,7 @@ import LoadingPage from "./Loader";
 import { getProject } from "@theatre/core";
 import { SheetProvider } from "@theatre/r3f";
 import flyThrougState from "../stateCamera.json"
+import { DirectionalLight } from "three";
 
 
 export const sectionsLength = 13
@@ -71,6 +70,6 @@ export default function Experience() {
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
       <SpaceParticles count={[5000]}/>
-    </>
+    </> 
   );
 }
