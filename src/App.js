@@ -7,9 +7,10 @@ import React, {useState, Suspense} from "react";
 import Navigation from './components/Navigation';
 import Contact from './components/Contact';
 
-
 function App() {
+
   const [navStyle, setNavStyle] = useState('black');
+
   return (
     <>
     <Navigation navStyle={navStyle}/>
@@ -17,16 +18,9 @@ function App() {
     
     <Canvas
       shadows
-      camera={{
-        fov: 45,
-        near: 0.01,
-        far: 300,
-        position: [ 4, 3, 20 ],
-      
-    }}
-    frameloop="always"
-    performance={{ debounce: 200 }}
-    dpr={[1,2]}
+      frameloop="always"
+      performance={{ debounce: 200 }}
+      dpr={[1,2]}
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>

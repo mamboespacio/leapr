@@ -84,7 +84,6 @@ import { Vector2 } from "three";
                 />
                 {/* <ColorDepth bits={[64]}/> */}
                 {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} /> */}
-                <HueSaturation saturation={[0.]} hue={[0]}/>
                 <ChromaticAberration/>
                 {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>
