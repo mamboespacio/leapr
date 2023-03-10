@@ -26,12 +26,13 @@ import LoadingPage from "./Loader";
 import { SheetProvider } from "@theatre/r3f";
 import { getProject } from "@theatre/core";
 import CameraControl from "./CameraControl";
+import flyThrougState from "../stateCameraAnim.json"
 
 export const sectionsLength = 26
 
 export default function Experience() {
 
-  const sheet = getProject("Fly Through").sheet("Scene");
+  const sheet = getProject("Fly Through", {state: flyThrougState}).sheet("Scene");
 
 
   return (
