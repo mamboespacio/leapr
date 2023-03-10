@@ -41,7 +41,7 @@ export default function Experience() {
       <Suspense
         fallback={<LoadingPage/>}
       >
-        <ScrollControls pages={sectionsLength} damping={0.1} maxSpeed={0.1} >
+        <ScrollControls pages={sectionsLength} damping={0.5} maxSpeed={0.1} >
           <SheetProvider sheet={sheet}>
             <Scroll html style={{ width: '100%', height: '100%' }}>
       
