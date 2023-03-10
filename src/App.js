@@ -6,6 +6,7 @@ import Experience from "./components/Experience";
 import React, {useState, Suspense} from "react";
 import Navigation from './components/Navigation';
 import Contact from './components/Contact';
+import { Loader } from '@react-three/drei';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
     >
       <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
     </Canvas>
-
+    <Loader/>
     </>
   );
 }
