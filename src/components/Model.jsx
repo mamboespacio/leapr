@@ -112,8 +112,8 @@ export default function Model() {
     state.camera.updateProjectionMatrix()
  
     // //Animated values on Model
-    // let emissiveIntensityCubo = dataScroll.range(8 / 10 - 0.02, 1 / 10);
-    // model.scene.children[5].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
+    let emissiveIntensityCubo = dataScroll.range(22 / sectionsLength , 2 / sectionsLength);
+    model.scene.children[3].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
 
   });
 
@@ -137,11 +137,11 @@ useGLTF.preload("./0123_LEAPR_boceto3d_8_OPTIMIZE.glb");
 
 export const TranssmisiveMaterial = () => {
   const material = new THREE.MeshPhysicalMaterial({
-    transmission: 0.5,
-    metalness: 0.3,
-    roughness: 0.,
+    transmission: 0.8,
+    metalness: 0.7,
+    roughness: 0.1,
     thickness: 3,
-    ior: 10,
+    ior: 2,
     clearcoat: 1,
     attenuationDistance: 0.5,
     attenuationColor: "#ffffff",
