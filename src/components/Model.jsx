@@ -42,7 +42,6 @@ export default function Model() {
 
         child.castShadow = true;
         child.receiveShadow = true; 
-        console.log(child.material)
         if (child.material.name == "material_cubos_Bake") {
           child.material = TranssmisiveMaterial();
 
@@ -62,9 +61,9 @@ export default function Model() {
         }
 
         if (child.material.name == "Material_Bake") {
-          child.material.metalness = 1;
-          child.material.roughness = 0.15;
-          child.material.color = new THREE.Color("rgb(50,50,50)");
+          child.material.metalness = 0;
+          child.material.roughness = 0.3;
+          child.material.color = new THREE.Color("rgb(100,200,100)");
           child.material.emissive = new THREE.Color("rgb(0,255,100)");
           child.material.depthFunc = 3;
           child.material.emissiveIntensity = 0;
@@ -101,7 +100,7 @@ export default function Model() {
         } else {
           actions[action].time = actions[action].time = THREE.MathUtils.damp(
             actions[action].time,
-            actions[action].getClip().duration * 0.98,
+            actions[action].getClip().duration * 0.97,
             100,
             delta
           );

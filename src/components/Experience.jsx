@@ -3,7 +3,8 @@ import {
   Scroll,
   Environment,
   Billboard,
-  Text
+  Text,
+  SpotLight
 } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense} from "react";

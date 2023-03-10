@@ -62,7 +62,7 @@ import { Vector2 } from "three";
             <EffectComposer>
                 <Bloom
                     mipmapBlur
-                    luminanceThreshold={0.9}
+                    luminanceThreshold={0.2}
                     luminanceSmoothing={0.1}
                     height={300}
                 />
