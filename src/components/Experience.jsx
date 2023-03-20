@@ -75,10 +75,10 @@ export default function Experience() {
               {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
             </Scroll>
             <Dive/>
-            {/* <Define/>
+            <Define/>
             <Design/>
-            <Deploy/> */}
-            {/* <Background/> */}
+            <Deploy/>
+            <Background/>
             <Model />
             <CameraControl/>
             <Effect/>
