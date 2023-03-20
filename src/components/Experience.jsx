@@ -78,7 +78,7 @@ export default function Experience() {
             {/* <Define/>
             <Design/>
             <Deploy/> */}
-            <Background/>
+            {/* <Background/> */}
             <Model />
             <CameraControl/>
             <Effect/>
