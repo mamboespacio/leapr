@@ -40,6 +40,7 @@ body,
 }
 .font-audimat {
   font-family: "AudimatMonoLight";
+  font-size: 120%;
 }
 .font-salma {
   font-family: "SalmaPro-Medium";
@@ -178,6 +179,10 @@ h1{
   background: rgb(9,209,5);
   background: linear-gradient(0deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
 }
+.bg-color-2{
+  background: rgb(9,209,5);
+  background: linear-gradient(90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
+}
 .memberDetail{
   position: absolute;
   top: 0;
@@ -256,4 +261,18 @@ h1{
   background-color: #E0DBD3;
   color: #000;
   margin-bottom: 0 !important;
+}
+.modal-content{
+  border-radius: 0px !important;
+  background-color: #E0DBD3 !important;
+}
+input, textarea{
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+label{
+  text-align: left !important;
+  background: #000;
+  color: #00FF39;
 }

@@ -40,7 +40,7 @@ export default function Experience() {
     <>
       {/* <Perf position="top-left" /> */}
       <Suspense
-        fallback={<LoadingPage/>}
+        fallback={null}
       >
         <ScrollControls pages={sectionsLength} damping={0.5} maxSpeed={0.1} >
           <SheetProvider sheet={sheet}>
@@ -85,9 +85,9 @@ export default function Experience() {
           </SheetProvider>
         </ScrollControls>
       </Suspense>
-      <Environment files="/skybox/leapr_skybox2.hdr" background/> 
+      {/* <Environment files="/skybox/leapr_skybox2.hdr" background/> 
       <Environment preset="forest"/>
-      <SpaceParticles count={[5000]}/>
+      <SpaceParticles count={[5000]}/> */}
     </>
   );
 }

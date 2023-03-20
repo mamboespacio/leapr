@@ -32,16 +32,16 @@ const Projects = () => {
               >
                 
                   <div className="marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(0)}>NERA</a>
+                    <a className="h-100 font-audimat" href="#" onClick={()=> next(0)}>NERA</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                    <a className="h-100 font-audimat" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                    <a className="h-100 font-audimat" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                    <a className="h-100 font-audimat" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
                   </div>
               </Marquee>
             </div>

@@ -15,12 +15,19 @@ const members = [
   {name:'ANA CARLISLE', position:'Lead Architect / 3D Generalist', image:'/images/team/ana.jpeg', margin: 3, marginleft: 3},
   {name:'JOEL CORREA', position:'Game Designer', image:'/images/team/joel.png', margin: 3, marginleft: 3},
   {name:'MERCEDES LUNA', position:'Graphic Designer / 3D Generalist', image:'/images/team/mercedes.jpeg', margin: 3, marginleft: 3},
+  {name:'CARLOS LAVIÑA', position:'Visual Artist', image:'/images/team/carlos.jpeg', margin: 3, marginleft: 3},
   {name:'ALEXANDRE BOCCARA', position:'Partner', image:'/images/team/alex.jpeg', margin: 3, marginleft: 25},
   {name:'PABLO SIMON CASARINO', position:'Partner', image:'/images/team/pola.jpeg', margin: 3, marginleft: 3}
 ]
 const Team = () => {
   return (
     <section id="team" style={{height:'300%'}} className="py-5 bg-black">
+      <div className="row">
+       <div className="col-12 text-center font-audimat">
+        <h1>OUR TEAM</h1>
+       </div>
+      </div>
+      
       <div className="row gx-0 align-items-center py-5">
         <div className="col-12">
           <div className="row gx-0">
@@ -100,9 +107,7 @@ const Team = () => {
                 </div> 
               </div>
             </div>
-          </div>
-          <div className="row gx-0 mt-5">
-            <div className="col-4 col-md-2 offset-md-2">
+            <div className="col-4 col-md-2 offset-md-3">
               <div className="row gx-0 member">
                 <div className="col-1 bg-color"></div>
                 <div className="col-11 position-relative">
@@ -112,7 +117,9 @@ const Team = () => {
                 </div> 
               </div>
             </div>
-            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-3">
+          </div>
+          <div className="row gx-0 mt-5">
+            <div className="col-4 col-md-2 offset-md-2">
               <div className="row gx-0 member">
                 <div className="col-1 bg-color"></div>
                 <div className="col-11 position-relative">
@@ -121,6 +128,28 @@ const Team = () => {
                   <p className="memberDetail2">{members[8].position}</p>
                 </div> 
               </div>
+            </div>
+            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-3">
+              <div className="row gx-0 member">
+                <div className="col-1 bg-color"></div>
+                <div className="col-11 position-relative">
+                  <img className="w-100" src={members[9].image}/>
+                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[9].name}</p>
+                  <p className="memberDetail2">{members[9].position}</p>
+                </div> 
+              </div>
+            </div>
+          </div>
+          <div className="row gx-0 py-5">
+            <div className="col-6 ">
+
+            </div>
+            <div className="col-6 mx-auto ">
+              <h1 className="">
+                Leapr<br/>
+                +54911 47839403<br/>
+                info@leapr.studio
+              </h1>
             </div>
           </div>
         </div>

@@ -15,41 +15,40 @@ const Contact = () => {
         centered
         className="text-black text-center"
       >
-        <div className="container">
-          <div className="row px-5 py-3 px-md-0">
+        <div className="container p-0">
+          <div className="row px-5 py-0 px-md-0">
             <div className="col-12 pt-5 pt-md-0">
-              <h4>
-                Contact
-              </h4>
-              <p className="mt-1 text-muted">
-                Send us a message
-              </p>
               <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="mb-3 text-start">
+                  <label>name</label>
                   <input
                     type="text"
-                    placeholder="Name"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
+                    placeholder="write your name"
+                    className="form-control rounded-0"
                     aria-describedby="emailHelp"
                     onChange={e => setName(e.target.value)}
                   />
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 text-start">
+                  <label>email</label>
                   <input
                     type="email"
-                    placeholder="Email"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
+                    placeholder="write your email"
+                    className="form-control rounded-0"
                     onChange={e => setEmail(e.target.value)}
                   />
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 text-start">
+                  <label>what's up</label>
                   <textarea
-                    placeholder="Message"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
+                    placeholder="write a message"
+                    className="form-control rounded-0"
                     onChange={e => setMessage(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn bg-color rounded-pill">Send</button>
+                <div className="mb-0 text-end">
+                  <button type="submit" className="btn bg-color-2 rounded-0 px-5">send</button>
+                </div>
               </form>
             </div>
           </div>
@@ -73,7 +72,7 @@ const Contact = () => {
   return (
     <>
       <button className='contactBadge' onClick={() => setShowContact(true)}>
-        <p className='text-black'>Contact Us</p>
+        <p className='text-black font-audimat'>Contact Us</p>
       </button>
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>
