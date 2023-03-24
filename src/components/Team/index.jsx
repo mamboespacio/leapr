@@ -53,11 +53,11 @@ const Team = () => {
                       slidesPerView: 2,
                     },
                   }}
-                  // autoplay={{
-                  //   delay: 5200,
-                  //   disableOnInteraction: true,
-                  // }}
-                  // speed={800}
+                  autoplay={{
+                    delay: 1,
+                    disableOnInteraction: true,
+                  }}
+                  speed={1500}
                 >
                   {members.map((item, index) => {
                     return(
@@ -81,7 +81,7 @@ const Team = () => {
               </div>
             </div>
             <div className="col-12 col-md-3 d-flex align-items-center order-1 order-md-2">
-              <h2 className="text-highlight-2 mb-0 d-inline-block">OUR TEAM</h2>
+              <h2 className="text-highlight-2 mb-0 d-inline-block font-audimat">OUR TEAM</h2>
               <button
                   className="btn btn-arrows"
                   onClick={previous}
