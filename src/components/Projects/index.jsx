@@ -12,10 +12,13 @@ import Marquee from "react-fast-marquee";
 
 const Projects = () => {
   const ref = useRef(null)
+  const [active, setActive] = useState(0);
+
   const previous = () => {
     ref.current.slidePrev();
   };
 
+  
   const next = (slide) => {
     console.log(slide)
     ref.current.slideTo(slide);
@@ -32,16 +35,16 @@ const Projects = () => {
               >
                 
                   <div className="marqueeItem">
-                    <a className="h-100 font-audimat" href="#" onClick={()=> next(0)}>NERA</a>
+                    <a className={active === 0 ? 'active' : ''} href="#" onClick={(e)=> next(0)}>NERA</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100 font-audimat" href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
+                    <a className={active === 1 ? 'active' : ''} href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100 font-audimat" href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
+                    <a className={active === 2 ? 'active' : ''} href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
                   </div>
                   <div className="marqueeItem">
-                    <a className="h-100 font-audimat" href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
+                    <a className={active === 3 ? 'active' : ''} href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
                   </div>
               </Marquee>
             </div>

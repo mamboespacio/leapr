@@ -111,7 +111,7 @@ export default function Model() {
     state.camera.updateProjectionMatrix()
  
     // //Animated values on Model
-    let emissiveIntensityCubo = dataScroll.range(22 / sectionsLength , 2 / sectionsLength);
+    let emissiveIntensityCubo = dataScroll.curve(22 / sectionsLength , 2 / sectionsLength);
     model.scene.children[3].material.emissiveIntensity = emissiveIntensityCubo; // INTENSIDAD EMISION CUBO
 
   });

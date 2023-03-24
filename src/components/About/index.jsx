@@ -7,17 +7,18 @@ const About = () => {
     <section id="dna" className="h-100">
         <div className="row gx-0 h-100 align-items-center">
           <div className="col-6">
-            <p style={{backgroundColor: 'rgba(0,0,0,0.3)'}}>
+            {/* <p style={{backgroundColor: 'rgba(0,0,0,0.3)'}}> */}
+            <p className="text-highlight-3">
               <span className="text-highlight">
                 LEAPR 
-              </span> is a strategy and design studio for metaverse platforms based in Argentina <br/>
+              </span> is a strategy and design studio for metaverse platforms based in Argentina <br/><br/>
               As a team of skilled and creative thinkers,
               we're passionate about bringing virtual platforms to life.
               We'll work with you to understand your unique vision,
-              then turn that vision into a reality with our technical expertise and innovative ideas.
+              then turn that vision into a reality with our technical expertise and innovative ideas.<br/><br/>
               Let us help you explore the endless possibilities of the digital landscape,
               from immersive experiences to dynamic simulations and beyond.
-              <br/>
+              <br/><br/>
               <span className="text-highlight">
               Your virtual adventure awaits - are you ready to take the leap with us?
               </span>

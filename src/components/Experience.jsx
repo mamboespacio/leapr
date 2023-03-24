@@ -13,11 +13,9 @@ import About from "./About";
 import Claim from './Claim'
 import Partners from './Partners'
 import Dive from './Dive'
-import Define from './Define'
-import Design from './Design'
-import Deploy from './Deploy'
 import Projects from './Projects'
 import Team from './Team'
+import Footer from './Footer'
 import Background from './Background'
 import Navigation from "./Navigation";
 import Logo from "./Logo";
@@ -72,7 +70,7 @@ export default function Experience() {
               <section style={{height:'100%'}}></section>
               <section style={{height:'50%'}}></section>
               <Team/>
-              {/* <p className="text-right text-highlight">LEAPR STUDIO Buenos Aires, Argentina</p> */}
+              <Footer/>
             </Scroll>
             <Dive/>
             {/* <Define/>

@@ -10,7 +10,7 @@ body,
   background: #000;
   /* background: linear-gradient(55deg, rgba(35,204,1,1) 22%, rgba(232,189,234,1) 37%, rgba(248,152,92,1) 57%, rgba(232,189,234,1) 73%, rgba(248,152,92,1) 100%); */
   touch-action: none;
-  font-family: "Archivo" !important;
+  font-family: "AudimatMonoLight" !important;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2 !important;
@@ -45,9 +45,31 @@ body,
 .font-salma {
   font-family: "SalmaPro-Medium";
 }
+.text-green{
+  color: #00FF39;
+}
 .text-highlight {
   background-color: #00FF39;
   color: #000;
+}
+.text-highlight-2{
+  background: #000;
+  color: #00FF39;
+  display: inline;
+}
+.text-highlight-3{
+  background: #000;
+  color: #fff;
+  display: inline;
+}
+.btn-arrows{
+  background: #000 !important;
+  color: #fff !important;
+  padding: 2px !important;
+  border-radius: 0 !important;
+}
+.w-75{
+  width: 75% !important;
 }
 h1{
   font-size: 2rem !important;
@@ -184,30 +206,28 @@ h1{
   background: linear-gradient(90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
 }
 .memberDetail{
-  position: absolute;
   top: 0;
   width: 100%;
 }
 .memberDetail2{
-  position: absolute;
   bottom: 0px;
   width: 100%;
   margin-bottom: 0 !important;
 }
 @media (min-width: 992px) {
-
+  .btn-arrows{
+    padding: 5px !important;
+  }
   h1{
     font-size: 3.5rem !important;
     line-height: 1 !important;
   }
   .memberDetail{
-    position: absolute;
     top: 0;
     left: 100%;
     width: 100%;
   }
   .memberDetail2{
-    position: absolute;
     top: 20px;
     left: 100%;
     width: 100%;
@@ -215,20 +235,22 @@ h1{
 }
 
 .marquee-container{
-  background-color: #E0DBD3;
+  background-color: #000;
 }
 .marqueeItem{
-  background-color: #E0DBD3;
+  background: #000;
+  color: #00FF39;
   width: 30%;
 }
 .marqueeItem a {
-  color: #000 !important;
+  color: #00FF39 !important;
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
-.marqueeItem a:hover, .marqueeItem a:focus {
+.marqueeItem a:hover, .marqueeItem a:focus, .marqueeItem.active {
   background-color: #00FF39;
+  color: #000 !important;
 }
 .swiper-button-next, .swiper-button-prev{
   color: #fff !important;
@@ -257,14 +279,12 @@ h1{
   border: 0;
 }
 #work  p{
-  border-top: 3px solid #00FF39;
-  background-color: #E0DBD3;
-  color: #000;
+  color: #fff;
   margin-bottom: 0 !important;
 }
 .modal-content{
   border-radius: 0px !important;
-  background-color: #E0DBD3 !important;
+  background-color: #000 !important;
 }
 input, textarea{
   background: transparent !important;
@@ -273,6 +293,6 @@ input, textarea{
 }
 label{
   text-align: left !important;
-  background: #000;
-  color: #00FF39;
+  background: #00FF39;
+  color: #000;
 }

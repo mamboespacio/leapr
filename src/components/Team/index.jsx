@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Marquee from "../Marquee";
-import { projects as items } from "../../data/projects";
+import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
 
 const members = [
   {name:'TOMAS FAROUX', position:'CEO & Co-Founder', image:'/images/team/tomas.jpeg', margin: 3, marginleft: 3},
@@ -20,136 +20,80 @@ const members = [
   {name:'PABLO SIMON CASARINO', position:'Partner', image:'/images/team/pola.jpeg', margin: 3, marginleft: 3}
 ]
 const Team = () => {
-  return (
-    <section id="team" style={{height:'300%'}} className="py-5 bg-black">
-      <div className="row">
-       <div className="col-12 text-center font-audimat">
-        <h1>OUR TEAM</h1>
-       </div>
-      </div>
-      
-      <div className="row gx-0 align-items-center py-5">
-        <div className="col-12">
-          <div className="row gx-0">
-            <div className="col-4 col-md-2 offset-md-1">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[0].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[0].name}</p>
-                  <p className="memberDetail2">{members[0].position}</p>
-                </div> 
-              </div>
-            </div>
-            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-5">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[1].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[1].name}</p>
-                  <p className="memberDetail2">{members[1].position}</p>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col-4 col-md-2 offset-md-2">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[2].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[2].name}</p>
-                  <p className="memberDetail2">{members[2].position}</p>
-                </div> 
-              </div>
-            </div>
-            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-3">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[3].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[3].name}</p>
-                  <p className="memberDetail2">{members[3].position}</p>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col-4 col-md-2">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[4].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[4].name}</p>
-                  <p className="memberDetail2">{members[4].position}</p>
-                </div> 
-              </div>
-            </div>
-            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-6">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[5].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[5].name}</p>
-                  <p className="memberDetail2">{members[5].position}</p>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <div className="row gx-0">
-            <div className="col-4 col-md-2 offset-md-1">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[6].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[6].name}</p>
-                  <p className="memberDetail2">{members[6].position}</p>
-                </div> 
-              </div>
-            </div>
-            <div className="col-4 col-md-2 offset-md-3">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[7].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[7].name}</p>
-                  <p className="memberDetail2">{members[7].position}</p>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <div className="row gx-0 mt-5">
-            <div className="col-4 col-md-2 offset-md-2">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[8].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[8].name}</p>
-                  <p className="memberDetail2">{members[8].position}</p>
-                </div> 
-              </div>
-            </div>
-            <div className="col-4 col-md-2 mt-5 offset-4 offset-md-3">
-              <div className="row gx-0 member">
-                <div className="col-1 bg-color"></div>
-                <div className="col-11 position-relative">
-                  <img className="w-100" src={members[9].image}/>
-                  <p style={{textColor: '#00FF39'}} className="mb-0 memberDetail text-highlight">{members[9].name}</p>
-                  <p className="memberDetail2">{members[9].position}</p>
-                </div> 
-              </div>
-            </div>
-          </div>
-          <div className="row gx-0 py-5">
-            <div className="col-6 ">
+  const teamSwiper = useRef(null);
+  const previous = () => {
+    teamSwiper.current.slidePrev();
+  };
 
+  const next = () => {
+    teamSwiper.current.slideNext();
+  };
+  return (
+    <section id="team" style={{height:'100%'}}>
+      <div className="row align-items-center h-100">
+        <div className="col-12 order-2 order-md-1">
+          <div className="row gx-0 pb-5 align-items-start">
+            <div className="col-12 col-md-9">
+              <div className="row gx-0 align-items-start">
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={4}      
+                  onSwiper={(swiper) => {
+                    teamSwiper.current = swiper;
+                  }}
+                  breakpoints={{ 
+                    1200: {
+                      slidesPerView: 4,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                    },
+                    480: {
+                      slidesPerView: 2,
+                    },
+                  }}
+                  // autoplay={{
+                  //   delay: 5200,
+                  //   disableOnInteraction: true,
+                  // }}
+                  // speed={800}
+                >
+                  {members.map((item, index) => {
+                    return(
+                      <SwiperSlide key={index}>
+                        <div className="col-12">
+                          <div className="row gx-0 member">
+                            <div className="col-12 position-relative">
+                              <img className="w-100" src={item.image}/>
+                              <p className="mb-0 memberDetail text-highlight-2">{item.name}</p>
+                              
+                            </div> 
+                            <div className="col-12 position-relative">
+                              <p className="memberDetail2 text-highlight-3">{item.position}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    )
+                  })}
+                </Swiper>
+              </div>
             </div>
-            <div className="col-6 mx-auto ">
-              <h1 className="">
-                Leapr<br/>
-                +54911 47839403<br/>
-                info@leapr.studio
-              </h1>
+            <div className="col-12 col-md-3 d-flex align-items-center order-1 order-md-2">
+              <h2 className="text-highlight-2 mb-0 d-inline-block">OUR TEAM</h2>
+              <button
+                  className="btn btn-arrows"
+                  onClick={previous}
+                >
+                  <ArrowLeft/>
+                </button>
+                <button
+                  className="btn btn-arrows"
+                  onClick={next}
+                >
+                  <ArrowRight />
+                </button>
             </div>
           </div>
         </div>
