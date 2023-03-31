@@ -11,16 +11,15 @@ import { Gaby } from "./gaby";
 import Marquee from "react-fast-marquee";
 
 const Projects = () => {
-  const ref = useRef(null)
+  const ref = useRef(0)
   const [active, setActive] = useState(0);
 
-  const previous = () => {
-    ref.current.slidePrev();
-  };
-
+  // const previous = () => {
+  //   ref.current.slidePrev();
+  // };
   
   const next = (slide) => {
-    console.log(slide)
+    setActive(slide);
     ref.current.slideTo(slide);
   };
   return (
@@ -28,7 +27,9 @@ const Projects = () => {
       <div className="row gx-0 align-items-center h-100">
         <div className="col-12 col-md-12">
           <div className="row">
-            <div className="col-12 col-md-12">
+            
+          <div className="row">
+          <div className="col-12 col-md-12">
               <Marquee
                 pauseOnHover={false}
                 gradient={false}
@@ -49,7 +50,6 @@ const Projects = () => {
               </Marquee>
             </div>
           </div>
-          <div className="row">
             <div className="col-12 col-md-12">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}

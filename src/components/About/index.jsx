@@ -11,7 +11,7 @@ const About = () => {
             <p className="text-highlight-3">
               <span className="text-highlight">
                 LEAPR 
-              </span> is a strategy and design studio for metaverse platforms based in Argentina <br/><br/>
+              </span> is a strategy and design studio for immersive platforms based in Argentina <br/><br/>
               As a team of skilled and creative thinkers,
               we're passionate about bringing virtual platforms to life.
               We'll work with you to understand your unique vision,

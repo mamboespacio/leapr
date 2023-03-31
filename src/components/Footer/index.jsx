@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <section id="footer" style={{height:'100%'}}>
       <div className="row align-items-center h-100">
-        <div className="col-3">
+        <div className="col-md-3">
           <video
             autoPlay={true}
             controls={false}
@@ -16,13 +16,12 @@ const Footer = () => {
             style={{width: '100%'}}
           />
         </div>
-        <div className="col-9">
+        <div className="col-md-9">
           <div className="row">
             <h1>
               <span className="text-highlight">Leapr Studio</span><br/>
               Buenos Aires, Argentina<br/>
-              +5411 4782929<br/>
-              jump@leapr.studio
+              info@leapr.studio
             </h1>
           </div>
           <div className="row mt-5">

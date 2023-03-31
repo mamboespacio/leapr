@@ -14,18 +14,20 @@ function App() {
 
   return (
     <>
-    <Navigation navStyle={navStyle}/>
-    <Contact/>
-    
-    <Canvas
-      shadows
-      frameloop="always"
-      performance={{ debounce: 200 }}
-      dpr={[1,2]}
-    >
-      <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
-    </Canvas>
-    <Loader/>
+      <Navigation navStyle={navStyle}/>
+      <Contact/>
+      
+      <Canvas
+        shadows
+        frameloop="always"
+        performance={{ debounce: 200 }}
+        dpr={[1,2]}
+      >
+        <Suspense fallback={null}>
+         <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
+        </Suspense> 
+      </Canvas>
+      <Loader/>
     </>
   );
 }

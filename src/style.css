@@ -184,18 +184,23 @@ h1{
   background: rgb(9,209,5);
   background: linear-gradient(-90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
   position: fixed;
-  bottom:35px;
+  bottom:0px;
   left: 0;
   z-index: 1000;
   border: 0;
-  transform: rotate(-90deg);
-  left: -45px;
+}
+.contactBadge button{
+  background: transparent !important;
+  border: 0 !important;
+  text-decoration: none !important;
 }
 .contactBadge p{
   transform-origin: 0 0;
   margin: 0 !important;
-  padding: 1rem;
+  padding: .5rem;
   bottom: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .bg-color{
   background: rgb(9,209,5);
@@ -204,6 +209,10 @@ h1{
 .bg-color-2{
   background: rgb(9,209,5);
   background: linear-gradient(90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
+}
+.member{
+  width: 240px;
+  margin: 0 10px;
 }
 .memberDetail{
   top: 0;
@@ -222,7 +231,11 @@ h1{
     font-size: 3.5rem !important;
     line-height: 1 !important;
   }
-  .memberDetail{
+  .member{
+    width: 320px;
+    margin: 0 10px;
+  }
+  /* .memberDetail{
     top: 0;
     left: 100%;
     width: 100%;
@@ -231,11 +244,11 @@ h1{
     top: 20px;
     left: 100%;
     width: 100%;
-  }
+  } */
 }
 
 .marquee-container{
-  background-color: #000;
+  /* background-color: #000; */
 }
 .marqueeItem{
   background: #000;
@@ -247,6 +260,8 @@ h1{
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
+  font-family: AudimatMonoLight;
+  font-size: 1.25rem;
 }
 .marqueeItem a:hover, .marqueeItem a:focus, .marqueeItem.active {
   background-color: #00FF39;
@@ -280,6 +295,7 @@ h1{
 }
 #work  p{
   color: #fff;
+  background: #000;
   margin-bottom: 0 !important;
 }
 .modal-content{

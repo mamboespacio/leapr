@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from "react-bootstrap";
+import Marquee from 'react-fast-marquee';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -71,9 +72,39 @@ const Contact = () => {
   };
   return (
     <>
-      <button className='contactBadge' onClick={() => setShowContact(true)}>
-        <p className='text-black font-audimat'>Contact Us</p>
-      </button>
+      <div className='contactBadge'>
+      <Marquee gradient={false} speed={5}>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        
+        
+      </Marquee>
+      </div>
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>
   );
