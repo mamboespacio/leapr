@@ -27,7 +27,7 @@ import { getProject } from "@theatre/core";
 import CameraControl from "./CameraControl";
 import flyThrougState from "../stateCameraAnim.json"
 
-export const sectionsLength = 26
+export const sectionsLength = 25
 
 export default function Experience() {
 
