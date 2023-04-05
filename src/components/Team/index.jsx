@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/autoplay'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Marquee from "react-fast-marquee";
@@ -20,22 +21,56 @@ const members = [
   {name:'PABLO SIMON CASARINO', position:'Partner', image:'/images/team/pola.jpeg', margin: 3, marginleft: 3}
 ]
 const Team = () => {
+  const ref = useRef(0)
+  const next = () => {
+    ref.current.slideNext()
+  };
+  const prev = () => {
+    ref.current.slidePrev()
+  };
   return (
     <section id="team" style={{height:'100%'}}>
       <div className="row align-items-center h-100">
         <div className="col-12 order-2 order-md-1">
           <div className="row gx-0 pb-5 align-items-start">
             <div className="col-12 col-md-3 d-flex align-items-center justify-content-md-end">
-              <h2 className="text-highlight-2 mb-0 d-inline-block font-audimat">OUR TEAM</h2>
+                <h3 className="text-highlight-2 mb-0 d-inline-block font-audimat">OUR TEAM</h3>
+                <button
+                  className="btn btn-arrows pt-3"
+                  onClick={prev}
+                >
+                  <ArrowLeft/>
+                </button>
+                <button
+                  className="btn btn-arrows pt-3"
+                  onClick={next}
+                >
+                  <ArrowRight />
+                </button>
             </div>
+              
             <div className="col-12 col-md-9">
               
-                <Marquee
-                  pauseOnHover={false}
-                  gradient={false}
+                <Swiper
+                  modules={[Autoplay, Pagination]}
+                  slidesPerView={2}
+                  spaceBetween={10}
+                  breakpoints={{ 
+                    1200:{
+                      slidesPerView: 4,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                    }
+                  }}
+                  loop={true}
+                  onSwiper={(swiper) => {
+                    ref.current = swiper;
+                  }}
                 >
-                    {members.map((item, index) => {
-                      return(
+                  {members.map((item, index) => {
+                    return(
+                      <SwiperSlide>
                         <div className="member" key={index}>
                           <div className="row gx-0 member">
                             <div className="col-12 position-relative">
@@ -48,10 +83,10 @@ const Team = () => {
                             </div>
                           </div>
                         </div>
-                      )
-                    })}  
-                        
-                </Marquee>
+                      </SwiperSlide>
+                    )
+                  })}  
+                </Swiper>
             </div>
           </div>
         </div>

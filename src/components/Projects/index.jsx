@@ -12,15 +12,17 @@ import Marquee from "react-fast-marquee";
 
 const Projects = () => {
   const ref = useRef(0)
-  const [active, setActive] = useState(0);
-
-  // const previous = () => {
-  //   ref.current.slidePrev();
-  // };
+  const ref2 = useRef(0)
   
-  const next = (slide) => {
-    setActive(slide);
+  const slideTo = (slide) => {
     ref.current.slideTo(slide);
+    ref2.current.slideTo(slide);
+  };
+  const next = () => {
+    ref.current.slideNext()
+  };
+  const prev = () => {
+    ref.current.slidePrev()
   };
   return (
     <section id="work" className="h-100">
@@ -30,33 +32,44 @@ const Projects = () => {
             
           <div className="row">
           <div className="col-12 col-md-12">
-              <Marquee
-                pauseOnHover={false}
-                gradient={false}
+              <Swiper
+                spaceBetween={0}
+                slidesPerView={3}
+                className="projects-selector"
+                loop={true}
+                initialSlide={0}
+                onSwiper={(swiper) => {
+                  ref2.current = swiper;
+                }}
               >
-                
-                  <div className="marqueeItem">
-                    <a className={active === 0 ? 'active' : ''} href="#" onClick={(e)=> next(0)}>NERA</a>
-                  </div>
-                  <div className="marqueeItem">
-                    <a className={active === 1 ? 'active' : ''} href="#" onClick={()=> next(1)}>LEAPR’S AUDITORIUM</a>
-                  </div>
-                  <div className="marqueeItem">
-                    <a className={active === 2 ? 'active' : ''} href="#" onClick={()=> next(2)}>LEAPER'S HEADQUARTERS</a>
-                  </div>
-                  <div className="marqueeItem">
-                    <a className={active === 3 ? 'active' : ''} href="#" onClick={()=> next(3)}>LEAPR FT GABY PEÑALBA</a>
-                  </div>
-              </Marquee>
+                <SwiperSlide>
+                  <button href="#" onClick={(e)=> slideTo(0)}>NERA</button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button href="#" onClick={(e)=> slideTo(1)}>LEAPR’S AUDITORIUM</button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button href="#" onClick={(e)=> slideTo(2)}>LEAPER'S HEADQUARTERS</button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button href="#" onClick={(e)=> slideTo(3)}>LEAPR FT GABY PEÑALBA</button>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
             <div className="col-12 col-md-12">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
-                slidesPerView={1}              
+                slidesPerView={1}  
+                initialSlide={0}   
+                loop={true}
                 onSwiper={(swiper) => {
                   ref.current = swiper;
+                }}
+                onSlideChange={(swiper)=>{
+                  ref2.current.slideTo(swiper.realIndex)
+                  // console.log(swiper.realIndex, ref2.current.realIndex)
                 }}
                 // autoplay={{
                 //   delay: 5200,
@@ -64,10 +77,10 @@ const Projects = () => {
                 // }}
                 // speed={800}
               >
-                <SwiperSlide><Sandbox/></SwiperSlide>
-                <SwiperSlide><Spatial/></SwiperSlide>
-                <SwiperSlide><Decentraland/></SwiperSlide>
-                <SwiperSlide><Gaby/></SwiperSlide>
+                <SwiperSlide><Sandbox next={next} prev={prev}/></SwiperSlide>
+                <SwiperSlide><Spatial next={next} prev={prev}/></SwiperSlide>
+                <SwiperSlide><Decentraland next={next} prev={prev}/></SwiperSlide>
+                <SwiperSlide><Gaby next={next} prev={prev}/></SwiperSlide>
               </Swiper>
             </div>
           </div>

@@ -10,7 +10,7 @@ body,
   background: #000;
   /* background: linear-gradient(55deg, rgba(35,204,1,1) 22%, rgba(232,189,234,1) 37%, rgba(248,152,92,1) 57%, rgba(232,189,234,1) 73%, rgba(248,152,92,1) 100%); */
   touch-action: none;
-  font-family: "Archivo" !important;
+  font-family: "AudimatMonoLight" !important;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2 !important;
@@ -40,7 +40,6 @@ body,
 }
 .font-audimat {
   font-family: "AudimatMonoLight";
-  font-size: 120%;
 }
 .font-salma {
   font-family: "SalmaPro-Medium";
@@ -62,11 +61,21 @@ body,
   color: #fff;
   display: inline;
 }
+.arrowsbox{
+  position: absolute;
+  bottom: 4px;
+  right:0;
+  z-index: 10;
+  padding: 1rem;
+}
 .btn-arrows{
   background: #000 !important;
   color: #fff !important;
   padding: 2px !important;
   border-radius: 0 !important;
+}
+.arrowsbox .btn-arrows{
+  background: transparent !important;
 }
 .w-75{
   width: 75% !important;
@@ -74,6 +83,34 @@ body,
 h1{
   font-size: 2rem !important;
   line-height: 1 !important;
+}
+
+.projects-selector{
+  font-family: 'AudimatMonoLight';
+  background: #000;
+}
+.projects-selector .swiper-slide{
+  padding: .5rem 0;
+}
+.projects-selector .swiper-slide{
+  color: #00FF39 !important;
+  background: #000 !important;
+  text-decoration: none !important;
+}
+.projects-selector .swiper-slide button{
+  color: #00FF39;
+  text-decoration: none !important;
+  background: #000;
+  border: none;
+}
+.projects-selector .swiper-slide.swiper-slide-active{
+  background: #00FF39 !important;
+  color: #000 !important;
+  text-decoration: none !important;
+}
+.projects-selector .swiper-slide.swiper-slide-active button{
+  color: #000 !important;
+  background: #00FF39;
 }
 
 .projectsSwiper .swiper-pagination {
@@ -211,8 +248,7 @@ h1{
   background: linear-gradient(90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
 }
 .member{
-  width: 240px;
-  margin: 0 10px;
+
 }
 .memberDetail{
   top: 0;
@@ -232,8 +268,7 @@ h1{
     line-height: 1 !important;
   }
   .member{
-    width: 320px;
-    margin: 0 10px;
+
   }
   /* .memberDetail{
     top: 0;
@@ -297,6 +332,7 @@ h1{
   color: #fff;
   background: #000;
   margin-bottom: 0 !important;
+  font-family: 'AudimatMonoLight'
 }
 .modal-content{
   border-radius: 0px !important;

@@ -1,18 +1,39 @@
+import React, {useRef} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import ReactPlayer from 'react-player'
+import { ArrowLeft, ArrowRight } from 'react-bootstrap-icons';
 
-export function Decentraland(){
+export function Decentraland({next, prev}){
+  const ref = useRef(0)
+  const nextImage = () => {
+    ref.current.slideNext()
+  };
+  const prevImage = () => {
+    ref.current.slidePrev()
+  };
   return(
     <div className="row gx-0">
     <div className="col-12 col-md-3">
+      <p className="w-100">About this project:</p>
       <p>
-      This venue is home to LEAPR’S metaverse offices at Decentraland. Inspired and built from our visual identity, it includes a peaceful walk through a park, an extense NFT gallery that exhibits our art, lounge areas to relax in, private offices to meet in, and an auditorium for conferences.
-
+        This venue is home to LEAPR’S metaverse offices at Decentraland. Inspired and built from our visual identity, it includes a peaceful walk through a park, an extense NFT gallery that exhibits our art, lounge areas to relax in, private offices to meet in, and an auditorium for conferences.
       </p>
+      <button
+        className="btn btn-arrows pt-3"
+        onClick={prev}
+      >
+        <ArrowLeft/>
+      </button>
+      <button
+        className="btn btn-arrows pt-3"
+        onClick={next}
+      >
+        <ArrowRight />
+      </button>
     </div>
     <div className='col-md-9'>
     <Swiper
@@ -22,7 +43,9 @@ export function Decentraland(){
       spaceBetween={0}
       slidesPerView={1}   
       loop={true}
-      navigation={true}
+      onSwiper={(swiper) => {
+        ref.current = swiper;
+      }}
     >
       <SwiperSlide>
         <img
@@ -51,6 +74,20 @@ export function Decentraland(){
             height: "auto",
         }} />
       </SwiperSlide>
+      <div className='arrowsbox'>
+        <button
+          className="btn btn-arrows pt-3"
+          onClick={prevImage}
+        >
+          <ArrowLeft/>
+        </button>
+        <button
+          className="btn btn-arrows pt-3"
+          onClick={nextImage}
+        >
+          <ArrowRight />
+        </button>
+      </div>
     </Swiper>
     </div>
     </div>

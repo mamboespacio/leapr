@@ -8,10 +8,10 @@ const About = () => {
         <div className="row gx-0 h-100 align-items-center">
           <div className="col-6">
             {/* <p style={{backgroundColor: 'rgba(0,0,0,0.3)'}}> */}
-            <p className="text-highlight-3">
+            <p className="text-highlight-3 font-audimat">
               <span className="text-highlight">
                 LEAPR 
-              </span> is a strategy and design studio for immersive platforms based in Argentina <br/><br/>
+              </span> is a strategy and design studio for immersive experiences based in Argentina <br/><br/>
               As a team of skilled and creative thinkers,
               we're passionate about bringing virtual platforms to life.
               We'll work with you to understand your unique vision,

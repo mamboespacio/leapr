@@ -6,7 +6,7 @@ import { sectionsLength } from "../Experience";
 
 
 const Dive = () => {
-  const fontUrl = '/public/fonts/AudimatMonoLight.ttf'
+  const fontUrl = 'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxM.woff'
   const ref1 = useRef()
   const ref2 = useRef()
   const ref3 = useRef()
@@ -53,10 +53,10 @@ const Dive = () => {
   })
   return (
     <>
-      <Text color={'white'} font={fontUrl} ref={ref1} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>We Dive</Text>
-      <Text color={'white'} font={fontUrl} ref={ref2} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>We Define</Text>
-      <Text color={'white'} font={fontUrl} ref={ref3} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>We Design</Text>
-      <Text color={'white'} font={fontUrl} ref={ref4} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>We Deploy</Text>
+      <Text color={'white'} font={fontUrl} ref={ref1} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>WE DIVE</Text>
+      <Text color={'white'} font={fontUrl} ref={ref2} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>WE DEFINE</Text>
+      <Text color={'white'} font={fontUrl} ref={ref3} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>WE DESIGN</Text>
+      <Text color={'white'} font={fontUrl} ref={ref4} fillOpacity={0} fontSize={0} position={[0, 0, -20]}>WE DEPLOY</Text>
     </>
   );
 };

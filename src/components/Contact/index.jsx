@@ -101,6 +101,18 @@ const Contact = () => {
         <button className='btn-link w-100' onClick={() => setShowContact(true)}>
           <p className='text-black font-audimat'>Contact Us</p>
         </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
+        <button className='btn-link w-100' onClick={() => setShowContact(true)}>
+          <p className='text-black font-audimat'>Contact Us</p>
+        </button>
         
         
       </Marquee>
