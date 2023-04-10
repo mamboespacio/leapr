@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <section id="footer" style={{height:'100%'}}>
       <div className="row align-items-center h-100">
-        <div className="col-md-3">
-          <img className="w-100" src="/images/leapr-logo-footer.gif" alt="Leapr Logo"/>
+        <div className="col-md-3 justify-content-center align-items-center d-flex">
+          <img className="w-50" src="/images/leapr-logo-footer.gif" alt="Leapr Logo"/>
         </div>
         <div className="col-md-9">
           <div className="row">

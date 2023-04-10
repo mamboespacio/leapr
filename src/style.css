@@ -218,26 +218,59 @@ h1{
   transition: all 0.3s 0s ease-out;
 }
 .contactBadge{
-  background: rgb(9,209,5);
-  background: linear-gradient(-90deg, rgba(9,209,5,1) 0%, rgba(255,144,23,1) 50%, rgba(241,190,240,1) 100%);
-  position: fixed;
-  bottom:0px;
-  left: 0;
-  z-index: 1000;
-  border: 0;
-}
-.contactBadge button{
-  background: transparent !important;
+  background: linear-gradient(180deg, #09d105, #ff9017, #f1bef0);
+  background-size: 100% 100%;
+
+  -webkit-animation: gradientAnim 3s ease infinite;
+  -moz-animation: gradientAnim 3s ease infinite;
+  animation: gradientAnim 3s ease infinite;
   border: 0 !important;
   text-decoration: none !important;
 }
-.contactBadge p{
-  transform-origin: 0 0;
-  margin: 0 !important;
-  padding: .5rem;
-  bottom: 10px;
-  text-decoration: none;
-  text-transform: uppercase;
+
+@-webkit-keyframes gradientAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradientAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradientAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.contactBadge button{
+  transform: rotate(-90deg);
+  min-width: 100px;
+  background-color: transparent !important;
+  border: none !important;
+}
+.contactForm{
+  position: absolute;
+  bottom:0;
+  z-index: 1010;
+  width: 100%;
+}
+.contactForm .col-11{
+  transition: all 300ms ease;
+  overflow: hidden;
+}
+.contactForm .col-11.dont{
+  width: 0%;
+}
+.contactForm form{
+  background-color: #000 !important;
+}
+.contactForm input{
+  color: #ccc;
+}
+.contactForm input:focus{
+  color: #fff !important;
+  box-shadow: none !important;
 }
 .bg-color{
   background: rgb(9,209,5);
@@ -347,4 +380,7 @@ label{
   text-align: left !important;
   background: #00FF39;
   color: #000;
+  line-height: 1.5;
+  margin-right: .5rem;
+  min-width: 80px
 }
