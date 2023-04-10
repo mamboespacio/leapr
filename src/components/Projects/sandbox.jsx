@@ -19,8 +19,7 @@ export function Sandbox({prev, next}){
   return(
     <div className="row gx-0">
       <div className="col-12 col-md-3">
-        <p className="w-100">About this project:</p>
-        <p className='w-100 pt-3 d-inline-block'>
+        <p className='w-100 d-inline-block'>
           Nera is a two-leveled game based in The SandBox  in which the player is submerged into a captivating story with different parkour and puzzle challenges. During this journey, they will meet with different characters which will guide them throughout the adventure.
         </p>
         <button

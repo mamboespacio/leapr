@@ -3,16 +3,21 @@ import { CloudHaze2Fill, Instagram, Linkedin, Medium, Twitter, Youtube } from "r
 const Footer = () => {
   return (
     <section id="footer" style={{height:'100%'}}>
-      <div className="row align-items-center h-100">
-        <div className="col-md-3 justify-content-center align-items-center d-flex">
-          <img className="w-50" src="/images/leapr-logo-footer.gif" alt="Leapr Logo"/>
+      <div className="row align-items-center h-100 g-0">
+        <div className="col-12 col-md-3 justify-content-center align-items-center d-none  d-md-flex">
+          <img className="w-75 d-none d-md-block" src="/images/leapr-logo-footer.gif" alt="Leapr Logo"/>
         </div>
-        <div className="col-md-9">
+        <div className="col-8 col-md-9">
+          <div className="row">
+            <div className="col-6">
+              <img className="w-100 d-block d-md-none" src="/images/leapr-logo-footer.gif" alt="Leapr Logo"/>
+            </div> 
+          </div>
           <div className="row">
             <h2>
               <span className="text-highlight">Leapr Studio</span><br/>
-              Buenos Aires, Argentina<br/>
-              info@leapr.studio
+              <span className="text-highlight-3">Buenos Aires, Argentina</span><br/>
+              <span className="text-highlight-3">info@leapr.studio</span>
             </h2>
           </div>
           <div className="row mt-5">

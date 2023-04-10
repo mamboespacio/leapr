@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Modal } from "react-bootstrap";
-import Marquee from 'react-fast-marquee';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   
-  const [showContact, setShowContact] = useState("false");
+  const [showContact, setShowContact] = useState(false);
   const handleToggle = () => {
     setShowContact(!showContact);
   };
@@ -26,7 +24,7 @@ const Contact = () => {
                         placeholder="write your name"
                         className="form-control rounded-0"
                         aria-describedby="emailHelp"
-                        // onChange={e => setName(e.target.value)}
+                        onChange={e => setName(e.target.value)}
                       />
                     </div>
                     <div className="mb-3 text-start d-flex align-items-center">

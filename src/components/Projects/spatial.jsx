@@ -17,7 +17,6 @@ export function Spatial({next, prev}){
   return(
     <div className="row gx-0">
     <div className="col-12 col-md-3">
-      <p className="w-100">About this project:</p>
       <p>
         This nature-inspired auditorium built in Spatial was created to enable leapr-related events, connecting all our audience into one immersive space. It hosts a wide range of possibilities: from interviews, to conferences, meetings and live streamings of web3 announcements. The space is available for third parties to rent for private affairs.
       </p>

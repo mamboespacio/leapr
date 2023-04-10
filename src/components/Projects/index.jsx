@@ -27,17 +27,23 @@ const Projects = () => {
   return (
     <section id="work" className="h-100">
       <div className="row gx-0 align-items-center h-100">
-        <div className="col-12 col-md-12">
+        <div className="col-12">            
           <div className="row">
-            
-          <div className="row">
-          <div className="col-12 col-md-12">
+            <div className="col-12">
               <Swiper
                 spaceBetween={0}
-                slidesPerView={3}
                 className="projects-selector"
                 loop={true}
+                slidesPerView={2}
                 initialSlide={0}
+                breakpoints={{ 
+                  1200:{
+                    slidesPerView: 4,
+                  },
+                  300: {
+                    slidesPerView: 2,
+                  }
+                }}
                 onSwiper={(swiper) => {
                   ref2.current = swiper;
                 }}
@@ -56,8 +62,7 @@ const Projects = () => {
                 </SwiperSlide>
               </Swiper>
             </div>
-          </div>
-            <div className="col-12 col-md-12">
+            <div className="col-12">
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -71,11 +76,6 @@ const Projects = () => {
                   ref2.current.slideTo(swiper.realIndex)
                   // console.log(swiper.realIndex, ref2.current.realIndex)
                 }}
-                // autoplay={{
-                //   delay: 5200,
-                //   disableOnInteraction: true,
-                // }}
-                // speed={800}
               >
                 <SwiperSlide><Sandbox next={next} prev={prev}/></SwiperSlide>
                 <SwiperSlide><Spatial next={next} prev={prev}/></SwiperSlide>

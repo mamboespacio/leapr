@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Claim = () => {
-  const wordArray = ['Memorable', 'Custom', 'Powerful', 'Unique'];
+  const wordArray = ['', 'Memorable', 'Custom', 'Powerful', 'Unique'];
   const [currWord, setCurrWord] = useState(wordArray[0]);
 	const [isActive, setIsActive] = useState(true);
 	const index = useRef(0);

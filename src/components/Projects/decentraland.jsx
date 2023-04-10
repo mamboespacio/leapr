@@ -18,7 +18,6 @@ export function Decentraland({next, prev}){
   return(
     <div className="row gx-0">
     <div className="col-12 col-md-3">
-      <p className="w-100">About this project:</p>
       <p>
         This venue is home to LEAPR’S metaverse offices at Decentraland. Inspired and built from our visual identity, it includes a peaceful walk through a park, an extense NFT gallery that exhibits our art, lounge areas to relax in, private offices to meet in, and an auditorium for conferences.
       </p>

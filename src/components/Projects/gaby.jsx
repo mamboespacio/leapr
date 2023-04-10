@@ -18,7 +18,6 @@ export function Gaby({prev,next}){
   return(
     <div className='row gx-0'>
     <div className="col-12 col-md-3">
-      <p className="w-100">About this project:</p>
       <p>
         LEAPRS's first wearable drop in collaboration with the argentine 3D Artist, Gabriela Peñalba. The collection consists of unique pieces, including puffer jackets, personalized hoodies, pants, and accessories. 
       </p>

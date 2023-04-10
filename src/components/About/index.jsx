@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section id="dna" className="h-100">
         <div className="row gx-0 h-100 align-items-center">
-          <div className="col-6">
+          <div className="col-10 col-md-6">
             {/* <p style={{backgroundColor: 'rgba(0,0,0,0.3)'}}> */}
             <p className="text-highlight-3 font-audimat">
               <span className="text-highlight">
