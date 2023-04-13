@@ -89,26 +89,26 @@ h1{
   font-family: 'AudimatMonoLight';
   background: #000;
 }
-.projects-selector .swiper-slide{
+.projects-selector .project{
   padding: .5rem 0;
 }
-.projects-selector .swiper-slide{
+.projects-selector .project{
   color: #00FF39 !important;
   background: #000 !important;
   text-decoration: none !important;
 }
-.projects-selector .swiper-slide button{
+.projects-selector .project button{
   color: #00FF39;
   text-decoration: none !important;
   background: #000;
   border: none;
 }
-.projects-selector .swiper-slide.swiper-slide-active{
+.projects-selector .project.active{
   background: #00FF39 !important;
   color: #000 !important;
   text-decoration: none !important;
 }
-.projects-selector .swiper-slide.swiper-slide-active button{
+.projects-selector .project.active button{
   color: #000 !important;
   background: #00FF39;
 }
@@ -256,7 +256,7 @@ h1{
   width: 100%;
 }
 .contactForm .col-11{
-  transition: all 300ms ease;
+  transition: all 0.5s ease;
   overflow: hidden;
 }
 .contactForm .col-11.dont{

@@ -17,6 +17,22 @@ export function Gaby({prev,next}){
   };
   return(
     <div className='row gx-0'>
+      <div className="col-12 projects-selector">
+        <div className="row g-0">
+          <div className="col-6 col-md-3 project active">
+            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+          </div>
+          <div className="col-6 col-md-3 project">
+            <button className="" href="#">NERA</button>
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPR’S AUDITORIUM</button>
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPER'S HEADQUARTERS</button> 
+          </div>
+        </div>
+      </div>
     <div className="col-12 col-md-3">
       <p>
         LEAPRS's first wearable drop in collaboration with the argentine 3D Artist, Gabriela Peñalba. The collection consists of unique pieces, including puffer jackets, personalized hoodies, pants, and accessories. 

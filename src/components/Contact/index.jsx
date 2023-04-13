@@ -15,7 +15,7 @@ const Contact = () => {
           <div className="row g-0">
             <div className="col-12 col-md-4">
               <div className='row g-0'>
-                <div className={showContact ? 'col-11' : 'col-11 dont'}>
+                <div className="col-11" style={{'width': showContact ? '91.66666667%' : '0%'}}>
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3 text-start d-flex align-items-center">
                       <label>name</label>

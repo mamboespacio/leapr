@@ -18,6 +18,22 @@ export function Sandbox({prev, next}){
   };
   return(
     <div className="row gx-0">
+      <div className="col-12 projects-selector">
+        <div className="row g-0">
+          <div className="col-6 col-md-3 project active">
+            <button className="" href="#">NERA</button>
+          </div>
+          <div className="col-6 col-md-3 project">
+            <button href="#">LEAPR’S AUDITORIUM</button>
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPER'S HEADQUARTERS</button> 
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+          </div>
+        </div>
+      </div>
       <div className="col-12 col-md-3">
         <p className='w-100 d-inline-block'>
           Nera is a two-leveled game based in The SandBox  in which the player is submerged into a captivating story with different parkour and puzzle challenges. During this journey, they will meet with different characters which will guide them throughout the adventure.

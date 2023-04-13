@@ -22,11 +22,11 @@ const Footer = () => {
           </div>
           <div className="row mt-5">
             <div className="col-12">
-              <a className="me-3 d-inline-block text-light" href=""><Twitter size={24}></Twitter></a>
-              <a className="me-3 d-inline-block text-light" href=""><Linkedin size={24}></Linkedin></a>
-              <a className="me-3 d-inline-block text-light" href=""><Instagram size={24}></Instagram></a>
-              <a className="me-3 d-inline-block text-light" href=""><Youtube size={24}></Youtube></a>
-              <a className="me-3 d-inline-block text-light" href=""><Medium size={24}></Medium></a>
+              <a className="me-3 d-inline-block text-light" href="https://twitter.com/leapr_studio"><Twitter size={24}></Twitter></a>
+              <a className="me-3 d-inline-block text-light" href="https://linkedin.com/company/leapr-studio"><Linkedin size={24}></Linkedin></a>
+              <a className="me-3 d-inline-block text-light" href="https://instagram.com/leapr.studio"><Instagram size={24}></Instagram></a>
+              <a className="me-3 d-inline-block text-light" href="https://www.youtube.com/@Leaprstudio"><Youtube size={24}></Youtube></a>
+              <a className="me-3 d-inline-block text-light" href="https://medium.com/@LEAPRSTUDIO"><Medium size={24}></Medium></a>
             </div>
             
           </div>

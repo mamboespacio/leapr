@@ -16,6 +16,22 @@ export function Spatial({next, prev}){
   };
   return(
     <div className="row gx-0">
+      <div className="col-12 projects-selector">
+        <div className="row g-0">
+          <div className="col-6 col-md-3 project  active">
+            <button href="#">LEAPR’S AUDITORIUM</button>
+          </div>
+          <div className="col-6 col-md-3 project">
+            <button href="#">LEAPER'S HEADQUARTERS</button> 
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button className="" href="#">NERA</button>
+          </div>
+        </div>
+      </div>
     <div className="col-12 col-md-3">
       <p>
         This nature-inspired auditorium built in Spatial was created to enable leapr-related events, connecting all our audience into one immersive space. It hosts a wide range of possibilities: from interviews, to conferences, meetings and live streamings of web3 announcements. The space is available for third parties to rent for private affairs.

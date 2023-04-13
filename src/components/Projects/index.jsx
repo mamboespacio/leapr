@@ -1,6 +1,6 @@
 import React, {useRef, useState, useEffect} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Navigation, Pagination, Controller } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -8,21 +8,23 @@ import { Sandbox } from "./sandbox";
 import { Decentraland } from "./decentraland";
 import { Spatial } from "./spatial";
 import { Gaby } from "./gaby";
-import Marquee from "react-fast-marquee";
 
 const Projects = () => {
-  const ref = useRef(0)
-  const ref2 = useRef(0)
+
+  const [controlledSwiper, setControlledSwiper] = useState(null);
+  const [mainSwiper, setMainSwiper] = useState();
+
+  // const ref = useRef()
+  // const controlledSwiper = useRef()
   
-  const slideTo = (slide) => {
-    ref.current.slideTo(slide);
-    ref2.current.slideTo(slide);
+  const goToSlide = (slide) => {
+    mainSwiper.slideTo(slide);
   };
   const next = () => {
-    ref.current.slideNext()
+    mainSwiper.slideNext()
   };
   const prev = () => {
-    ref.current.slidePrev()
+    mainSwiper.slidePrev()
   };
   return (
     <section id="work" className="h-100">
@@ -31,51 +33,15 @@ const Projects = () => {
           <div className="row">
             <div className="col-12">
               <Swiper
-                spaceBetween={0}
-                className="projects-selector"
-                loop={true}
-                slidesPerView={2}
-                initialSlide={0}
-                breakpoints={{ 
-                  1200:{
-                    slidesPerView: 4,
-                  },
-                  300: {
-                    slidesPerView: 2,
-                  }
-                }}
-                onSwiper={(swiper) => {
-                  ref2.current = swiper;
-                }}
-              >
-                <SwiperSlide>
-                  <button href="#" onClick={(e)=> slideTo(0)}>NERA</button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button href="#" onClick={(e)=> slideTo(1)}>LEAPR’S AUDITORIUM</button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button href="#" onClick={(e)=> slideTo(2)}>LEAPER'S HEADQUARTERS</button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button href="#" onClick={(e)=> slideTo(3)}>LEAPR FT GABY PEÑALBA</button>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-            <div className="col-12">
-              <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
+                modules={[Navigation, Pagination]}
                 spaceBetween={0}
                 slidesPerView={1}  
-                initialSlide={0}   
+                onSwiper={(swiper) => setMainSwiper(swiper)}
                 loop={true}
-                onSwiper={(swiper) => {
-                  ref.current = swiper;
-                }}
-                onSlideChange={(swiper)=>{
-                  ref2.current.slideTo(swiper.realIndex)
-                  // console.log(swiper.realIndex, ref2.current.realIndex)
-                }}
+                // onSlideChange={(swiper)=>{
+                //   // controlledSwiper.current.slideTo(2)
+                //   console.log(swiper.realIndex)
+                // }}
               >
                 <SwiperSlide><Sandbox next={next} prev={prev}/></SwiperSlide>
                 <SwiperSlide><Spatial next={next} prev={prev}/></SwiperSlide>

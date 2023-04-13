@@ -17,6 +17,22 @@ export function Decentraland({next, prev}){
   };
   return(
     <div className="row gx-0">
+      <div className="col-12 projects-selector">
+        <div className="row g-0">
+          <div className="col-6 col-md-3 project active">
+            <button href="#">LEAPER'S HEADQUARTERS</button> 
+          </div>
+          <div className="col-6 col-md-3 project">
+            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button className="" href="#">NERA</button>
+          </div>
+          <div className="col-6 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPR’S AUDITORIUM</button>
+          </div>
+        </div>
+      </div>
     <div className="col-12 col-md-3">
       <p>
         This venue is home to LEAPR’S metaverse offices at Decentraland. Inspired and built from our visual identity, it includes a peaceful walk through a park, an extense NFT gallery that exhibits our art, lounge areas to relax in, private offices to meet in, and an auditorium for conferences.
