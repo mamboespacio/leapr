@@ -25,7 +25,7 @@ const Claim = () => {
               <h1 className="hero font-archivo">
                 <span className="left">We create</span>
                 <span className="swap right text-highlight">{currWord}</span>
-                <span className="right">metaverse</span>
+                <span className="right">inmersive</span>
                 <span className="left">experiences</span>
               </h1>
             </div>
