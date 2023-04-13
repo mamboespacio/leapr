@@ -24,7 +24,7 @@ const Contact = () => {
                         placeholder="write your name"
                         className="form-control rounded-0"
                         aria-describedby="emailHelp"
-                        onChange={e => setName(e.target.value)}
+                        // onChange={e => setName(e.target.value)}
                       />
                     </div>
                     <div className="mb-3 text-start d-flex align-items-center">

@@ -18,16 +18,16 @@ export function Spatial({next, prev}){
     <div className="row gx-0">
       <div className="col-12 projects-selector">
         <div className="row g-0">
-          <div className="col-6 col-md-3 project  active">
+          <div className="col-12 col-md-3 project  active">
             <button href="#">LEAPR’S AUDITORIUM</button>
           </div>
-          <div className="col-6 col-md-3 project">
+          <div className="col-12 col-md-3 project">
             <button href="#">LEAPER'S HEADQUARTERS</button> 
           </div>
-          <div className="col-6 col-md-3 project d-none d-md-block">
+          <div className="col-12 col-md-3 project d-none d-md-block">
             <button href="#">LEAPR FT GABY PEÑALBA</button> 
           </div>
-          <div className="col-6 col-md-3 project d-none d-md-block">
+          <div className="col-12 col-md-3 project d-none d-md-block">
             <button className="" href="#">NERA</button>
           </div>
         </div>
