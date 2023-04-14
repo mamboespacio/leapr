@@ -45,7 +45,7 @@ const Navigation = (navStyle, setNavStyle) => {
   return (
     <>
       <div id="navigation" className={`w-100 row gx-0 fixed-top ${navStyle.navStyle}`}>
-        <div className="col-9 col-md-3 logo">
+        <div className="col-6 col-md-3 logo">
           <img className="w-100" alt="Leapr logo" src="/images/leapr-logo-black.svg"/>
           {/* <Image
             src="/images/leapr-logo.svg"

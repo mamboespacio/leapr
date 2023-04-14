@@ -6,31 +6,28 @@ import Experience from "./components/Experience";
 import React, {useState, Suspense} from "react";
 import Navigation from './components/Navigation';
 import Contact from './components/Contact';
-
+import { Loader } from '@react-three/drei';
 
 function App() {
+
   const [navStyle, setNavStyle] = useState('black');
+
   return (
     <>
-    <Navigation navStyle={navStyle}/>
-    <Contact/>
-    
-    <Canvas
-      shadows
-      camera={{
-        fov: 45,
-        near: 0.01,
-        far: 300,
-        position: [ 4, 3, 20 ],
+      <Navigation navStyle={navStyle}/>
+      <Contact/>
       
-    }}
-    frameloop="always"
-    performance={{ debounce: 200 }}
-    dpr={[1,2]}
-    >
-      <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
-    </Canvas>
-
+      <Canvas
+        shadows
+        frameloop="always"
+        performance={{ debounce: 200 }}
+        dpr={[1,2]}
+      >
+        <Suspense fallback={null}>
+         <Experience navStyle={navStyle} setNavStyle={setNavStyle}/>
+        </Suspense> 
+      </Canvas>
+      <Loader/>
     </>
   );
 }

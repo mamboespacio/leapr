@@ -1,19 +1,54 @@
+import React, {useRef} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import ReactPlayer from 'react-player'
+import { ArrowLeft, ArrowRight } from 'react-bootstrap-icons';
 
-export function Gaby(){
+export function Gaby({prev,next}){
+  const ref = useRef(0)
+  const nextImage = () => {
+    ref.current.slideNext()
+  };
+  const prevImage = () => {
+    ref.current.slidePrev()
+  };
   return(
     <div className='row gx-0'>
+      <div className="col-12 projects-selector">
+        <div className="row g-0">
+          <div className="col-12 col-md-3 project active">
+            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+          </div>
+          <div className="col-12 col-md-3 project">
+            <button className="" href="#">NERA</button>
+          </div>
+          <div className="col-12 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPR’S AUDITORIUM</button>
+          </div>
+          <div className="col-12 col-md-3 project d-none d-md-block">
+            <button href="#">LEAPER'S HEADQUARTERS</button> 
+          </div>
+        </div>
+      </div>
     <div className="col-12 col-md-3">
       <p>
-      LEAPRS's first wearable drop in collaboration with the argentine 3D Artist, Gabriela Peñalba. The collection consists of unique pieces, including puffer jackets, personalized hoodies, pants, and accessories. 
-
-
+        LEAPRS's first wearable drop in collaboration with the argentine 3D Artist, Gabriela Peñalba. The collection consists of unique pieces, including puffer jackets, personalized hoodies, pants, and accessories. 
       </p>
+      <button
+        className="btn btn-arrows pt-3"
+        onClick={prev}
+      >
+        <ArrowLeft/>
+      </button>
+      <button
+        className="btn btn-arrows pt-3"
+        onClick={next}
+      >
+        <ArrowRight />
+      </button>
     </div>
     <div className='col-md-9'>
     <Swiper
@@ -23,7 +58,9 @@ export function Gaby(){
       spaceBetween={0}
       slidesPerView={1}   
       loop={true}
-      navigation={true}
+      onSwiper={(swiper) => {
+        ref.current = swiper;
+      }}
     >
       <SwiperSlide>
       <img
@@ -42,6 +79,20 @@ export function Gaby(){
       <SwiperSlide>
         <ReactPlayer controls = {true} width="100%" height="100%" url='images/work/gaby/gabyFTleapr_3.mp4' />
       </SwiperSlide>
+      <div className='arrowsbox'>
+        <button
+          className="btn btn-arrows pt-3"
+          onClick={prevImage}
+        >
+          <ArrowLeft/>
+        </button>
+        <button
+          className="btn btn-arrows pt-3"
+          onClick={nextImage}
+        >
+          <ArrowRight />
+        </button>
+      </div>
     </Swiper>
     </div>
     </div>

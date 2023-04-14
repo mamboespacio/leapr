@@ -62,7 +62,7 @@ import { Vector2 } from "three";
             <EffectComposer>
                 <Bloom
                     mipmapBlur
-                    luminanceThreshold={0.9}
+                    luminanceThreshold={0.2}
                     luminanceSmoothing={0.1}
                     height={300}
                 />
@@ -84,7 +84,6 @@ import { Vector2 } from "three";
                 />
                 {/* <ColorDepth bits={[64]}/> */}
                 {/* <DepthOfField focalLength={[0.2]} focusDistance={[focusDistance]} bokehScale={[10]} /> */}
-                <HueSaturation saturation={[0.]} hue={[0]}/>
                 <ChromaticAberration/>
                 {/* <GodRays  sun={sunRef}/>  */}
             </EffectComposer>

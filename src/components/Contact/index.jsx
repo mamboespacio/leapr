@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Modal } from "react-bootstrap";
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -7,54 +6,59 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   
   const [showContact, setShowContact] = useState(false);
+  const handleToggle = () => {
+    setShowContact(!showContact);
+  };
   const ContactModal = (props) => {
     return (
-      <Modal
-        {...props}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        className="text-black text-center"
-      >
-        <div className="container">
-          <div className="row px-5 py-3 px-md-0">
-            <div className="col-12 pt-5 pt-md-0">
-              <h4>
-                Contact
-              </h4>
-              <p className="mt-1 text-muted">
-                Send us a message
-              </p>
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
-                    aria-describedby="emailHelp"
-                    onChange={e => setName(e.target.value)}
-                  />
+      <div className="contactForm">
+          <div className="row g-0">
+            <div className="col-12 col-md-4">
+              <div className='row g-0'>
+                <div className="col-11" style={{'width': showContact ? '91.66666667%' : '0%'}}>
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-3 text-start d-flex align-items-center">
+                      <label>name</label>
+                      <input
+                        type="text"
+                        placeholder="write your name"
+                        className="form-control rounded-0"
+                        aria-describedby="emailHelp"
+                        // onChange={e => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className="mb-3 text-start d-flex align-items-center">
+                      <label>email</label>
+                      <input
+                        type="email"
+                        placeholder="write your email"
+                        className="form-control rounded-0"
+                        // onChange={e => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className="mb-3 text-start d-flex align-items-center">
+                      <label>what's up</label>
+                      <input
+                      type="text"
+                        placeholder="write a message"
+                        className="form-control rounded-0"
+                        // onChange={e => setMessage(e.target.value)}
+                      />
+                    </div>
+                    <div className="mb-0 text-end">
+                      <button type="submit" className="btn text-white rounded-0 px-3">send</button>
+                    </div>
+                  </form>
                 </div>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
-                    onChange={e => setEmail(e.target.value)}
-                  />
+                <div className='col-1 contactBadge d-flex align-items-center justify-content-center'>
+                  <button onClick={handleToggle}>
+                    <p className='text-black font-audimat  m-0'>Contact Us</p>
+                  </button>
                 </div>
-                <div className="mb-3">
-                  <textarea
-                    placeholder="Message"
-                    className="form-control rounded-0 border-0 border-bottom border-white"
-                    onChange={e => setMessage(e.target.value)}
-                  />
-                </div>
-                <button type="submit" className="btn bg-color rounded-pill">Send</button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </Modal>
     )
   }
   const handleSubmit = e => {
@@ -72,9 +76,7 @@ const Contact = () => {
   };
   return (
     <>
-      <button className='contactBadge' onClick={() => setShowContact(true)}>
-        <p className='text-black'>Contact Us</p>
-      </button>
+      
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>
   );
