@@ -43,10 +43,10 @@ const Projects = () => {
                 //   console.log(swiper.realIndex)
                 // }}
               >
-                <SwiperSlide><Sandbox next={next} prev={prev}/></SwiperSlide>
-                <SwiperSlide><Spatial next={next} prev={prev}/></SwiperSlide>
-                <SwiperSlide><Decentraland next={next} prev={prev}/></SwiperSlide>
-                <SwiperSlide><Gaby next={next} prev={prev}/></SwiperSlide>
+                <SwiperSlide><Sandbox next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
+                <SwiperSlide><Spatial next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
+                <SwiperSlide><Decentraland next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
+                <SwiperSlide><Gaby next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
               </Swiper>
             </div>
           </div>

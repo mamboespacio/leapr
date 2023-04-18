@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  
   const [showContact, setShowContact] = useState(false);
   const handleToggle = () => {
     setShowContact(!showContact);
   };
+
   const ContactModal = (props) => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+
+      emailjs.sendForm('service_xi8cdqb', 'template_kwac0mt', form.current, '7y_8-yW8e9VWnBjKv')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
+
     return (
       <div className="contactForm">
           <div className="row g-0">
             <div className="col-12 col-md-4">
               <div className='row g-0'>
                 <div className="col-11" style={{'width': showContact ? '91.66666667%' : '0%'}}>
-                  <form onSubmit={handleSubmit}>
+                  <form ref={form} onSubmit={sendEmail}>
                     <div className="mb-3 text-start d-flex align-items-center">
                       <label>name</label>
                       <input
                         type="text"
                         placeholder="write your name"
                         className="form-control rounded-0"
-                        aria-describedby="emailHelp"
-                        // onChange={e => setName(e.target.value)}
+                        name="user_name"
                       />
                     </div>
                     <div className="mb-3 text-start d-flex align-items-center">
@@ -33,7 +43,7 @@ const Contact = () => {
                         type="email"
                         placeholder="write your email"
                         className="form-control rounded-0"
-                        // onChange={e => setEmail(e.target.value)}
+                        name="user_emaikl"
                       />
                     </div>
                     <div className="mb-3 text-start d-flex align-items-center">
@@ -42,7 +52,7 @@ const Contact = () => {
                       type="text"
                         placeholder="write a message"
                         className="form-control rounded-0"
-                        // onChange={e => setMessage(e.target.value)}
+                        name="message"
                       />
                     </div>
                     <div className="mb-0 text-end">
@@ -61,22 +71,8 @@ const Contact = () => {
         </div>
     )
   }
-  const handleSubmit = e => {
-    e.preventDefault();
-    const data = {
-      name,
-      email,
-      message,
-    };
-    fetch('/api/contact', {
-      method: 'post',
-      body: JSON.stringify(data),
-    });
-    console.log(data);
-  };
   return (
-    <>
-      
+    <>  
       <ContactModal show={showContact} onHide={() => setShowContact(false)} />
     </>
   );

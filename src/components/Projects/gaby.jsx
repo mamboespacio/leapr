@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import ReactPlayer from 'react-player'
 import { ArrowLeft, ArrowRight } from 'react-bootstrap-icons';
 
-export function Gaby({prev,next}){
+export function Gaby({prev,next, goToSlide}){
   const ref = useRef(0)
   const nextImage = () => {
     ref.current.slideNext()
@@ -20,16 +20,16 @@ export function Gaby({prev,next}){
       <div className="col-12 projects-selector">
         <div className="row g-0">
           <div className="col-12 col-md-3 project active">
-            <button href="#">LEAPR FT GABY PEÑALBA</button> 
+            <button onClick={()=>goToSlide(3)} href="#">LEAPR FT GABY PEÑALBA</button> 
           </div>
           <div className="col-12 col-md-3 project">
-            <button className="" href="#">NERA</button>
+            <button onClick={()=>goToSlide(0)} className="" href="#">NERA</button>
           </div>
           <div className="col-12 col-md-3 project d-none d-md-block">
-            <button href="#">LEAPR’S AUDITORIUM</button>
+            <button onClick={()=>goToSlide(1)} href="#">LEAPR’S AUDITORIUM</button>
           </div>
           <div className="col-12 col-md-3 project d-none d-md-block">
-            <button href="#">LEAPER'S HEADQUARTERS</button> 
+            <button onClick={()=>goToSlide(2)} href="#">LEAPER'S HEADQUARTERS</button> 
           </div>
         </div>
       </div>
