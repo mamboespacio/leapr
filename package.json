@@ -11,7 +11,6 @@
     "@testing-library/user-event": "^13.2.1",
     "@theatre/core": "^0.6.0",
     "@theatre/r3f": "^0.6.0",
-    "@theatre/studio": "^0.6.0",
     "bootstrap": "^5.2.3",
     "canvas-sketch-util": "^1.10.0",
     "gsap": "^3.11.4",
