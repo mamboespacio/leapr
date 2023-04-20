@@ -4,13 +4,9 @@ import { Navigation, Pagination, Controller } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Sandbox } from "./sandbox";
-import { Decentraland } from "./decentraland";
-import { Spatial } from "./spatial";
-import { Gaby } from "./gaby";
+import { Project } from "./Project";
 
 const Projects = () => {
-
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [mainSwiper, setMainSwiper] = useState();
 
@@ -26,33 +22,63 @@ const Projects = () => {
   const prev = () => {
     mainSwiper.slidePrev()
   };
-  return (
-    <section id="work" className="h-100">
-      <div className="row gx-0 align-items-center h-100">
-        <div className="col-12">            
-          <div className="row">
-            <div className="col-12">
-              <Swiper
-                modules={[Navigation, Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}  
-                onSwiper={(swiper) => setMainSwiper(swiper)}
-                loop={true}
-                // onSlideChange={(swiper)=>{
-                //   // controlledSwiper.current.slideTo(2)
-                //   console.log(swiper.realIndex)
-                // }}
-              >
-                <SwiperSlide><Sandbox next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
-                <SwiperSlide><Spatial next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
-                <SwiperSlide><Decentraland next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
-                <SwiperSlide><Gaby next={next} prev={prev} goToSlide={goToSlide}/></SwiperSlide>
-              </Swiper>
+  const [isLoading, setIsLoading] = useState(true);
+  const [projects, setProjects] = useState();
+
+  useEffect(() => {
+    if (isLoading) {
+      async function fetchData() {
+        try {
+          const response = await fetch(
+            'https://leapr-cms.herokuapp.com/api/projects?populate=*&sort=id:asc'
+          );
+          const json = await response.json();
+          console.log(json.data)
+          setProjects(json.data);
+          setIsLoading(false);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      fetchData();
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (<p>loading...</p>)
+  }
+  else{
+    return (
+      <section id="work" className="h-100">
+        <div className="row gx-0 align-items-center h-100">
+          <div className="col-12">            
+            <div className="row">
+              <div className="col-12">
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}  
+                  onSwiper={(swiper) => setMainSwiper(swiper)}
+                  loop={true}
+                  // onSlideChange={(swiper)=>{
+                  //   // controlledSwiper.current.slideTo(2)
+                  //   console.log(swiper.realIndex)
+                  // }}
+                >
+                  {projects.map((item, index) => {
+                    return(
+                      <SwiperSlide key={index}>
+                        <Project next={next} prev={prev} goToSlide={goToSlide} projects={projects} pos={index} project={item}/>
+                      </SwiperSlide>
+                    )
+                  })}
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  };
+}
 export default Projects;
