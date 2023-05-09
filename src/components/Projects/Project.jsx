@@ -93,7 +93,7 @@ export function Project({prev, next, goToSlide, projects, pos, project}){
                 <SwiperSlide key={index}>
                   <img
                     alt={project.attributes.name}
-                    src={`https://leapr-cms.herokuapp.com`+item.attributes.url}
+                    src={item.attributes.url}
                     style={{
                   width: "100%",
                   height: "auto",
