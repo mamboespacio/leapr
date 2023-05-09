@@ -84,7 +84,7 @@ export function Project({prev, next, goToSlide, projects, pos, project}){
             if (isVideo(item.attributes.ext)){
               return(
                 <SwiperSlide key={index}>
-                  <ReactPlayer controls = {true} width="100%" height="100%" wrapper="video-container" url={`https://leapr-cms.herokuapp.com`+item.attributes.url} />
+                  <ReactPlayer controls = {true} width="100%" height="100%" wrapper="video-container" url={item.attributes.url} />
                 </SwiperSlide>
               )
             }

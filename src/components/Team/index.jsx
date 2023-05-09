@@ -82,7 +82,7 @@ const Team = () => {
                         <div className="member" key={index}>
                           <div className="row gx-0 member">
                             <div className="col-12 position-relative">
-                              <img alt={item.attributes.name} className="w-100" src={`https://leapr-cms.herokuapp.com` + item.attributes.image.data.attributes.url} />
+                              <img alt={item.attributes.name} className="w-100" src={item.attributes.image.data.attributes.url} />
                               <p className="mb-0 memberDetail text-highlight-2 d-block">
                                 {item.attributes.name}
                               </p>
