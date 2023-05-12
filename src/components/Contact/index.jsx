@@ -1,60 +1,101 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
+import React, { useState, useReducer, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useForm } from "react-hook-form";
 
 const Contact = () => {
   const [open, setOpen] = useState(false);
-  const form = useRef();
+  const [formStatus, setFormStatus] = useState({ title: 'send', paragraph: '' });
+  const [sent, setSent] = useState(false);
 
-  const sendEmail = (e) => {
+  let recaptchaInstance;
+  const executeCaptcha = (e) => {
     e.preventDefault();
+    recaptchaInstance.execute();
+  };
 
-    emailjs.sendForm('service_g8r5ktp', 'template_5essyz8', form.current, '5hX-fJvARmeEwejNU')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
+  function resetForm(){
+    recaptchaInstance.reset()
+    reset();
+  }
+  function onChange(captchaValue) {
+    const values = getValues();
+    const data = {
+      ...values,
+      'g-recaptcha-response': captchaValue,
+    }
+    handleSubmit(onSubmit(data))
+  }
+
+  const { register, getValues, formState: { errors }, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data)
+    setFormStatus({ title: 'Sending...'});
+    emailjs.send(
+      'service_xi8cdqb', //serviceID
+      'template_kwac0mt', //templateID
+      data,
+      '7y_8-yW8e9VWnBjKv' //publicKey,
+    )
+      .then(({ status }) => {
+        setSent(true)
+        if (status === 200) {
+          setFormStatus({ title: 'Message has been sent' });
+        } else {
+          setFormStatus({ title: 'Error from emailjs' });
+        }
+      }, (err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
+        setFormStatus({ title: 'Error sending message, try again later' });
       });
   };
 
   return (
     <div className="contactForm d-flex ">
       <Collapse in={open} dimension="width">
-        <form ref={form} onSubmit={sendEmail}>
+        <form>
           <div className="mb-3 text-start d-flex align-items-center">
             <label>name</label>
             <input
-              type="text"
+              {...register("from_name", { required: true })}
               placeholder="write your name"
               className="form-control rounded-0"
-              name="user_name"
             />
+            {errors.from_name?.type === 'required' && <p role="alert">name is required</p>}
           </div>
           <div className="mb-3 text-start d-flex align-items-center">
             <label>email</label>
             <input
-              type="email"
+              {...register("email", { required: true })}
               placeholder="write your email"
               className="form-control rounded-0"
-              name="user_emaikl"
             />
+            {errors.mail && <p role="alert">mail is required</p>}
           </div>
           <div className="mb-3 text-start d-flex align-items-center">
             <label>what's up</label>
             <input
-            type="text"
+              {...register("message", { required: true })}
               placeholder="write a message"
               className="form-control rounded-0"
-              name="message"
             />
+            {errors.message && <p role="alert">message is required</p>}
           </div>
           <div className="mb-0 text-end">
-            <button type="submit" className="btn text-white rounded-0 px-3">send</button>
+            <button type="submit" onClick={executeCaptcha} className="btn text-white rounded-0 px-3">{formStatus.title}</button>
           </div>
+          <ReCAPTCHA
+            ref={(e) => (recaptchaInstance = e)}
+            sitekey="6LcX9gQmAAAAABUIfULsK2hRKUtiJYgA48BL0trD"
+            onChange={onChange}
+            size="invisible"
+          />
         </form>
       </Collapse>
-      <div className='contactBadge d-flex align-items-center justify-content-center'>
+      <div className="contactBadge d-flex align-items-center justify-content-center">
         <Button
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
@@ -65,6 +106,6 @@ const Contact = () => {
         </Button>
       </div>
     </div>
-  )
-}
-export default Contact
+  );
+};
+export default Contact;

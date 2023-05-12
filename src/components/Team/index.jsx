@@ -18,7 +18,7 @@ const Team = () => {
       async function fetchData() {
         try {
           const response = await fetch(
-            'https://leapr-cms.herokuapp.com/api/members?populate=*'
+            'https://leapr-cms.herokuapp.com/api/members?populate=*&sort=id:asc'
           );
           const json = await response.json();
           setMembers(json.data);

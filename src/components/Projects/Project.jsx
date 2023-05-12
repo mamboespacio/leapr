@@ -11,11 +11,11 @@ import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
 export function Project({prev, next, goToSlide, projects, pos, project}){
   // console.log(project)
   const refSandbox = useRef(0)
-  if (projects[0] !== projects[pos]){
-    const temp = projects[0];
-    projects[0] = projects[pos];
-    projects[projects.length-1] = temp;
-  }
+  // if (projects[0] !== projects[pos]){
+  //   const temp = projects[0];
+  //   projects[0] = projects[pos];
+  //   projects[projects.length-1] = temp;
+  // }
 
   const nextImage = () => {
     refSandbox.current.slideNext()
@@ -34,7 +34,7 @@ export function Project({prev, next, goToSlide, projects, pos, project}){
       <div className="col-12 projects-selector">
         <div className="row g-0 flex-nowrap">
           {projects.map((item, index) => {
-            if (index === 0){
+            if (index === pos){
               return(
                 <div className="col-12 col-md-3 project active" key={index}>
                   <button className="text-uppercase" href="#">{item.attributes.name}</button>
