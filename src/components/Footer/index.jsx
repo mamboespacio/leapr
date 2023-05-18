@@ -11,7 +11,7 @@ const Footer = () => {
       async function fetchData() {
         try {
           const response = await fetch(
-            'http://localhost:1337/api/social?populate=*&sort=id:asc'
+            'https://leapr-cms.herokuapp.com/api/social?populate=*&sort=id:asc'
           );
           const json = await response.json();
           console.log(json.data)
