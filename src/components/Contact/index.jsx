@@ -34,8 +34,8 @@ const Contact = () => {
     console.log(data)
     setFormStatus({ title: 'Sending...'});
     emailjs.send(
-      'service_5essyz8', //serviceID
-      'template_g8r5ktp', //templateID
+      'service_g8r5ktp', //serviceID
+      'template_5essyz8', //templateID
       data,
       '5hX-fJvARmeEwejNU' //publicKey,
     )
