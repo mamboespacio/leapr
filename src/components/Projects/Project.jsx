@@ -9,14 +9,20 @@ import { ArrowLeft, ArrowRight } from "react-bootstrap-icons";
 
 
 export function Project({prev, next, goToSlide, projects, pos, project}){
-  // console.log(project)
+  // console.log(goToSlide)
   const refSandbox = useRef(0)
-  // if (projects[0] !== projects[pos]){
-  //   const temp = projects[0];
-  //   projects[0] = projects[pos];
-  //   projects[projects.length-1] = temp;
-  // }
 
+  const proj = projects.slice();
+  for (var i = 0; i < pos; i++) {
+    proj.push(projects[i])
+  }
+  proj.splice(0,pos)
+
+  const handleClick = (e, index) => {
+    e.preventDefault();
+    // console.log(pos, index)
+    goToSlide(index)
+  }
   const nextImage = () => {
     refSandbox.current.slideNext()
   };
@@ -33,17 +39,19 @@ export function Project({prev, next, goToSlide, projects, pos, project}){
     <div className="row gx-0">
       <div className="col-12 projects-selector">
         <div className="row g-0 flex-nowrap">
-          {projects.map((item, index) => {
-            if (index === pos){
+          {proj.map((item, index) => {
+            // console.log(proj)
+            if (index === 0){
               return(
                 <div className="col-12 col-md-3 project active" key={index}>
                   <button className="text-uppercase" href="#">{item.attributes.name}</button>
                 </div>
               )
             }else {
+              var item_id = item.id - 1;
               return(
                 <div className="col-12 col-md-3 project" key={index}>
-                  <button className="text-uppercase" href="#">{item.attributes.name}</button> 
+                  <button className="text-uppercase" onClick={(e) => {handleClick(e, item_id)}} href="#">{item.attributes.name}</button> 
                 </div>
               )
             }

@@ -34,10 +34,10 @@ const Contact = () => {
     console.log(data)
     setFormStatus({ title: 'Sending...'});
     emailjs.send(
-      'service_xi8cdqb', //serviceID
-      'template_kwac0mt', //templateID
+      'service_5essyz8', //serviceID
+      'template_g8r5ktp', //templateID
       data,
-      '7y_8-yW8e9VWnBjKv' //publicKey,
+      '5hX-fJvARmeEwejNU' //publicKey,
     )
       .then(({ status }) => {
         setSent(true)

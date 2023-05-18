@@ -8,9 +8,8 @@ import { Project } from "./Project";
 
 const Projects = () => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
-  const [mainSwiper, setMainSwiper] = useState();
+  const [mainSwiper, setMainSwiper] = useState(null);
 
-  // const ref = useRef()
   // const controlledSwiper = useRef()
   
   const goToSlide = (slide) => {
@@ -26,23 +25,21 @@ const Projects = () => {
   const [projects, setProjects] = useState();
 
   useEffect(() => {
-    if (isLoading) {
-      async function fetchData() {
-        try {
-          const response = await fetch(
-            'https://leapr-cms.herokuapp.com/api/projects?populate=*&sort=id:asc'
-          );
-          const json = await response.json();
-          console.log(json.data)
-          setProjects(json.data);
-          setIsLoading(false);
-        } catch (error) {
-          console.log(error);
-        }
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          'https://leapr-cms.herokuapp.com/api/projects?populate=*&sort=id:asc'
+        );
+        const json = await response.json();
+        // console.log('fetch projects', json.data)
+        setProjects(json.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
       }
-      fetchData();
     }
-  }, [isLoading]);
+    fetchData();
+  }, []);
 
   if (isLoading) {
     return (<p>loading...</p>)
@@ -58,20 +55,25 @@ const Projects = () => {
                   modules={[Navigation, Pagination]}
                   spaceBetween={0}
                   slidesPerView={1}  
-                  onSwiper={(swiper) => setMainSwiper(swiper)}
+                  onSwiper={(swiper) => {
+                    setMainSwiper(swiper)
+                  }}
                   loop={true}
                   // onSlideChange={(swiper)=>{
                   //   // controlledSwiper.current.slideTo(2)
                   //   console.log(swiper.realIndex)
                   // }}
                 >
-                  {projects.map((item, index) => {
-                    return(
-                      <SwiperSlide key={index}>
-                        <Project next={next} prev={prev} goToSlide={goToSlide} projects={projects} pos={index} project={item}/>
-                      </SwiperSlide>
-                    )
-                  })}
+                  {mainSwiper &&(
+                    projects.map((item, index) => {
+                      return(
+                        <SwiperSlide key={index}>
+                          <Project next={next} prev={prev} goToSlide={goToSlide} projects={projects} pos={index} project={item}/>
+                        </SwiperSlide>
+                      )
+                    })
+                  )}
+                  
                 </Swiper>
               </div>
             </div>
