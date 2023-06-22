@@ -84,7 +84,7 @@ export default function Experience() {
         </ScrollControls>
       </Suspense>
       <Environment files="/skybox/leapr_skybox2.hdr" background/> 
-      {/* <Environment preset="forest"/> */}
+      <Environment files="/skybox/forest_slope_1k.hdr"/> 
       <SpaceParticles count={[5000]}/>
     </>
   );
