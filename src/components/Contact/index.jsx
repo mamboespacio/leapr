@@ -35,9 +35,12 @@ const Contact = () => {
     setFormStatus({ title: 'Sending...'});
     emailjs.send(
       'service_g8r5ktp', //serviceID
+      //'service_xi8cdqb',
       'template_5essyz8', //templateID
+      //'template_kwac0mt',
       data,
       '5hX-fJvARmeEwejNU' //publicKey,
+      //'7y_8-yW8e9VWnBjKv'
     )
       .then(({ status }) => {
         setSent(true)
